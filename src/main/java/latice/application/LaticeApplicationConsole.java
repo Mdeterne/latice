@@ -7,6 +7,7 @@ public class LaticeApplicationConsole {
             System.out.println("-- Bienvenue dans notre magnifique jeu de latice ! --");
             System.out.println("-- développé par Julian Ray-Constanty              --");
             System.out.println("-- et par Julian Barre                             --");
+            System.out.println("-- et par Marty Benjamin                            --");
             System.out.println("-----------------------------------------------------");
     }
 }
