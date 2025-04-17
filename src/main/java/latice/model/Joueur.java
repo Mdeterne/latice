@@ -26,7 +26,10 @@ public class Joueur {
 	}
 	
 	public String echangerRack() {
-		//TODO le joueur doit pouvoir echanger toute les tuilles de son rack
+		List<Jeton> anciensJetons = rack.vider();
+		while (rack.Jetons().size() < Rack.TAILLE_MAX && !pioche.estVide()) {
+            rack.ajouterJeton(pioche.piocher());
+        }
 		return (this.nom+" à échanger son rack");
 	}
 	
