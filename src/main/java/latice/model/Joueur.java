@@ -34,5 +34,10 @@ public class Joueur {
 		//TODO le joueur doit passer sont tour
 		return (this.nom+" à passer sont tour");
 	}
+
+	public int ajouterPoints(int nombres_points) {
+		return point+nombres_points;
+		
+	}
 	
 }
