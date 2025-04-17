@@ -13,8 +13,11 @@ public class Joueur {
 	}
 	
 	public String jouer(Plateau plateau, Jeton jeton, Position position) {
-		//TODO le joueur doit placer un jeton sur un plateau
-		return (this.nom + " vien de jouer");
+	    if (plateau.poserJeton(jeton, position)) {
+	        return this.nom + " a joué le jeton " + jeton + " en position " + position.x() + "," + position.y();
+	    } else {
+	        return this.nom + " ne peut pas jouer ici";
+	    }
 	}
 	
 	public String acheter() {
