@@ -1,6 +1,7 @@
 package latice.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -14,9 +15,11 @@ public class Rack {
         jetons = new ArrayList<>();
     }
 	
-	public void vider() {
-		jetons.clear();
-	}
+	public List<Jeton> vider() {
+        List<Jeton> jetonsVides = new ArrayList<>(jetons);
+        jetons.clear();
+        return jetonsVides;
+    }
 
 	public void ajouterJeton(Jeton jeton) {
 		if (jetons.size() < TAILLE_MAX) {
