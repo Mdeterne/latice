@@ -1,5 +1,7 @@
 package latice.model;
 
+import java.util.ArrayList;
+
 public class Joueur {
 
 	private final String nom;
@@ -26,7 +28,8 @@ public class Joueur {
 	}
 	
 	public String echangerRack() {
-		List<Jeton> anciensJetons = rack.vider();
+		ArrayList<Jeton> anciensJetons = rack.vider();
+		anciensJetons.forEach(jeton -> pioche.ajouterJeton(jeton));
 		while (rack.Jetons().size() < Rack.TAILLE_MAX && !pioche.estVide()) {
             rack.ajouterJeton(pioche.piocher());
         }
