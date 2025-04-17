@@ -5,7 +5,7 @@ public class Plateau {
     
     public Plateau() {
         plateau = new Case[9][9];
-        // Initialisation du plateau avec des cases
+        /
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
             }
@@ -27,8 +27,13 @@ public class Plateau {
         return true;
     }
     
+    public boolean estPositionValide(Position position) {
+        return position.x() >= 0 && position.x() < 9 
+            && position.y() >= 0 && position.y() < 9;
+    }
+    
     public void donnerPoint(Joueur joueur, int nombres_points) {
-        //TODO Implémenter la méthode donner_point
+    	joueur.ajouterPoints(nombres_points);
     }
     
     public void calculerPoint() {
