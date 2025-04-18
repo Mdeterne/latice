@@ -8,13 +8,13 @@ public class Joueur {
 	private final String nom;
 	private int point;
 	private Rack rack;
-	private PiochePrincipale pioche;
+	private PiochePerso pioche;
 	
 	public Joueur(String nom) {
 		this.nom = nom;
 		this.point = 0;
 		this.rack = new Rack();
-		this.pioche = new PiochePrincipale();
+		this.pioche = new PiochePerso();
 	}
 	
 	public String jouer(Plateau plateau, Jeton jeton, Position position) {
