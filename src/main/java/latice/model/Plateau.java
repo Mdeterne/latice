@@ -35,7 +35,7 @@ public class Plateau {
     	joueur.ajouterPoints(nombres_points);
     }
     
-    public Case getCase(Position position) {
+    public Case getCase(Position position) { //obliger de mettre getCase car case est un type
         if (estPositionValide(position)) {
             return plateau[position.x()][position.y()];
         }
