@@ -3,10 +3,10 @@ package latice.model;
 import java.util.ArrayList;
 
 
-public class PiochePrincipale extends Pioche{
+public class PiochePrincipal extends Pioche{
 	
 	
-	public PiochePrincipale() {
+	public PiochePrincipal() {
 		super();
 		for (Couleur couleur : Couleur.values()) {
 	        for (Symbole symbole : Symbole.values()) {
