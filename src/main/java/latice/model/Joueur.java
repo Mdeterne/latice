@@ -49,14 +49,14 @@ public class Joueur {
 		return point+nombres_points;	
 	}
 	
-	 public String Nom() { 
+	 public String nom() { 
 		 return nom;
 	}
-	 public int Point() { 
+	 public int point() { 
 		 return point; 
 	}
 	 
-	 public Rack Rack() { 
+	 public Rack rack() { 
 		 return rack; 
 	}
 	
