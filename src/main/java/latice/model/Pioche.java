@@ -1,14 +1,35 @@
 package latice.model;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
 
-public class Pioche {
+public abstract class Pioche {
 
-	private ArrayList piochePrincipal = new ArrayList<Jeton>();
-	private ArrayList piochePersonel = new ArrayList<Jeton>();
+protected ArrayList<Jeton> pioche;
 	
-	public Pioche(int nbJeton) {
-		//TODO 
+	protected Pioche() {
+		this.pioche = new ArrayList<Jeton>();
+		
+	}
+	
+	public boolean estVide() {
+        return this.pioche.isEmpty();
+    }
+	
+	public void ajouterJeton(Jeton jeton) {
+		pioche.add(jeton); // Ajoute à la fin
+    }
+	
+	public Jeton piocher() {
+		if (pioche.isEmpty()) return null;
+        return pioche.remove(pioche.size() - 1); // Retire le dernier
+    }
+	
+	public void melanger() {
+		Collections.shuffle(pioche);
+	}
+	
+	public int taille() {
+		return pioche.size();
 	}
 }

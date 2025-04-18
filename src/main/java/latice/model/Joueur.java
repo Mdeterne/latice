@@ -1,15 +1,20 @@
 package latice.model;
 
+
+import java.util.List;
+
 public class Joueur {
 
 	private final String nom;
 	private int point;
 	private Rack rack;
-	private Pioche pioche;
+	private PiochePrincipale pioche;
 	
-	public Joueur(String nom, int point) {
+	public Joueur(String nom) {
 		this.nom = nom;
-		this.point = point;
+		this.point = 0;
+		this.rack = new Rack();
+		this.pioche = new PiochePrincipale();
 	}
 	
 	public String jouer(Plateau plateau, Jeton jeton, Position position) {
@@ -26,13 +31,22 @@ public class Joueur {
 	}
 	
 	public String echangerRack() {
-		//TODO le joueur doit pouvoir echanger toute les tuilles de son rack
+		 List<Jeton> anciensJetons = rack.vider();
+		anciensJetons.forEach(jeton -> pioche.ajouterJeton(jeton));
+		while (rack.Jetons().size() < Rack.TAILLE_MAX && !pioche.estVide()) {
+            rack.ajouterJeton(pioche.piocher());
+        }
 		return (this.nom+" à échanger son rack");
 	}
 	
 	public String passer() {
 		//TODO le joueur doit passer sont tour
 		return (this.nom+" à passer sont tour");
+	}
+
+	public int ajouterPoints(int nombres_points) {
+		return point+nombres_points;
+		
 	}
 	
 }
