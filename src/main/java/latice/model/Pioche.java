@@ -1,32 +1,35 @@
 package latice.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
+public abstract class Pioche {
 
-public class Pioche {
-
-	private ArrayList<Jeton> piochePrincipal;
+protected ArrayList<Jeton> pioche;
 	
-	
-	public Pioche() {
-		piochePrincipal = new ArrayList<Jeton>();
-		for (Couleur couleur : Couleur.values()) {
-            for (Symbole symbole : Symbole.values()) {
-            	piochePrincipal.add(new Jeton(couleur, symbole));
-            	piochePrincipal.add(new Jeton(couleur, symbole)); 
-            }
-        }
+	protected Pioche() {
+		this.pioche = new ArrayList<Jeton>();
+		
 	}
-	public Jeton piocher() {
-		if (piochePrincipal.isEmpty()) return null;
-        return piochePrincipal.remove(piochePrincipal.size() - 1); // Retire le dernier
-    }
 	
 	public boolean estVide() {
-        return piochePrincipal.isEmpty();
+        return this.pioche.isEmpty();
     }
 	
 	public void ajouterJeton(Jeton jeton) {
-		piochePrincipal.add(jeton); // Ajoute à la fin
+		pioche.add(jeton); // Ajoute à la fin
     }
+	
+	public Jeton piocher() {
+		if (pioche.isEmpty()) return null;
+        return pioche.remove(pioche.size() - 1); // Retire le dernier
+    }
+	
+	public void melanger() {
+		Collections.shuffle(pioche);
+	}
+	
+	public int taille() {
+		return pioche.size();
+	}
 }
