@@ -48,8 +48,8 @@ public class Joueur {
 		return (this.nom+" à passer sont tour");
 	}
 
-	public int ajouterPoints(int nombres_points) {
-		return point+nombres_points;	
+	public int ajouterPoints(int nombresPoints) {
+		return point+nombresPoints;	
 	}
 	
 	 public String nom() { 
