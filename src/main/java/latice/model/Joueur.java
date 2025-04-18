@@ -23,10 +23,14 @@ public class Joueur {
 	    }
 	}
 	
-	public String acheter() {
-		//TODO le joueur doit pouvoir acheter un tour avec 2points
-		return (this.nom+" à acheter un tour");
+	public Boolean acheter() {
+		if (point >= 2) {
+			point-=2;
+			return true;
+		}
+		return false;
 	}
+		
 	
 	public String echangerRack() {
 		 List<Jeton> anciensJetons = rack.vider();
@@ -38,13 +42,23 @@ public class Joueur {
 	}
 	
 	public String passer() {
-		//TODO le joueur doit passer sont tour
 		return (this.nom+" à passer sont tour");
 	}
 
 	public int ajouterPoints(int nombres_points) {
-		return point+nombres_points;
-		
+		return point+nombres_points;	
 	}
+	
+	 public String Nom() { 
+		 return nom;
+	}
+	 public int Point() { 
+		 return point; 
+	}
+	 
+	 public Rack Rack() { 
+		 return rack; 
+	}
+	
 	
 }
