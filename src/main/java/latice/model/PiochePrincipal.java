@@ -1,6 +1,7 @@
 package latice.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class PiochePrincipal extends Pioche{
@@ -14,5 +15,6 @@ public class PiochePrincipal extends Pioche{
 	        	pioche.add(new Jeton(couleur, symbole)); 
 	        }
 	    }
+		Collections.shuffle(pioche);
 	}
 }

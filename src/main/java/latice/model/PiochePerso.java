@@ -10,7 +10,9 @@ public class PiochePerso extends Pioche{
 	}
 	
 	public void remplirPiochePerso(Pioche piochePrincipal) {
-		for (int i=0;i>piochePrincipal.taille()/2;i++) {
+		int i;
+		int moitierPioche = piochePrincipal.taille()/2;
+		for (i=0; i<moitierPioche ;i++) {
 			Jeton jeton = piochePrincipal.piocher();
 			this.pioche.add(jeton);
 		}

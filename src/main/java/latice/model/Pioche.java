@@ -25,11 +25,12 @@ protected ArrayList<Jeton> pioche;
         return pioche.remove(pioche.size() - 1); // Retire le dernier
     }
 	
-	public void melanger() {
-		Collections.shuffle(pioche);
-	}
 	
 	public int taille() {
 		return pioche.size();
+	}
+	
+	public ArrayList pioche() {
+		return this.pioche;
 	}
 }
