@@ -66,8 +66,8 @@ public class Joueur {
 	 public void initialiserRack() {
 	     rack.vider();
 	     
-	     for (int i = 0; i < Rack.TAILLE_MAX && !pioche.estVide(); i++) {
-	         Jeton jeton = pioche.piocher();
+	     for (int i = 0; i < Rack.TAILLE_MAX && !piochePerso.estVide(); i++) {
+	         Jeton jeton = piochePerso.piocher();
 	         rack.ajouterJeton(jeton);
 	     }
 	 }
