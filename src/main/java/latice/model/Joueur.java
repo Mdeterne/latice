@@ -1,6 +1,7 @@
 package latice.model;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Joueur {
@@ -8,13 +9,13 @@ public class Joueur {
 	private final String nom;
 	private int point;
 	private Rack rack;
-	private PiochePerso pioche;
+	private PiochePerso piochePerso;
 	
 	public Joueur(String nom) {
 		this.nom = nom;
 		this.point = 0;
 		this.rack = new Rack();
-		this.pioche = new PiochePerso();
+		this.piochePerso = new PiochePerso();
 	}
 	
 	public String jouer(Plateau plateau, Jeton jeton, Position position) {
@@ -36,9 +37,9 @@ public class Joueur {
 	
 	public String echangerRack() {
 		 List<Jeton> anciensJetons = rack.vider();
-		anciensJetons.forEach(jeton -> pioche.ajouterJeton(jeton));
-		while (rack.Jetons().size() < Rack.TAILLE_MAX && !pioche.estVide()) {
-            rack.ajouterJeton(pioche.piocher());
+		anciensJetons.forEach(jeton -> piochePerso.ajouterJeton(jeton));
+		while (rack.Jetons().size() < Rack.TAILLE_MAX && !piochePerso.estVide()) {
+            rack.ajouterJeton(piochePerso.piocher());
         }
 		return (this.nom+" à échanger son rack");
 	}
@@ -62,5 +63,12 @@ public class Joueur {
 		 return rack; 
 	}
 	
+	public PiochePerso piochePerso() {
+		return piochePerso;
+	}
+	
+	public ArrayList afficherPiochePerso() {
+		return piochePerso.pioche();
+	}
 	
 }
