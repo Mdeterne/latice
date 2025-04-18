@@ -8,7 +8,7 @@ public class Joueur {
 	private final String nom;
 	private int point;
 	private Rack rack;
-	private PiochePerso pioche;
+	public PiochePerso pioche;
 	
 	public Joueur(String nom) {
 		this.nom = nom;
@@ -61,6 +61,15 @@ public class Joueur {
 	 public Rack rack() { 
 		 return rack; 
 	}
+	 
+	 public void initialiserRack() {
+	     rack.vider();
+	     
+	     for (int i = 0; i < Rack.TAILLE_MAX && !pioche.estVide(); i++) {
+	         Jeton jeton = pioche.piocher();
+	         rack.ajouterJeton(jeton);
+	     }
+	 }
 	
 	
 }
