@@ -9,6 +9,10 @@ public class Jeton {
 		this.symbole = symbole;
 	}
 	
+	public boolean estCompatible(Jeton autre) {
+        return this.couleur == autre.couleur || this.symbole == autre.symbole; 
+    }
+	
 	public Couleur couleur() {
 		return couleur;
 	}
