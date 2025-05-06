@@ -1,6 +1,6 @@
 package latice.application;
 
-
+import static latice.console.LaticeConsole.message;
 import latice.model.*;
 
 public class LaticeJeuxEssais {
