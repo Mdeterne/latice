@@ -9,13 +9,13 @@ public class Joueur {
 	private final String nom;
 	private int point;
 	private Rack rack;
-	private PiochePerso piochePerso;
+	private PiochePersonelle piochePerso;
 	
 	public Joueur(String nom) {
 		this.nom = nom;
 		this.point = 0;
 		this.rack = new Rack();
-		this.piochePerso = new PiochePerso();
+		this.piochePerso = new PiochePersonelle();
 	}
 	
 	public String jouer(Plateau plateau, Jeton jeton, Position position) {
@@ -72,7 +72,7 @@ public class Joueur {
 	     }
 	 }
 	
-	public PiochePerso piochePerso() {
+	public PiochePersonelle piochePersonelle() {
 		return piochePerso;
 	}
 	

@@ -1,5 +1,8 @@
 package latice.application;
 
+import static latice.console.LaticeConsole.entrée;
+import static latice.console.LaticeConsole.message;
+
 import latice.model.Joueur;
 import latice.model.Pioche;
 import latice.model.PiochePrincipal;
@@ -7,31 +10,32 @@ import latice.model.PiochePrincipal;
 public class LaticeConsoleApplication {
 
 	public static void main(String[] args) {
-            System.out.println("-----------------------------------------------------");
-            System.out.println("-- Bienvenue dans notre magnifique jeu de latice ! --");
-            System.out.println("-- développé par Julian Ray-Constanty              --");
-            System.out.println("-- et par Julian Barre                             --");
-            System.out.println("-- et par Marty Benjamin                            --");
-            System.out.println("-----------------------------------------------------");
+			message("-----------------------------------------------------");
+            message("-- Bienvenue dans notre magnifique jeu de latice ! --");
+            message("-- développé par Julian Ray-Constanty              --");
+            message("-- et par Julian Barre                             --");
+            message("-- et par Marty Benjamin                            --");
+            message("-----------------------------------------------------");
             
            PiochePrincipal piochePrincipal = new PiochePrincipal();
-           Joueur joueur1 = new Joueur("moi");
-           Joueur joueur2 = new Joueur("toi");
+           
+           Joueur joueur1 = new Joueur(entrée("Entrez un nom: "));
+           Joueur joueur2 = new Joueur(entrée("Entrez un nom: "));
           
            
-           System.out.println(piochePrincipal.taille());
-           System.out.println(joueur1.piochePerso().taille());
-           System.out.println(joueur2.piochePerso().taille());
-           joueur1.piochePerso().remplirPiochePerso(piochePrincipal);
-           joueur2.piochePerso().remplirPiochePerso(piochePrincipal);
-           System.out.println(joueur1.piochePerso().taille());
-           System.out.println(joueur2.piochePerso().taille());
+           message(""+piochePrincipal.taille());
+           message(""+joueur1.piochePersonelle().taille());
+           message(""+joueur2.piochePersonelle().taille());
+           joueur1.piochePersonelle().remplirPiochePerso(piochePrincipal);
+           joueur2.piochePersonelle().remplirPiochePerso(piochePrincipal);
+           message(""+joueur1.piochePersonelle().taille());
+           message(""+joueur2.piochePersonelle().taille());
            
            joueur1.initialiserRack();
            joueur2.initialiserRack();
            
-           System.out.println(joueur1.rack().afficherJetons());
-           System.out.println(joueur2.rack().afficherJetons());
+           message(""+joueur1.rack().afficherJetons());
+           message(""+joueur2.rack().afficherJetons());
            
     }
 }

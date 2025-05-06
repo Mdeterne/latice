@@ -3,16 +3,16 @@ package latice.model;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class PiochePerso extends Pioche{
+public class PiochePersonelle extends Pioche{
 	
-	public PiochePerso() {
+	private static final int TAILLEMAX = 36;
+
+	public PiochePersonelle() {
 		super();
 	}
 	
 	public void remplirPiochePerso(Pioche piochePrincipal) {
-		int i;
-		int moitierPioche = 36;
-		for (i=0; i<moitierPioche ;i++) {
+		for (int i=1; i<=TAILLEMAX ;i++) {
 			Jeton jeton = piochePrincipal.piocher();
 			this.pioche.add(jeton);
 		}
