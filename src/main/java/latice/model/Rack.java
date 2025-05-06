@@ -33,7 +33,7 @@ public class Rack {
         }
     }
 	
-	public ArrayList<Jeton> Jetons() {
+	public ArrayList<Jeton> afficherJetons() {
         return new ArrayList<>(jetons);
     }
 }

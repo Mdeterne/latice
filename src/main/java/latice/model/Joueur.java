@@ -38,7 +38,7 @@ public class Joueur {
 	public String echangerRack() {
 		 List<Jeton> anciensJetons = rack.vider();
 		anciensJetons.forEach(jeton -> piochePerso.ajouterJeton(jeton));
-		while (rack.Jetons().size() < Rack.TAILLE_MAX && !piochePerso.estVide()) {
+		while (rack.afficherJetons().size() < Rack.TAILLE_MAX && !piochePerso.estVide()) {
             rack.ajouterJeton(piochePerso.piocher());
         }
 		return (this.nom+" à échanger son rack");
