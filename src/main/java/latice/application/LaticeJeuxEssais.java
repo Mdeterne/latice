@@ -5,6 +5,8 @@ import static latice.console.LaticeConsole.message;
 import latice.model.Joueur;
 import latice.model.PiochePrincipal;
 
+import latice.model.*;
+
 public class LaticeJeuxEssais {
 
 	public static void main(String[] args) {
@@ -34,5 +36,9 @@ public class LaticeJeuxEssais {
         
         message(joueur1.nom()+" : "+joueur1.rack().afficherJetons());
         message(joueur2.nom()+" : "+joueur2.rack().afficherJetons());
+	}
+	public static void main(String[] args) {
+		Plateau plateau = new Plateau();
+		plateau.afficherPlateau();
 	}
 }
