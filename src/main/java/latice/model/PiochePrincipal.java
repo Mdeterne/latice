@@ -1,6 +1,5 @@
 package latice.model;
 
-import java.util.ArrayList;
 import java.util.Collections;
 
 

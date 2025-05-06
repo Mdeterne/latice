@@ -30,7 +30,11 @@ protected ArrayList<Jeton> pioche;
 		return pioche.size();
 	}
 	
-	public ArrayList pioche() {
+	public ArrayList<Jeton> pioche() {
 		return this.pioche;
+	}
+	
+	public void mélanger() {
+		Collections.shuffle(pioche);
 	}
 }

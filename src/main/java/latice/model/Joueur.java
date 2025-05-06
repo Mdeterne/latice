@@ -9,13 +9,13 @@ public class Joueur {
 	private final String nom;
 	private int point;
 	private Rack rack;
-	private PiochePersonelle piochePerso;
+	private PiochePersonelle piochePersonelle;
 	
 	public Joueur(String nom) {
 		this.nom = nom;
 		this.point = 0;
 		this.rack = new Rack();
-		this.piochePerso = new PiochePersonelle();
+		this.piochePersonelle = new PiochePersonelle();
 	}
 	
 	public String jouer(Plateau plateau, Jeton jeton, Position position) {
@@ -37,9 +37,10 @@ public class Joueur {
 	
 	public String echangerRack() {
 		 List<Jeton> anciensJetons = rack.vider();
-		anciensJetons.forEach(jeton -> piochePerso.ajouterJeton(jeton));
-		while (rack.afficherJetons().size() < Rack.TAILLE_MAX && !piochePerso.estVide()) {
-            rack.ajouterJeton(piochePerso.piocher());
+		anciensJetons.forEach(jeton -> piochePersonelle.ajouterJeton(jeton));
+		piochePersonelle.mélanger();
+		while (rack.afficherJetons().size() < Rack.TAILLE_MAX && !piochePersonelle.estVide()) {
+            rack.ajouterJeton(piochePersonelle.piocher());
         }
 		return (this.nom+" à échanger son rack");
 	}
@@ -66,18 +67,18 @@ public class Joueur {
 	 public void initialiserRack() {
 	     rack.vider();
 	     
-	     for (int i = 0; i < Rack.TAILLE_MAX && !piochePerso.estVide(); i++) {
-	         Jeton jeton = piochePerso.piocher();
+	     for (int i = 0; i < Rack.TAILLE_MAX && !piochePersonelle.estVide(); i++) {
+	         Jeton jeton = piochePersonelle.piocher();
 	         rack.ajouterJeton(jeton);
 	     }
 	 }
 	
 	public PiochePersonelle piochePersonelle() {
-		return piochePerso;
+		return piochePersonelle;
 	}
 	
-	public ArrayList afficherPiochePerso() {
-		return piochePerso.pioche();
+	public ArrayList<Jeton> afficherPiochePersonelle() {
+		return piochePersonelle.pioche();
 	}
 	
 }
