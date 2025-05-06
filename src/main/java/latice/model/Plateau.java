@@ -11,6 +11,20 @@ public class Plateau {
         }
     }
 
+    public void afficherPlateau() {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                Case c = plateau[i][j];
+                if (c == null || c.estVide()) {
+                    System.out.print("[ ]");
+                } else {
+                    System.out.print("[O]");
+                }
+            }
+            System.out.println();
+        }
+    }
+
     public boolean poserJeton(Jeton jeton, Position position) {
         if (position.x() < 0 || position.x() >= 9 || position.y() < 0 || position.y() >= 9) {
             return false; // Position hors du plateau
