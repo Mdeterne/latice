@@ -16,48 +16,70 @@ public class LaticeConsoleApplication {
             message("-- et par Marty Benjamin                            --");
             message("-----------------------------------------------------");
             
-           PiochePrincipal piochePrincipal = new PiochePrincipal();
+            Boolean continuer = true;
+            String i;
+            Boolean tourJoueur = true;
+            PiochePrincipal piochePrincipal = new PiochePrincipal();
            
-           Joueur joueur1 = new Joueur(entrée("Entrez un nom: "));
-           Joueur joueur2 = new Joueur(entrée("Entrez un nom: "));
+            Joueur joueur1 = new Joueur(entrée("Entrez un nom: "));
+            Joueur joueur2 = new Joueur(entrée("Entrez un nom: "));
           
            
-           joueur1.remplirPiochePersonelle(piochePrincipal);
-           joueur2.remplirPiochePersonelle(piochePrincipal);
+            joueur1.remplirPiochePersonelle(piochePrincipal);
+            joueur2.remplirPiochePersonelle(piochePrincipal);
            
            
-           joueur1.initialiserRack();
-           joueur2.initialiserRack();
+            joueur1.initialiserRack();
+            joueur2.initialiserRack();
            
            
-           message(joueur1.nom()+" : "+joueur1.afficherJetonsRack());
-           message("voici votre pioche : "+joueur1.afficherPiochePersonelle());
-           message("voici le nombre de jetons présent dans votre pioche : "+ joueur1.taillePiochePersonelle());
-           
-           String i = entrée("Voulez-vous changer votre rack ? : (oui/non)");
-           
-           if(i.equals("oui")) {
-        	   joueur1.echangerRack();
-        	   message("votre pioche vien d'etre modifier voici la nouvelle : "+joueur1.afficherJetonsRack());
-               message("voici le nombre de jetons présent dans votre pioche : "+ joueur1.taillePiochePersonelle());
-
-           }
-           message("passage au joueur 2");
-           
-           
-           message("");
-           message(joueur2.nom()+" : "+joueur2.afficherJetonsRack());
-           message("voici votre pioche : "+joueur2.afficherPiochePersonelle());
-           message("voici le nombre de jetons présent : "+ joueur2.taillePiochePersonelle());
-           
-           i = entrée("Voulez-vous changer votre rack ? : (oui/non)");
-           
-           if(i.equals("oui")) {
-        	   joueur2.echangerRack();
-        	   message("votre pioche vien d'etre modifier voici la nouvelle : "+joueur2.afficherJetonsRack());
-               message("voici le nombre de jetons présent dans votre pioche : "+ joueur2.taillePiochePersonelle());
-
-           }
+            while (continuer) {
+            	
+				if (tourJoueur) {
+					message(joueur1.nom() + " : " + joueur1.afficherJetonsRack());
+					message("voici votre pioche : " + joueur1.afficherPiochePersonelle());
+					message("voici le nombre de jetons présent dans votre pioche : "
+							+ joueur1.taillePiochePersonelle());
+					i = entrée("Voulez-vous changer votre rack ? : (oui/non)");
+					if (i.equals("oui")) {
+						joueur1.echangerRack();
+						message("votre pioche vien d'etre modifier voici la nouvelle : "
+								+ joueur1.afficherJetonsRack());
+						message("voici le nombre de jetons présent dans votre pioche : "
+								+ joueur1.taillePiochePersonelle());
+					}
+					i = entrée("Voulez-vous quitter la partie ? : (oui/non)");
+					if (i.equals("oui")) {
+						message("vous quittez la patie !");
+						continuer = false;
+					}
+					message("");
+				}
+				
+				if (!tourJoueur) {
+					message(joueur2.nom() + " : " + joueur2.afficherJetonsRack());
+					message("voici votre pioche : " + joueur2.afficherPiochePersonelle());
+					message("voici le nombre de jetons présent : " + joueur2.taillePiochePersonelle());
+					i = entrée("Voulez-vous changer votre rack ? : (oui/non)");
+					if (i.equals("oui")) {
+						joueur2.echangerRack();
+						message("votre pioche vien d'etre modifier voici la nouvelle : "
+								+ joueur2.afficherJetonsRack());
+						message("voici le nombre de jetons présent dans votre pioche : "
+								+ joueur2.taillePiochePersonelle());
+					}
+					i = entrée("Voulez-vous quitter la partie ? : (oui/non)");
+					if (i.equals("oui")) {
+						message("vous quittez la patie !");
+						continuer = false;
+					}
+					message("");
+				}
+				if (tourJoueur) {
+					tourJoueur = false;
+				}
+				else {tourJoueur = true;}
+			}
            
     }
 }
