@@ -16,16 +16,16 @@ public class Plateau {
 				for (int y = 0; y<3; y++) {
 					if( position.x() == y && position.y() == y) {
 						estSoleil = true;
-					} else if (position.x() == 8 - y && position.y() == y) {
+					} else if (position.x() == taille - 1 - y && position.y() == y) {
 						estSoleil = true;
-					} else if (position.x() == y && position.y() == 8 - y) {
+					} else if (position.x() == y && position.y() == taille - 1 - y) {
 						estSoleil = true;
-					} else if (position.x() == 8 - y && position.y() == 8 - y) {
+					} else if (position.x() == taille - 1 - y && position.y() == taille - 1 - y) {
 						estSoleil = true;
 					}
 				}
-				if (position.x() == 0 || position.y() == 0 || position.x() == 8 || position.y() == 8) {
-					if (position.x() == 4 || position.y() == 4 ) {
+				if (position.x() == 0 || position.y() == 0 || position.x() == taille - 1 || position.y() == taille - 1) {
+					if (position.x() == (taille - 1) / 2 || position.y() == (taille - 1) / 2 ) {
 						estSoleil = true;
 					}
 				}
