@@ -1,12 +1,14 @@
 package latice.model;
 
 public class Case {
-    private boolean estSoleil;
     private Position position;
     private Jeton jeton;
+    private boolean estSoleil;
+    private boolean estLune;
     
-    public Case(Position position, boolean estSoleil) {
+    public Case(Position position, boolean estSoleil, boolean estLune) {
     	this.estSoleil = estSoleil;
+    	this.estLune = estLune;
         this.position = position;
         this.jeton = null;
     }
@@ -25,6 +27,10 @@ public class Case {
     
     public boolean estSoleil() {
         return estSoleil;
+    }
+    
+    public boolean estLune() {
+    	return estLune;
     }
     
     public Position getPosition() {
