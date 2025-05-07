@@ -1,24 +1,47 @@
 package latice.model;
 
 public class Plateau {
-    private Case plateau[][];
+    private int taille = 9;
+	private Case[][] plateau = new Case[taille][taille];
+
     
     public Plateau() {
-        plateau = new Case[9][9];
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
+        for (int i = 0; i < taille; i++) {
+            for (int j = 0; j < taille; j++) {
+
+            	Position position = new Position(i, j);
+            	boolean estSoleil = false;
+
+				for (int y = 0; y<3; y++) {
+					if( position.x() == y && position.y() == y) {
+						estSoleil = true;
+					} else if (position.x() == 8 - y && position.y() == y) {
+						estSoleil = true;
+					} else if (position.x() == y && position.y() == 8 - y) {
+						estSoleil = true;
+					} else if (position.x() == 8 - y && position.y() == 8 - y) {
+						estSoleil = true;
+					}
+				}
+				if (position.x() == 0 || position.y() == 0 || position.x() == 8 || position.y() == 8) {
+					if (position.x() == 4 || position.y() == 4 ) {
+						estSoleil = true;
+					}
+				}
+            	Case nouvelleCase = new Case(position, estSoleil);
+            	plateau[i][j] = nouvelleCase;
             }
         }
     }
 
     public void afficherPlateau() {
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
+        for (int i = 0; i < taille; i++) {
+            for (int j = 0; j < taille; j++) {
                 Case c = plateau[i][j];
-                if (c == null || c.estVide()) {
-                    System.out.print("[ ]");
+                if (c.estSoleil()) {
+                    System.out.print("[X]");
                 } else {
-                    System.out.print("[O]");
+                    System.out.print("[ ]");
                 }
             }
             System.out.println();
@@ -26,7 +49,7 @@ public class Plateau {
     }
 
     public boolean poserJeton(Jeton jeton, Position position) {
-        if (position.x() < 0 || position.x() >= 9 || position.y() < 0 || position.y() >= 9) {
+        if (position.x() < 0 || position.x() >= taille || position.y() < 0 || position.y() >= taille) {
             return false; // Position hors du plateau
         }
         
@@ -41,8 +64,8 @@ public class Plateau {
     }
     
     public boolean estPositionValide(Position position) {
-        return position.x() >= 0 && position.x() < 9 
-            && position.y() >= 0 && position.y() < 9;
+        return position.x() >= 0 && position.x() < taille 
+            && position.y() >= 0 && position.y() < taille;
     }
     
     public void donnerPoint(Joueur joueur, int nombres_points) {
@@ -54,6 +77,9 @@ public class Plateau {
             return plateau[position.x()][position.y()];
         }
         return null;
+    }
+    public int getTaille() {
+    	return taille;
     }
     
 }
