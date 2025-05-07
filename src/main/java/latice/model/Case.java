@@ -5,8 +5,8 @@ public class Case {
     private Position position;
     private Jeton jeton;
     
-    public Case(boolean estSoleil, Position position) {
-        this.estSoleil = estSoleil;
+    public Case(Position position, boolean estSoleil) {
+    	this.estSoleil = estSoleil;
         this.position = position;
         this.jeton = null;
     }
