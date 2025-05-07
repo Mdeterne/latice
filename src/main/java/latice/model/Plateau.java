@@ -11,6 +11,7 @@ public class Plateau {
 
             	Position position = new Position(i, j);
             	boolean estSoleil = false;
+            	boolean estLune = false;
 
 				for (int y = 0; y<3; y++) {
 					if( position.x() == y && position.y() == y) {
@@ -28,7 +29,10 @@ public class Plateau {
 						estSoleil = true;
 					}
 				}
-            	Case nouvelleCase = new Case(position, estSoleil);
+				if (position.x() == (taille-1)/2 && position.y() == (taille-1)/2) {
+					estLune = true;
+				}
+            	Case nouvelleCase = new Case(position, estSoleil, estLune);
             	plateau[i][j] = nouvelleCase;
             }
         }
@@ -40,6 +44,8 @@ public class Plateau {
                 Case c = plateau[i][j];
                 if (c.estSoleil()) {
                     System.out.print("[X]");
+                } else if (c.estLune()) {
+					System.out.print("[L]");
                 } else {
                     System.out.print("[ ]");
                 }
