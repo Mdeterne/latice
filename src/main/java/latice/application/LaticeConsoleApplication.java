@@ -22,40 +22,40 @@ public class LaticeConsoleApplication {
            Joueur joueur2 = new Joueur(entrée("Entrez un nom: "));
           
            
-           joueur1.piochePersonelle().remplirPiochePerso(piochePrincipal);
-           joueur2.piochePersonelle().remplirPiochePerso(piochePrincipal);
+           joueur1.remplirPiochePersonelle(piochePrincipal);
+           joueur2.remplirPiochePersonelle(piochePrincipal);
            
            
            joueur1.initialiserRack();
            joueur2.initialiserRack();
            
            
-           message(joueur1.nom()+" : "+joueur1.rack().afficherJetons());
+           message(joueur1.nom()+" : "+joueur1.afficherJetonsRack());
            message("voici votre pioche : "+joueur1.afficherPiochePersonelle());
-           message("voici le nombre de jetons présent dans votre pioche : "+ joueur1.piochePersonelle().taille());
+           message("voici le nombre de jetons présent dans votre pioche : "+ joueur1.taillePiochePersonelle());
            
            String i = entrée("Voulez-vous changer votre rack ? : (oui/non)");
            
            if(i.equals("oui")) {
         	   joueur1.echangerRack();
-        	   message("votre pioche vien d'etre modifier voici la nouvelle : "+joueur1.rack().afficherJetons());
-               message("voici le nombre de jetons présent dans votre pioche : "+ joueur1.piochePersonelle().taille());
+        	   message("votre pioche vien d'etre modifier voici la nouvelle : "+joueur1.afficherJetonsRack());
+               message("voici le nombre de jetons présent dans votre pioche : "+ joueur1.taillePiochePersonelle());
 
            }
            message("passage au joueur 2");
            
            
            message("");
-           message(joueur2.nom()+" : "+joueur2.rack().afficherJetons());
+           message(joueur2.nom()+" : "+joueur2.afficherJetonsRack());
            message("voici votre pioche : "+joueur2.afficherPiochePersonelle());
-           message("voici le nombre de jetons présent : "+ joueur2.piochePersonelle().taille());
+           message("voici le nombre de jetons présent : "+ joueur2.taillePiochePersonelle());
            
            i = entrée("Voulez-vous changer votre rack ? : (oui/non)");
            
            if(i.equals("oui")) {
         	   joueur2.echangerRack();
-        	   message("votre pioche vien d'etre modifier voici la nouvelle : "+joueur2.rack().afficherJetons());
-               message("voici le nombre de jetons présent dans votre pioche : "+ joueur2.piochePersonelle().taille());
+        	   message("votre pioche vien d'etre modifier voici la nouvelle : "+joueur2.afficherJetonsRack());
+               message("voici le nombre de jetons présent dans votre pioche : "+ joueur2.taillePiochePersonelle());
 
            }
            

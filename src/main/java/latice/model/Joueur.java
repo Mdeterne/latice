@@ -64,15 +64,27 @@ public class Joueur {
 		 return rack; 
 	}
 	 
-	 public void initialiserRack() {
-	     rack.vider();
-	     
-	     for (int i = 0; i < Rack.TAILLE_MAX && !piochePersonelle.estVide(); i++) {
-	         Jeton jeton = piochePersonelle.piocher();
-	         rack.ajouterJeton(jeton);
-	     }
-	 }
+	public String afficherJetonsRack() {
+		return ""+rack().afficherJetons();
+	}
 	
+	public void initialiserRack() {
+	    rack.vider();
+	     
+	    for (int i = 0; i < Rack.TAILLE_MAX && !piochePersonelle.estVide(); i++) {
+	        Jeton jeton = piochePersonelle.piocher();
+	        rack.ajouterJeton(jeton);
+	    }
+	}
+	
+	public int taillePiochePersonelle() {
+		return piochePersonelle().taille();
+	}
+	
+	public void remplirPiochePersonelle(Pioche piochePrincipal) {
+		piochePersonelle().remplirPiochePerso(piochePrincipal);
+	}
+	 
 	public PiochePersonelle piochePersonelle() {
 		return piochePersonelle;
 	}
