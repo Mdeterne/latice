@@ -3,6 +3,8 @@ package latice.application;
 import static latice.console.LaticeConsole.entrée;
 import static latice.console.LaticeConsole.message;
 
+import java.util.Random;
+
 import latice.model.Joueur;
 import latice.model.PiochePrincipal;
 
@@ -16,15 +18,17 @@ public class LaticeConsoleApplication {
             message("-- et par Marty Benjamin                            --");
             message("-----------------------------------------------------");
             
+            Random random = new Random();
+            
             Boolean continuer = true;
             String i;
-            Boolean tourJoueur = true;
+            Boolean tourJoueur = random.nextBoolean(); // true ou false
             PiochePrincipal piochePrincipal = new PiochePrincipal();
            
             Joueur joueur1 = new Joueur(entrée("Entrez un nom: "));
             Joueur joueur2 = new Joueur(entrée("Entrez un nom: "));
-          
-           
+            
+            
             joueur1.remplirPiochePersonelle(piochePrincipal);
             joueur2.remplirPiochePersonelle(piochePrincipal);
            
