@@ -1,9 +1,7 @@
 package latice.application;
 
 import static latice.console.LaticeConsole.message;
-
-import latice.model.Joueur;
-import latice.model.PiochePrincipal;
+import latice.model.*;
 
 public class LaticeJeuxEssais {
 
@@ -16,23 +14,26 @@ public class LaticeJeuxEssais {
         
         message(""+piochePrincipal.taille());
         message(""+piochePrincipal.pioche());
-        message(""+joueur1.piochePersonelle().taille());
-        message(""+joueur2.piochePersonelle().taille());
-        joueur1.piochePersonelle().remplirPiochePerso(piochePrincipal);
-        joueur2.piochePersonelle().remplirPiochePerso(piochePrincipal);
-        message(""+joueur1.piochePersonelle().taille());
-        message(""+joueur2.piochePersonelle().taille());
+        message(""+joueur1.taillePiochePersonelle());
+        message(""+joueur2.taillePiochePersonelle());
+        joueur1.remplirPiochePersonelle(piochePrincipal);
+        joueur2.remplirPiochePersonelle(piochePrincipal);
+        message(""+joueur1.taillePiochePersonelle());
+        message(""+joueur2.taillePiochePersonelle());
         
         message(""+joueur1.afficherPiochePersonelle());
         message(""+joueur2.afficherPiochePersonelle());
         
-        message(joueur1.nom()+" : "+joueur1.rack().afficherJetons());
-        message(joueur2.nom()+" : "+joueur2.rack().afficherJetons());
+        message(joueur1.nom()+" : "+joueur1.afficherJetonsRack());
+        message(joueur2.nom()+" : "+joueur2.afficherJetonsRack());
         
         joueur1.initialiserRack();
         joueur2.initialiserRack();
         
-        message(joueur1.nom()+" : "+joueur1.rack().afficherJetons());
-        message(joueur2.nom()+" : "+joueur2.rack().afficherJetons());
+        message(joueur1.nom()+" : "+joueur1.afficherJetonsRack());
+        message(joueur2.nom()+" : "+joueur2.afficherJetonsRack());
+        
+		Plateau plateau = new Plateau();
+		plateau.afficherPlateau();
 	}
 }
