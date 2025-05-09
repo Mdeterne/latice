@@ -5,39 +5,45 @@ public class Plateau {
 	private Case[][] plateau = new Case[taille][taille];
 
     
-    public Plateau() {
-        for (int i = 0; i < taille; i++) {
-            for (int j = 0; j < taille; j++) {
+	public Plateau() {
+	    for (int i = 0; i < taille; i++) {
+	        for (int j = 0; j < taille; j++) {
+	            Position position = new Position(i, j);
+	            boolean estSoleil = estPositionSoleil(position);
+	            boolean estLune = estPositionLune(position);
+	            plateau[i][j] = new Case(position, estSoleil, estLune);
+	        }
+	    }
+	}
+	
+	private boolean estPositionSoleil(Position position) {
+	    int x = position.x();
+	    int y = position.y();
 
-            	Position position = new Position(i, j);
-            	boolean estSoleil = false;
-            	boolean estLune = false;
+	    // Diagonales autour des coins
+	    for (int i = 0; i < 3; i++) {
+	        if ((x == i && y == i) || 
+	            (x == taille - 1 - i && y == i) || 
+	            (x == i && y == taille - 1 - i) || 
+	            (x == taille - 1 - i && y == taille - 1 - i)) {
+	            return true;
+	        }
+	    }
 
-				for (int y = 0; y<3; y++) {
-					if( position.x() == y && position.y() == y) {
-						estSoleil = true;
-					} else if (position.x() == taille - 1 - y && position.y() == y) {
-						estSoleil = true;
-					} else if (position.x() == y && position.y() == taille - 1 - y) {
-						estSoleil = true;
-					} else if (position.x() == taille - 1 - y && position.y() == taille - 1 - y) {
-						estSoleil = true;
-					}
-				}
-				if (position.x() == 0 || position.y() == 0 || position.x() == taille - 1 || position.y() == taille - 1) {
-					if (position.x() == (taille - 1) / 2 || position.y() == (taille - 1) / 2 ) {
-						estSoleil = true;
-					}
-				}
-				if (position.x() == (taille-1)/2 && position.y() == (taille-1)/2) {
-					estLune = true;
-				}
-            	Case nouvelleCase = new Case(position, estSoleil, estLune);
-            	plateau[i][j] = nouvelleCase;
-            }
-        }
-    }
+	    // Milieu des bords
+	    if ((x == 0 || y == 0 || x == taille - 1 || y == taille - 1) &&
+	        (x == (taille - 1) / 2 || y == (taille - 1) / 2)) {
+	        return true;
+	    }
 
+	    return false;
+	}
+	
+	private boolean estPositionLune(Position position) {
+	    int centre = (taille - 1) / 2;
+	    return position.x() == centre && position.y() == centre;
+	}
+	
     public void afficherPlateau() {
         for (int i = 0; i < taille; i++) {
             for (int j = 0; j < taille; j++) {
