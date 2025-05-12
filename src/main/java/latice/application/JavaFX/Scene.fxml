@@ -263,11 +263,6 @@
                   <Image url="@../../../../resources/img/bg_sea.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="case95" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="4">
-               <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
-               </image>
-            </ImageView>
             <ImageView fx:id="case96" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="5">
                <image>
                   <Image url="@../../../../resources/img/bg_sea.png" />
@@ -443,14 +438,46 @@
                   <Image url="@../../../../resources/img/bg_sea.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="case95" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="4">
+               <image>
+                  <Image url="@../../../../resources/img/bg_sun.png" />
+               </image>
+            </ImageView>
          </children>
       </GridPane>
    </center>
    <bottom>
-      <HBox fx:id="rack" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox fx:id="rack" prefHeight="150.0" prefWidth="740.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="50.0" left="60.0" right="60.0" />
          </BorderPane.margin>
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../../../../Downloads/ChatGPT%20Image%2012%20mai%202025,%2017_20_08.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../../../../Downloads/ChatGPT%20Image%2012%20mai%202025,%2017_20_08.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../../../../Downloads/ChatGPT%20Image%2012%20mai%202025,%2017_20_08.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../../../../Downloads/ChatGPT%20Image%2012%20mai%202025,%2017_20_08.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../../../../Downloads/ChatGPT%20Image%2012%20mai%202025,%2017_20_08.png" />
+               </image>
+            </ImageView>
+         </children>
       </HBox>
    </bottom>
 </BorderPane>
