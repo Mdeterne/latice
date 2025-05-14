@@ -2,6 +2,8 @@ package latice.model;
 
 import java.util.Collections;
 
+import latice.test.exception.PiocheVideException;
+
 public class PiochePersonelle extends Pioche{
 	
 	private static final int TAILLEMAX = 36;
@@ -10,13 +12,12 @@ public class PiochePersonelle extends Pioche{
 		super();
 	}
 	
-	public void remplirPiochePerso(Pioche piochePrincipal) {
+	public void remplirPiochePerso(Pioche piochePrincipal) throws PiocheVideException {
 		for (int i=1; i<=TAILLEMAX ;i++) {
 			Jeton jeton = piochePrincipal.piocher();
 			this.pioche.add(jeton);
 		}
 		Collections.shuffle(pioche);
 	}
-	
-	
+
 }

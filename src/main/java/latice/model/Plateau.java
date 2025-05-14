@@ -1,5 +1,7 @@
 package latice.model;
 
+import latice.test.exception.CaseInaccessibleException;
+
 public class Plateau {
     private int taille = 9;
 	private Case[][] plateau = new Case[taille][taille];
@@ -60,19 +62,8 @@ public class Plateau {
         }
     }
 
-    public boolean poserJeton(Jeton jeton, Position position) {
-        if (position.x() < 0 || position.x() >= taille || position.y() < 0 || position.y() >= taille) {
-            return false; // Position hors du plateau
-        }
-        
-        Case caseCible = plateau[position.x()][position.y()];
-        
-        if (!caseCible.estVide()) {
-            return false; // Case déjà occupée
-        }
-        
-        caseCible.poserJeton(jeton);
-        return true;
+    public void poserJeton(Jeton jeton, Position position) throws CaseInaccessibleException {
+        plateau[position.x()][position.y()].poserJeton(jeton);
     }
     
     public boolean estPositionValide(Position position) {

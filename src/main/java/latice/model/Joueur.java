@@ -4,6 +4,11 @@ package latice.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import latice.test.exception.CaseInaccessibleException;
+import latice.test.exception.PiocheVideException;
+import latice.test.exception.PointInsuffisantException;
+
+
 public class Joueur {
 
 	private final String nom;
@@ -18,25 +23,31 @@ public class Joueur {
 		this.piochePersonelle = new PiochePersonelle();
 	}
 	
-	public String jouer(Plateau plateau, Jeton jeton, Position position) {
-	    if (plateau.poserJeton(jeton, position)) {
-	        return this.nom + " a joué le jeton " + jeton + " en position " + position.x() + "," + position.y();
-	    } else {
-	        return this.nom + " ne peut pas jouer ici";
-	    }
+	public void jouer(Plateau plateau, Jeton jeton, Position position) throws CaseInaccessibleException{
+		
+		plateau.poserJeton(jeton, position);
+	    rack.retirerJeton(jeton);
+	    Jeton jeton2;
+		try {
+			jeton2 = piochePersonelle.piocher();
+			rack.ajouterJeton(jeton2);
+		} catch (PiocheVideException e) {
+			e.printStackTrace();
+		}
+	    
 	}
 	
-	public Boolean acheter() {
+	public Boolean acheter() throws PointInsuffisantException {
 		if (point >= 2) {
 			point-=2;
 			return true;
 		}
-		return false;
+		throw new PointInsuffisantException("vous n'avez pas assez de point");
 	}
 		
 	
-	public String echangerRack() {
-		 List<Jeton> anciensJetons = rack.vider();
+	public String echangerRack() throws PiocheVideException {
+		List<Jeton> anciensJetons = rack.vider();
 		anciensJetons.forEach(jeton -> piochePersonelle.ajouterJeton(jeton));
 		piochePersonelle.mélanger();
 		while (rack.afficherJetons().size() < Rack.TAILLE_MAX && !piochePersonelle.estVide()) {
@@ -49,8 +60,8 @@ public class Joueur {
 		return (this.nom+" à passer sont tour");
 	}
 
-	public int ajouterPoints(int nombresPoints) {
-		return point+nombresPoints;	
+	public void ajouterPoints(int nombresPoints) {
+		point = point + nombresPoints;
 	}
 	
 	 public String nom() { 
@@ -68,7 +79,7 @@ public class Joueur {
 		return ""+rack().afficherJetons();
 	}
 	
-	public void initialiserRack() {
+	public void initialiserRack() throws PiocheVideException {
 	    rack.vider();
 	     
 	    for (int i = 0; i < Rack.TAILLE_MAX && !piochePersonelle.estVide(); i++) {
@@ -81,7 +92,7 @@ public class Joueur {
 		return piochePersonelle().taille();
 	}
 	
-	public void remplirPiochePersonelle(Pioche piochePrincipal) {
+	public void remplirPiochePersonelle(Pioche piochePrincipal) throws PiocheVideException {
 		piochePersonelle().remplirPiochePerso(piochePrincipal);
 	}
 	 

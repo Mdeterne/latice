@@ -7,6 +7,7 @@ import java.util.Random;
 
 import latice.model.Joueur;
 import latice.model.PiochePrincipal;
+import latice.test.exception.PiocheVideException;
 
 public class LaticeConsoleApplication {
 
@@ -29,12 +30,28 @@ public class LaticeConsoleApplication {
             Joueur joueur2 = new Joueur(entrée("Entrez un nom: "));
             
             
-            joueur1.remplirPiochePersonelle(piochePrincipal);
-            joueur2.remplirPiochePersonelle(piochePrincipal);
+            try {
+				joueur1.remplirPiochePersonelle(piochePrincipal);
+			} catch (PiocheVideException e) {
+				e.printStackTrace();
+			}
+            try {
+				joueur2.remplirPiochePersonelle(piochePrincipal);
+			} catch (PiocheVideException e) {
+				e.printStackTrace();
+			}
            
            
-            joueur1.initialiserRack();
-            joueur2.initialiserRack();
+            try {
+				joueur1.initialiserRack();
+			} catch (PiocheVideException e) {
+				e.printStackTrace();
+			}
+            try {
+				joueur2.initialiserRack();
+			} catch (PiocheVideException e) {
+				e.printStackTrace();
+			}
            
            
             while (continuer) {
@@ -46,7 +63,11 @@ public class LaticeConsoleApplication {
 							+ joueur1.taillePiochePersonelle());
 					i = entrée("Voulez-vous changer votre rack ? : (oui/non)");
 					if (i.equals("oui")) {
-						joueur1.echangerRack();
+						try {
+							joueur1.echangerRack();
+						} catch (PiocheVideException e) {
+							message("impossible d'echanger le rack la pioche est vide");
+						}
 						message("Votre pioche vien d'etre modifier voici la nouvelle : "
 								+ joueur1.afficherJetonsRack());
 						message("Voici le nombre de jetons présent dans votre pioche : "
@@ -66,7 +87,11 @@ public class LaticeConsoleApplication {
 					message("Voici le nombre de jetons présent : " + joueur2.taillePiochePersonelle());
 					i = entrée("Voulez-vous changer votre rack ? : (oui/non)");
 					if (i.equals("oui")) {
-						joueur2.echangerRack();
+						try {
+							joueur2.echangerRack();
+						} catch (PiocheVideException e) {
+							message("impossible d'echanger le rack la pioche est vide");
+						}
 						message("Votre pioche vien d'etre modifier voici la nouvelle : "
 								+ joueur2.afficherJetonsRack());
 						message("Voici le nombre de jetons présent dans votre pioche : "

@@ -3,6 +3,8 @@ package latice.model;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import latice.test.exception.PiocheVideException;
+
 public abstract class Pioche {
 
 protected ArrayList<Jeton> pioche;
@@ -20,8 +22,10 @@ protected ArrayList<Jeton> pioche;
 		pioche.add(jeton); // Ajoute à la fin
     }
 	
-	public Jeton piocher() {
-		if (pioche.isEmpty()) return null;
+	public Jeton piocher() throws PiocheVideException {
+		if (pioche.isEmpty()) {
+			throw new PiocheVideException("la pioche est vide vous ne pouvez pas prendre de jeton");
+		}
         return pioche.remove(pioche.size() - 1); // Retire le dernier
     }
 	

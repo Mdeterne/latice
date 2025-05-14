@@ -6,6 +6,8 @@ import java.util.List;
 
 
 
+
+
 public class Rack {
 
 	private ArrayList<Jeton> jetons = new ArrayList<Jeton>();
@@ -27,10 +29,8 @@ public class Rack {
         }
 	}
 	
-	public void retirerJeton(Jeton jeton) {
-        if (jetons.contains(jeton)) {
-            jetons.remove(jeton);   
-        }
+	public void retirerJeton(Jeton jeton){
+		jetons.remove(jeton);   
     }
 	
 	public ArrayList<Jeton> afficherJetons() {

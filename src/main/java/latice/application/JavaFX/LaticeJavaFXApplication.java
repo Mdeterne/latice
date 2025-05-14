@@ -14,6 +14,9 @@ public class LaticeJavaFXApplication extends Application {
 
             Scene scene = new Scene(root);
 
+            LaticeGestionnaireDeMusique musique = new LaticeGestionnaireDeMusique();
+            musique.chargerMusique("/laticeMainTheme.mp3");
+            musique.jouer();
             primaryStage.setScene(scene);
             primaryStage.setTitle("Latice Game");
             primaryStage.show();
