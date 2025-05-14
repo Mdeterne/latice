@@ -4,6 +4,9 @@ package latice.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import latice.test.exception.CaseInaccessibleException;
+import latice.test.exception.PointInsuffisantException;
+
 public class Joueur {
 
 	private final String nom;
@@ -18,20 +21,16 @@ public class Joueur {
 		this.piochePersonelle = new PiochePersonelle();
 	}
 	
-	public String jouer(Plateau plateau, Jeton jeton, Position position) {
-	    if (plateau.poserJeton(jeton, position)) {
-	        return this.nom + " a joué le jeton " + jeton + " en position " + position.x() + "," + position.y();
-	    } else {
-	        return this.nom + " ne peut pas jouer ici";
-	    }
+	public void jouer(Plateau plateau, Jeton jeton, Position position) throws CaseInaccessibleException {
+	    plateau.poserJeton(jeton, position);
 	}
 	
-	public Boolean acheter() {
+	public Boolean acheter() throws PointInsuffisantException {
 		if (point >= 2) {
 			point-=2;
 			return true;
 		}
-		return false;
+		throw new PointInsuffisantException("vous n'avez pas assez de point");
 	}
 		
 	

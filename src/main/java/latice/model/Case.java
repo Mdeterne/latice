@@ -1,5 +1,7 @@
 package latice.model;
 
+import latice.test.exception.CaseInaccessibleException;
+
 public class Case {
     private Position position;
     private Jeton jeton;
@@ -17,8 +19,14 @@ public class Case {
         return jeton == null;
     }
     
-    public void poserJeton(Jeton jeton) {
-        this.jeton = jeton;
+    public void poserJeton(Jeton jeton) throws CaseInaccessibleException {
+        if (this.jeton.equals(null)) {
+        	this.jeton = jeton;
+        }
+        else {
+        	throw new CaseInaccessibleException("la case est inaccessible");
+        }
+        
     }
     
     public Jeton getJeton() {
