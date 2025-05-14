@@ -11,7 +11,7 @@ public class LaticeJavaFXApplication extends Application {
     public void start(Stage primaryStage) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/Scene.fxml"));
-            
+
             Scene scene = new Scene(root);
 
             primaryStage.setScene(scene);
@@ -21,6 +21,8 @@ public class LaticeJavaFXApplication extends Application {
             e.printStackTrace();
         }
     }
+
+    
     public static void main(String[] args) {
         launch(args);
     }
