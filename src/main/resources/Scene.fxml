@@ -37,407 +37,407 @@
          <children>
             <ImageView fx:id="case55" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="4">
                <image>
-                  <Image url="@../../../../resources/img/bg_moon.png" />
+                  <Image url="@img/bg_moon.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case45" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case56" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="5">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case65" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="4">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case54" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="3">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case53" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case44" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case64" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="3">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case46" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="5">
                <image>
-                  <Image url="@../../../../resources/img/fondBleu.jpg" />
+                  <Image url="@img/fondBleu.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="case66" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="5">
                <image>
-                  <Image url="@../../../../resources/img/fondBleu.jpg" />
+                  <Image url="@img/fondBleu.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="case11" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../resources/img/bg_sun.png" />
+                  <Image url="@img/bg_sun.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case22" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../../../../resources/img/bg_sun.png" />
+                  <Image url="@img/bg_sun.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case33" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../../../../resources/img/bg_sun.png" />
+                  <Image url="@img/bg_sun.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case43" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../../../../resources/img/fondBleu.jpg" />
+                  <Image url="@img/fondBleu.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="case63" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case21" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case31" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
                <image>
-                  <Image url="@../../../../resources/img/fondBleu.jpg" />
+                  <Image url="@img/fondBleu.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="case41" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case51" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
                <image>
-                  <Image url="@../../../../resources/img/bg_sun.png" />
+                  <Image url="@img/bg_sun.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case61" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case71" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6">
                <image>
-                  <Image url="@../../../../resources/img/fondBleu.jpg" />
+                  <Image url="@img/fondBleu.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="case81" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case91" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8">
                <image>
-                  <Image url="@../../../../resources/img/bg_sun.png" />
+                  <Image url="@img/bg_sun.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case82" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../../../../resources/img/bg_sun.png" />
+                  <Image url="@img/bg_sun.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case73" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../../../../resources/img/bg_sun.png" />
+                  <Image url="@img/bg_sun.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case37" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="6">
                <image>
-                  <Image url="@../../../../resources/img/bg_sun.png" />
+                  <Image url="@img/bg_sun.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case28" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <image>
-                  <Image url="@../../../../resources/img/bg_sun.png" />
+                  <Image url="@img/bg_sun.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case19" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="8">
                <image>
-                  <Image url="@../../../../resources/img/bg_sun.png" />
+                  <Image url="@img/bg_sun.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case59" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="8">
                <image>
-                  <Image url="@../../../../resources/img/bg_sun.png" />
+                  <Image url="@img/bg_sun.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case77" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="6">
                <image>
-                  <Image url="@../../../../resources/img/bg_sun.png" />
+                  <Image url="@img/bg_sun.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case88" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="7">
                <image>
-                  <Image url="@../../../../resources/img/bg_sun.png" />
+                  <Image url="@img/bg_sun.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case99" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="8">
                <image>
-                  <Image url="@../../../../resources/img/bg_sun.png" />
+                  <Image url="@img/bg_sun.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case15" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
                <image>
-                  <Image url="@../../../../resources/img/bg_sun.png" />
+                  <Image url="@img/bg_sun.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case12" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case32" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../../../../resources/img/fondBleu.jpg" />
+                  <Image url="@img/fondBleu.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="case42" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../../../../resources/img/fondBleu.jpg" />
+                  <Image url="@img/fondBleu.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="case52" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case62" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case72" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case92" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="1">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case13" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case23" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case83" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case93" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="2">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case94" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="3">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case96" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="5">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case97" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="6">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case98" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="7">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case84" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="3">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case85" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="4">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case86" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="5">
                <image>
-                  <Image url="@../../../../resources/img/fondBleu.jpg" />
+                  <Image url="@img/fondBleu.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="case87" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="6">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case89" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="8">
                <image>
-                  <Image url="@../../../../resources/img/fondBleu.jpg" />
+                  <Image url="@img/fondBleu.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="case74" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="3">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case75" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="4">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case76" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="5">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case78" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="7">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case79" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="8">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case67" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="6">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case68" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="7">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case69" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="8">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case57" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="6">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case58" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="7">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case47" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="6">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case48" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="7">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case49" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="8">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case34" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case35" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case36" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="5">
                <image>
-                  <Image url="@../../../../resources/img/fondBleu.jpg" />
+                  <Image url="@img/fondBleu.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="case38" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="7">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case39" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="8">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case24" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case25" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <image>
-                  <Image url="@../../../../resources/img/fondBleu.jpg" />
+                  <Image url="@img/fondBleu.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="case26" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case27" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case29" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="8">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case14" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case16" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case17" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="6">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case18" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="7">
                <image>
-                  <Image url="@../../../../resources/img/bg_sea.png" />
+                  <Image url="@img/bg_sea.png" />
                </image>
             </ImageView>
             <ImageView fx:id="case95" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="4">
                <image>
-                  <Image url="@../../../../resources/img/bg_sun.png" />
+                  <Image url="@img/bg_sun.png" />
                </image>
             </ImageView>
          </children>
@@ -446,27 +446,27 @@
          <children>
             <ImageView fx:id="tuile1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../resources/img/FondRack.png" />
+                  <Image url="@img/FondRack.png" />
                </image>
             </ImageView>
             <ImageView fx:id="tuile2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../resources/img/FondRack.png" />
+                  <Image url="@img/FondRack.png" />
                </image>
             </ImageView>
             <ImageView fx:id="tuile3" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../resources/img/FondRack.png" />
+                  <Image url="@img/FondRack.png" />
                </image>
             </ImageView>
             <ImageView fx:id="tuile4" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../resources/img/FondRack.png" />
+                  <Image url="@img/FondRack.png" />
                </image>
             </ImageView>
             <ImageView fx:id="tuile5" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../resources/img/FondRack.png" />
+                  <Image url="@img/FondRack.png" />
                </image>
             </ImageView>
          </children>
