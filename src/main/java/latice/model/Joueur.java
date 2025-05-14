@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import latice.test.exception.CaseInaccessibleException;
+import latice.test.exception.PiocheVideException;
 import latice.test.exception.PointInsuffisantException;
+
 
 public class Joueur {
 
@@ -21,8 +23,18 @@ public class Joueur {
 		this.piochePersonelle = new PiochePersonelle();
 	}
 	
-	public void jouer(Plateau plateau, Jeton jeton, Position position) throws CaseInaccessibleException {
-	    plateau.poserJeton(jeton, position);
+	public void jouer(Plateau plateau, Jeton jeton, Position position) throws CaseInaccessibleException{
+		
+		plateau.poserJeton(jeton, position);
+	    rack.retirerJeton(jeton);
+	    Jeton jeton2;
+		try {
+			jeton2 = piochePersonelle.piocher();
+			rack.ajouterJeton(jeton2);
+		} catch (PiocheVideException e) {
+			e.printStackTrace();
+		}
+	    
 	}
 	
 	public Boolean acheter() throws PointInsuffisantException {
@@ -34,8 +46,8 @@ public class Joueur {
 	}
 		
 	
-	public String echangerRack() {
-		 List<Jeton> anciensJetons = rack.vider();
+	public String echangerRack() throws PiocheVideException {
+		List<Jeton> anciensJetons = rack.vider();
 		anciensJetons.forEach(jeton -> piochePersonelle.ajouterJeton(jeton));
 		piochePersonelle.mélanger();
 		while (rack.afficherJetons().size() < Rack.TAILLE_MAX && !piochePersonelle.estVide()) {
@@ -67,7 +79,7 @@ public class Joueur {
 		return ""+rack().afficherJetons();
 	}
 	
-	public void initialiserRack() {
+	public void initialiserRack() throws PiocheVideException {
 	    rack.vider();
 	     
 	    for (int i = 0; i < Rack.TAILLE_MAX && !piochePersonelle.estVide(); i++) {
@@ -80,7 +92,7 @@ public class Joueur {
 		return piochePersonelle().taille();
 	}
 	
-	public void remplirPiochePersonelle(Pioche piochePrincipal) {
+	public void remplirPiochePersonelle(Pioche piochePrincipal) throws PiocheVideException {
 		piochePersonelle().remplirPiochePerso(piochePrincipal);
 	}
 	 

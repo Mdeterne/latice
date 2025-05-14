@@ -2,6 +2,7 @@ package latice.application;
 
 import static latice.console.LaticeConsole.message;
 import latice.model.*;
+import latice.test.exception.PiocheVideException;
 
 public class LaticeJeuxEssais {
 
@@ -16,8 +17,16 @@ public class LaticeJeuxEssais {
         message(""+piochePrincipal.pioche());
         message(""+joueur1.taillePiochePersonelle());
         message(""+joueur2.taillePiochePersonelle());
-        joueur1.remplirPiochePersonelle(piochePrincipal);
-        joueur2.remplirPiochePersonelle(piochePrincipal);
+        try {
+			joueur1.remplirPiochePersonelle(piochePrincipal);
+		} catch (PiocheVideException e) {
+			e.printStackTrace();
+		}
+        try {
+			joueur2.remplirPiochePersonelle(piochePrincipal);
+		} catch (PiocheVideException e) {
+			e.printStackTrace();
+		}
         message(""+joueur1.taillePiochePersonelle());
         message(""+joueur2.taillePiochePersonelle());
         
@@ -27,8 +36,16 @@ public class LaticeJeuxEssais {
         message(joueur1.nom()+" : "+joueur1.afficherJetonsRack());
         message(joueur2.nom()+" : "+joueur2.afficherJetonsRack());
         
-        joueur1.initialiserRack();
-        joueur2.initialiserRack();
+        try {
+			joueur1.initialiserRack();
+		} catch (PiocheVideException e) {
+			e.printStackTrace();
+		}
+        try {
+			joueur2.initialiserRack();
+		} catch (PiocheVideException e) {
+			e.printStackTrace();
+		}
         
         message(joueur1.nom()+" : "+joueur1.afficherJetonsRack());
         message(joueur2.nom()+" : "+joueur2.afficherJetonsRack());
