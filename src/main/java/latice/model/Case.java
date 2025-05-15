@@ -20,7 +20,7 @@ public class Case {
     }
     
     public void poserJeton(Jeton jeton) throws CaseInaccessibleException {
-        if (this.jeton.equals(null)) {
+        if (this.jeton == null) {
         	this.jeton = jeton;
         }
         else {

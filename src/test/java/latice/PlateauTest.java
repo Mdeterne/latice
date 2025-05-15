@@ -62,4 +62,8 @@ class PlateauTest {
 		assertEquals(5, joueur.point());
 	}
 
+	@Test
+	void testPoserJeton() {
+		//TODO	
+	}
 }
