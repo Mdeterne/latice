@@ -10,7 +10,7 @@ public class Jeton {
 	}
 	
 	public boolean estCompatible(Jeton autre) {
-        return this.couleur == autre.couleur || this.symbole == autre.symbole; 
+        return couleur == autre.couleur || symbole == autre.symbole; 
     }
 	
 	public Couleur couleur() {
@@ -24,7 +24,6 @@ public class Jeton {
 	@Override
 	public String toString() {
 		return "Jeton [" + couleur + ", " + symbole + "]";
-		
 	}
 	
 }
