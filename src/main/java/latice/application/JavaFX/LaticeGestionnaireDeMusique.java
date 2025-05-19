@@ -10,13 +10,13 @@ public class LaticeGestionnaireDeMusique {
     
     public void chargerMusique(String filePath) {
     	 try {
-             // Conversion du chemin pour les URI
+             
              String uri = Paths.get(filePath).toUri().toString();
              Media media = new Media(uri);
              
              mediaPlayer = new MediaPlayer(media);
              
-             // Gestion des erreurs
+             
              mediaPlayer.setOnError(() -> {
                  System.err.println("Media error: " + mediaPlayer.getError());
              });
@@ -30,6 +30,10 @@ public class LaticeGestionnaireDeMusique {
         if (mediaPlayer != null) {
             mediaPlayer.play();
         }
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        mediaPlayer.setOnEndOfMedia(() -> {
+        
+        });
     }
     
     public void pause() {
