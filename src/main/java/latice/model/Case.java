@@ -4,7 +4,7 @@ import latice.test.exception.CaseInaccessibleException;
 
 public class Case {
     private Position position;
-    private Jeton jeton;
+    private Tuile tuile;
     private boolean estSoleil;
     private boolean estLune;
     
@@ -12,16 +12,16 @@ public class Case {
     	this.estSoleil = estSoleil;
     	this.estLune = estLune;
         this.position = position;
-        this.jeton = null;
+        this.tuile = null;
     }
     
     public boolean estVide() {
-        return jeton == null;
+        return tuile == null;
     }
     
-    public void poserJeton(Jeton jeton) throws CaseInaccessibleException {
-        if (this.jeton == null) {
-        	this.jeton = jeton;
+    public void posertuile(Tuile tuile) throws CaseInaccessibleException {
+        if (this.tuile == null) {
+        	this.tuile = tuile;
         }
         else {
         	throw new CaseInaccessibleException("la case est inaccessible");
@@ -29,8 +29,8 @@ public class Case {
         
     }
     
-    public Jeton getJeton() {
-        return jeton;
+    public Tuile gettuile() {
+        return tuile;
     }
     
     public boolean estSoleil() {

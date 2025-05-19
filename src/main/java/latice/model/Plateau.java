@@ -62,8 +62,8 @@ public class Plateau {
         }
     }
 
-    public void poserJeton(Jeton jeton, Position position) throws CaseInaccessibleException {
-        plateau[position.x()][position.y()].poserJeton(jeton);
+    public void posertuile(Tuile tuile, Position position) throws CaseInaccessibleException {
+        plateau[position.x()][position.y()].posertuile(tuile);
     }
     
     public boolean estPositionValide(Position position) {

@@ -57,9 +57,9 @@ public class LaticeConsoleApplication {
             while (continuer) {
             	
 				if (tourJoueur) {
-					message(joueur1.nom() + " : " + joueur1.afficherJetonsRack());
+					message(joueur1.nom() + " : " + joueur1.affichertuilesRack());
 					message("Voici votre pioche : " + joueur1.afficherPiochePersonelle());
-					message("Voici le nombre de jetons présent dans votre pioche : "
+					message("Voici le nombre de tuiles présent dans votre pioche : "
 							+ joueur1.taillePiochePersonelle());
 					i = entrée("Voulez-vous changer votre rack ? : (oui/non)");
 					if (i.equals("oui")) {
@@ -69,8 +69,8 @@ public class LaticeConsoleApplication {
 							message("impossible d'echanger le rack la pioche est vide");
 						}
 						message("Votre pioche vien d'etre modifier voici la nouvelle : "
-								+ joueur1.afficherJetonsRack());
-						message("Voici le nombre de jetons présent dans votre pioche : "
+								+ joueur1.affichertuilesRack());
+						message("Voici le nombre de tuiles présent dans votre pioche : "
 								+ joueur1.taillePiochePersonelle());
 					}
 					i = entrée("Voulez-vous quitter la partie ? : (oui/non)");
@@ -82,9 +82,9 @@ public class LaticeConsoleApplication {
 				}
 				
 				if (!tourJoueur) {
-					message(joueur2.nom() + " : " + joueur2.afficherJetonsRack());
+					message(joueur2.nom() + " : " + joueur2.affichertuilesRack());
 					message("Voici votre pioche : " + joueur2.afficherPiochePersonelle());
-					message("Voici le nombre de jetons présent : " + joueur2.taillePiochePersonelle());
+					message("Voici le nombre de tuiles présent : " + joueur2.taillePiochePersonelle());
 					i = entrée("Voulez-vous changer votre rack ? : (oui/non)");
 					if (i.equals("oui")) {
 						try {
@@ -93,8 +93,8 @@ public class LaticeConsoleApplication {
 							message("impossible d'echanger le rack la pioche est vide");
 						}
 						message("Votre pioche vien d'etre modifier voici la nouvelle : "
-								+ joueur2.afficherJetonsRack());
-						message("Voici le nombre de jetons présent dans votre pioche : "
+								+ joueur2.affichertuilesRack());
+						message("Voici le nombre de tuiles présent dans votre pioche : "
 								+ joueur2.taillePiochePersonelle());
 					}
 					i = entrée("Voulez-vous quitter la partie ? : (oui/non)");

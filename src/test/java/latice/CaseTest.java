@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import latice.model.Case;
 import latice.model.Couleur;
-import latice.model.Jeton;
+import latice.model.Tuile;
 import latice.model.Position;
 import latice.model.Symbole;
 import latice.test.exception.CaseInaccessibleException;
@@ -25,21 +25,21 @@ class CaseTest {
 	void testCaseEstVideQuandCaseRempli() throws CaseInaccessibleException {
 		Position position = new Position(0,0);
 		Case maCase = new Case(position, true, false);
-		Jeton jeton = new Jeton(Couleur.ROUGE, Symbole.DAUPHIN);
+		Tuile tuile = new Tuile(Couleur.ROUGE, Symbole.DAUPHIN);
 		
-		maCase.poserJeton(jeton);
+		maCase.posertuile(tuile);
 
 		assertFalse(maCase.estVide());
 	}
 	
     @Test
-    void testGetJeton() throws CaseInaccessibleException {
-		Jeton jeton = new Jeton(Couleur.ROUGE, Symbole.DAUPHIN);
+    void testGettuile() throws CaseInaccessibleException {
+		Tuile tuile = new Tuile(Couleur.ROUGE, Symbole.DAUPHIN);
         Position position = new Position(0, 0);
         Case maCase = new Case(position, false, false);
-        maCase.poserJeton(jeton);
+        maCase.posertuile(tuile);
 
-        assertEquals(jeton, maCase.getJeton());
+        assertEquals(tuile, maCase.gettuile());
     }
 
     @Test

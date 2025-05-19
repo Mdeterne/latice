@@ -1,15 +1,15 @@
 package latice.model;
 
-public class Jeton {
+public class Tuile {
 	private Couleur couleur;
 	private Symbole symbole;
 	
-	public Jeton(Couleur couleur, Symbole symbole) {
+	public Tuile(Couleur couleur, Symbole symbole) {
 		this.couleur = couleur;
 		this.symbole = symbole;
 	}
 	
-	public boolean estCompatible(Jeton autre) {
+	public boolean estCompatible(Tuile autre) {
         return couleur == autre.couleur || symbole == autre.symbole; 
     }
 	
@@ -23,7 +23,7 @@ public class Jeton {
 	
 	@Override
 	public String toString() {
-		return "Jeton [" + couleur + ", " + symbole + "]";
+		return "Tuile [" + couleur + ", " + symbole + "]";
 	}
 	
 }

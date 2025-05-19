@@ -14,8 +14,8 @@ public class PiochePersonelle extends Pioche{
 	
 	public void remplirPiochePerso(Pioche piochePrincipal) throws PiocheVideException {
 		for (int i=1; i<=TAILLEMAX ;i++) {
-			Jeton jeton = piochePrincipal.piocher();
-			this.pioche.add(jeton);
+			Tuile tuile = piochePrincipal.piocher();
+			this.pioche.add(tuile);
 		}
 		Collections.shuffle(pioche);
 	}

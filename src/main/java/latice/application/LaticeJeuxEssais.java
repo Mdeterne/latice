@@ -33,8 +33,8 @@ public class LaticeJeuxEssais {
         message(""+joueur1.afficherPiochePersonelle());
         message(""+joueur2.afficherPiochePersonelle());
         
-        message(joueur1.nom()+" : "+joueur1.afficherJetonsRack());
-        message(joueur2.nom()+" : "+joueur2.afficherJetonsRack());
+        message(joueur1.nom()+" : "+joueur1.affichertuilesRack());
+        message(joueur2.nom()+" : "+joueur2.affichertuilesRack());
         
         try {
 			joueur1.initialiserRack();
@@ -47,8 +47,8 @@ public class LaticeJeuxEssais {
 			e.printStackTrace();
 		}
         
-        message(joueur1.nom()+" : "+joueur1.afficherJetonsRack());
-        message(joueur2.nom()+" : "+joueur2.afficherJetonsRack());
+        message(joueur1.nom()+" : "+joueur1.affichertuilesRack());
+        message(joueur2.nom()+" : "+joueur2.affichertuilesRack());
         
 		Plateau plateau = new Plateau();
 		plateau.afficherPlateau();

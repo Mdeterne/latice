@@ -10,30 +10,30 @@ import java.util.List;
 
 public class Rack {
 
-	private ArrayList<Jeton> jetons = new ArrayList<Jeton>();
+	private ArrayList<Tuile> tuiles = new ArrayList<Tuile>();
 	public static final int TAILLE_MAX = 5;
 	
 	public Rack() {
-        jetons = new ArrayList<>();
+        tuiles = new ArrayList<>();
     }
 	
-	public List<Jeton> vider() {
-        List<Jeton> jetonsVides = new ArrayList<>(jetons);
-        jetons.clear();
-        return jetonsVides;
+	public List<Tuile> vider() {
+        List<Tuile> tuilesVides = new ArrayList<>(tuiles);
+        tuiles.clear();
+        return tuilesVides;
     }
 
-	public void ajouterJeton(Jeton jeton) {
-		if (jetons.size() < TAILLE_MAX) {
-            jetons.add(jeton);
+	public void ajoutertuile(Tuile tuile) {
+		if (tuiles.size() < TAILLE_MAX) {
+            tuiles.add(tuile);
         }
 	}
 	
-	public void retirerJeton(Jeton jeton){
-		jetons.remove(jeton);   
+	public void retirertuile(Tuile tuile){
+		tuiles.remove(tuile);   
     }
 	
-	public ArrayList<Jeton> afficherJetons() {
-        return new ArrayList<>(jetons);
+	public ArrayList<Tuile> affichertuiles() {
+        return new ArrayList<>(tuiles);
     }
 }

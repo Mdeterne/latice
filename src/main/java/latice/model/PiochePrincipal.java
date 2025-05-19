@@ -10,8 +10,8 @@ public class PiochePrincipal extends Pioche{
 		super();
 		for (Couleur couleur : Couleur.values()) {
 	        for (Symbole symbole : Symbole.values()) {
-	        	pioche.add(new Jeton(couleur, symbole));
-	        	pioche.add(new Jeton(couleur, symbole)); 
+	        	pioche.add(new Tuile(couleur, symbole));
+	        	pioche.add(new Tuile(couleur, symbole)); 
 	        }
 	    }
 		Collections.shuffle(pioche);

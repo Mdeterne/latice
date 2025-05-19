@@ -23,14 +23,14 @@ public class Joueur {
 		this.piochePersonelle = new PiochePersonelle();
 	}
 	
-	public void jouer(Plateau plateau, Jeton jeton, Position position) throws CaseInaccessibleException{
+	public void jouer(Plateau plateau, Tuile tuile, Position position) throws CaseInaccessibleException{
 		
-		plateau.poserJeton(jeton, position);
-	    rack.retirerJeton(jeton);
-	    Jeton jeton2;
+		plateau.posertuile(tuile, position);
+	    rack.retirertuile(tuile);
+	    Tuile tuile2;
 		try {
-			jeton2 = piochePersonelle.piocher();
-			rack.ajouterJeton(jeton2);
+			tuile2 = piochePersonelle.piocher();
+			rack.ajoutertuile(tuile2);
 		} catch (PiocheVideException e) {
 			e.printStackTrace();
 		}
@@ -47,11 +47,11 @@ public class Joueur {
 		
 	
 	public String echangerRack() throws PiocheVideException {
-		List<Jeton> anciensJetons = rack.vider();
-		anciensJetons.forEach(jeton -> piochePersonelle.ajouterJeton(jeton));
+		List<Tuile> ancienstuiles = rack.vider();
+		ancienstuiles.forEach(tuile -> piochePersonelle.ajoutertuile(tuile));
 		piochePersonelle.mélanger();
-		while (rack.afficherJetons().size() < Rack.TAILLE_MAX && !piochePersonelle.estVide()) {
-            rack.ajouterJeton(piochePersonelle.piocher());
+		while (rack.affichertuiles().size() < Rack.TAILLE_MAX && !piochePersonelle.estVide()) {
+            rack.ajoutertuile(piochePersonelle.piocher());
         }
 		return (this.nom+" à échanger son rack");
 	}
@@ -75,16 +75,16 @@ public class Joueur {
 		 return rack; 
 	}
 	 
-	public String afficherJetonsRack() {
-		return ""+rack().afficherJetons();
+	public String affichertuilesRack() {
+		return ""+rack().affichertuiles();
 	}
 	
 	public void initialiserRack() throws PiocheVideException {
 	    rack.vider();
 	     
 	    for (int i = 0; i < Rack.TAILLE_MAX && !piochePersonelle.estVide(); i++) {
-	        Jeton jeton = piochePersonelle.piocher();
-	        rack.ajouterJeton(jeton);
+	        Tuile tuile = piochePersonelle.piocher();
+	        rack.ajoutertuile(tuile);
 	    }
 	}
 	
@@ -100,7 +100,7 @@ public class Joueur {
 		return piochePersonelle;
 	}
 	
-	public ArrayList<Jeton> afficherPiochePersonelle() {
+	public ArrayList<Tuile> afficherPiochePersonelle() {
 		return piochePersonelle.pioche();
 	}
 	
