@@ -1,13 +1,14 @@
 package latice.model;
 
 import latice.test.exception.CaseInaccessibleException;
+import latice.test.exception.PositionInvalideException;
 
 public class Plateau {
-    private int taille = 9;
+    private final int taille = 9;
 	private Case[][] plateau = new Case[taille][taille];
 
     
-	public Plateau() {
+	public Plateau() throws PositionInvalideException {
 	    for (int i = 0; i < taille; i++) {
 	        for (int j = 0; j < taille; j++) {
 	            Position position = new Position(i, j);
@@ -18,9 +19,12 @@ public class Plateau {
 	    }
 	}
 	
-	private boolean estPositionSoleil(Position position) {
+	private boolean estPositionSoleil(Position position) throws PositionInvalideException{
 	    int x = position.x();
 	    int y = position.y();
+		if ( x < 0 || x > 8 || y < 0 || y > 8) {
+			throw new PositionInvalideException("La position est invalide");
+		}
 
 	    // Diagonales autour des coins
 	    for (int i = 0; i < 3; i++) {
