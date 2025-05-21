@@ -1,21 +1,23 @@
 package latice.application.JavaFX;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class LaticeJavaFXApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            
+        	FXMLLoader loader = new FXMLLoader();
+        	loader.setLocation(getClass().getResource("/Scene1.fxml"));
+        	Parent root = loader.load();
         	
+        	LaticeJavaFXControleur controleur = loader.getController();
         	
-        	
-        	Parent root = FXMLLoader.load(getClass().getResource("/Scene.fxml"));
-
             Scene scene = new Scene(root);
 
             LaticeGestionnaireDeMusique musique = new LaticeGestionnaireDeMusique();
@@ -24,6 +26,7 @@ public class LaticeJavaFXApplication extends Application {
             primaryStage.setScene(scene);
             primaryStage.setTitle("Latice Game");
             primaryStage.show();
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
