@@ -11,7 +11,7 @@ public class LaticeGestionnaireDeMusique {
     public void chargerMusique(String filePath) {
     	 try {
              
-             String uri = Paths.get(filePath).toUri().toString();
+             String uri = getClass().getResource(filePath).toURI().toString();
              Media media = new Media(uri);
              
              mediaPlayer = new MediaPlayer(media);
