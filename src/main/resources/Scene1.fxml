@@ -5,14 +5,26 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Label layoutX="75.0" layoutY="189.0" prefHeight="23.0" prefWidth="114.0" text="Nom joueur 1:" />
-      <Label layoutX="404.0" layoutY="189.0" prefHeight="23.0" prefWidth="114.0" text="Nom joueur 2:" />
-      <TextField fx:id="nomJoueur1" layoutX="47.0" layoutY="222.0" />
-      <TextField fx:id="nomJoueur2" layoutX="376.0" layoutY="222.0" />
-      <Button fx:id="connexionBouton" layoutX="243.0" layoutY="315.0" mnemonicParsing="false" text="Se connecter" />
-      <Label fx:id="messageLabel" layoutX="209.0" layoutY="254.0" prefHeight="18.0" prefWidth="182.0" />
-      <Label fx:id="tittleLabel" layoutX="199.0" layoutY="105.0" prefHeight="34.0" prefWidth="202.0" styleClass="title-label" text="Connexion au Jeu Latice" />
-   </children>
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="latice.application.JavaFX.LaticeJavaFXControleur">
+   
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextField fx:id="nomJoueur1" GridPane.rowIndex="1" />
+            <TextField fx:id="nomJoueur2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Label" />
+            <Label text="Label" GridPane.columnIndex="1" />
+            <Button fx:id="connexionBouton" mnemonicParsing="false" onAction="#sauvegardeDesNoms" text="Button" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>
