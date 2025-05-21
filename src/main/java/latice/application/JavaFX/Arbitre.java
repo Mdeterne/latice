@@ -12,4 +12,12 @@ public class Arbitre {
 	public void setNomJoueur2(String nom) {
 		nomJoueur2 = nom;
 	}
+	
+	public String nomJoueur1() {
+		return nomJoueur1;
+	}
+	
+	public String nomJoueur2() {
+		return nomJoueur2;
+	}
 }
