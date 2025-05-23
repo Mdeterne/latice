@@ -48,7 +48,7 @@ public class LaticeGestionnaireDeMusique {
         }
     }
     
-    public void setVolume(double volume) {
+    public void changerVolume(double volume) {
         if (mediaPlayer != null) {
             mediaPlayer.setVolume(volume);
         }
