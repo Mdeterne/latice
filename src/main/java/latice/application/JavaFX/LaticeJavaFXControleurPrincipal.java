@@ -107,7 +107,7 @@ public class LaticeJavaFXControleurPrincipal {
     
     @FXML
     public void changerLeVolume() {
-    	musique.changerVolume(barVolume.getValue());
+    	musique.changerVolume(barVolume.getValue()/100);
     	textVolume.setText(((int)barVolume.getValue())+"");
     }
 }
