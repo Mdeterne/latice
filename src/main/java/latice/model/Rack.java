@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-
-
-
 public class Rack {
 
 	private ArrayList<Tuile> tuiles = new ArrayList<Tuile>();
