@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="latice.application.JavaFX.LaticeJavaFXControleurPrincipal">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="latice.application.JavaFX.LaticeJavaFXControleurPrincipal">
    <children>
       <ImageView fitHeight="1277.0" fitWidth="1275.0" layoutX="-87.0" layoutY="-305.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -483,25 +483,25 @@
          <font>
             <Font size="19.0" />
          </font></Label>
-      <Button fx:id="boutonArrêter" layoutX="87.0" layoutY="65.0" mnemonicParsing="false" onAction="#arreterLaMusique" text="Arrêter" />
-      <Button fx:id="boutonLancer" layoutX="36.0" layoutY="65.0" mnemonicParsing="false" onAction="#lancerLaMusique" text="Lancer" />
-      <Label layoutX="50.0" layoutY="27.0" text="Musique" textFill="#fbff00">
+      <Button fx:id="boutonArrêter" layoutX="79.0" layoutY="65.0" mnemonicParsing="false" onAction="#arreterLaMusique" scaleX="0.75" scaleY="0.75" stylesheets="@style-bouton.css" text="Arrêter" />
+      <Button fx:id="boutonLancer" layoutX="13.0" layoutY="65.0" mnemonicParsing="false" onAction="#lancerLaMusique" scaleX="0.75" scaleY="0.75" stylesheets="@style-bouton.css" text="Lancer" />
+      <Label layoutX="41.0" layoutY="22.0" stylesheets="@style-texte.css" text="Musique" textFill="#fbff00">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Slider fx:id="barVolume" layoutX="17.0" layoutY="140.0" onMouseClicked="#changerLeVolume" value="50.0" />
-      <Label layoutX="57.0" layoutY="112.0" text="Volume :" textFill="#a65a02">
+      <Slider fx:id="barVolume" layoutX="17.0" layoutY="140.0" onMouseClicked="#changerLeVolume" scaleX="0.75" scaleY="0.75" value="50.0" />
+      <Label layoutX="14.0" layoutY="97.0" scaleX="0.75" scaleY="0.75" stylesheets="@style-texte.css" text="Volume :" textFill="#a65a02">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="textVolume" layoutX="118.0" layoutY="113.0" text="50" textFill="#a65a02">
+      <Label fx:id="textVolume" layoutX="102.0" layoutY="97.0" scaleX="0.75" scaleY="0.75" stylesheets="@style-texte.css" text="50" textFill="#a65a02">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="lblJoueurActuel" layoutX="25.0" layoutY="697.0" text="à vous de jouer !" textFill="#01ff00">
+      <Label fx:id="lblJoueurActuel" layoutX="24.0" layoutY="673.0" styleClass="text2" stylesheets="@style-texte.css" text="à vous de jouer !" textFill="#01ff00">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
