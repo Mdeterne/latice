@@ -3,6 +3,7 @@ package latice.application.JavaFX;
 
 import latice.model.Joueur;
 import latice.model.PiochePrincipal;
+import latice.model.Rack;
 import latice.test.exception.PiocheVideException;
 
 public class Arbitre {
@@ -38,5 +39,13 @@ public class Arbitre {
 		} catch (PiocheVideException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public Rack getRackJoueur1() {
+	    return joueur1.rack();
+	}
+
+	public Rack getRackJoueur2() {
+	    return joueur2.rack();
 	}
 }
