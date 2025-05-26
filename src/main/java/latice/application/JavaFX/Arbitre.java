@@ -1,23 +1,42 @@
 package latice.application.JavaFX;
 
+
+import latice.model.Joueur;
+import latice.model.PiochePrincipal;
+import latice.test.exception.PiocheVideException;
+
 public class Arbitre {
 
-	private String nomJoueur1;
-	private String nomJoueur2;
+	private Joueur joueur1;
+	private Joueur joueur2;
 	
-	public void setNomJoueur1(String nom) {
-		nomJoueur1 = nom;
-	}
+	private PiochePrincipal piochePrincipal;
 	
-	public void setNomJoueur2(String nom) {
-		nomJoueur2 = nom;
-	}
 	
-	public String nomJoueur1() {
-		return nomJoueur1;
-	}
-	
-	public String nomJoueur2() {
-		return nomJoueur2;
+	public void initialiser(String nomJoueur1, String nomJoueur2) {
+		joueur1 = new Joueur(nomJoueur1);
+        joueur2 = new Joueur(nomJoueur2);
+        
+        try {
+			joueur1.remplirPiochePersonelle(piochePrincipal);
+		} catch (PiocheVideException e) {
+			e.printStackTrace();
+		}
+        try {
+			joueur2.remplirPiochePersonelle(piochePrincipal);
+		} catch (PiocheVideException e) {
+			e.printStackTrace();
+		}
+        
+        try {
+			joueur1.initialiserRack();
+		} catch (PiocheVideException e) {
+			e.printStackTrace();
+		}
+        try {
+			joueur2.initialiserRack();
+		} catch (PiocheVideException e) {
+			e.printStackTrace();
+		}
 	}
 }
