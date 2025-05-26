@@ -2,7 +2,7 @@ package latice.model;
 
 import java.util.Collections;
 
-import latice.test.exception.PiocheVideException;
+import latice.util.exception.PiocheVideException;
 
 public class PiochePersonelle extends Pioche{
 	

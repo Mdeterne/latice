@@ -17,6 +17,9 @@ public class LaticeJavaFXControleurPrincipal {
 	
 	@FXML
     private Label lblBienvenue;
+	
+	@FXML
+	private Label lblJoueurActuel;
     
     @FXML
     private Button boutonLancer;
@@ -50,15 +53,27 @@ public class LaticeJavaFXControleurPrincipal {
     	this.musique = new LaticeGestionnaireDeMusique();
 		this.arbitre = new Arbitre();
     	arbitre.initialiser(joueur1,joueur2);
+    	changementTextDeJoueur(arbitre.tourJoueur());
     	changerImageRack(arbitre.tourJoueur());
         lblBienvenue.setText("Bienvenue " + joueur1 + " et " + joueur2);
 		lancerLaMusique();
     }
     
-    @FXML
-    public void changerImageRack(boolean joueur) {
+    private void changementTextDeJoueur(Boolean tourJoueur) {
+		
+    	if (tourJoueur) {
+			lblJoueurActuel.setText(arbitre.nomJoueur1() + " à vous de jouer !");
+		}
+    	else {
+    		lblJoueurActuel.setText(arbitre.nomJoueur2() + " à vous de jouer !");
+    	}
+		
+	}
+
+	@FXML
+    public void changerImageRack(boolean estPremierJoueur) {
     	ArrayList<Tuile> tuiles = new ArrayList<Tuile>();
-    	if (joueur) {
+    	if (estPremierJoueur) {
     		tuiles = arbitre.RackJoueur1();
     	}
     	else {

@@ -7,7 +7,7 @@ import java.util.Random;
 
 import latice.model.Joueur;
 import latice.model.PiochePrincipal;
-import latice.test.exception.PiocheVideException;
+import latice.util.exception.PiocheVideException;
 
 public class LaticeConsoleApplication {
 

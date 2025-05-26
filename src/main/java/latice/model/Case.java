@@ -1,6 +1,6 @@
 package latice.model;
 
-import latice.test.exception.CaseInaccessibleException;
+import latice.util.exception.CaseInaccessibleException;
 
 public class Case {
     private Position position;

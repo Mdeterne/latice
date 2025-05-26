@@ -1,15 +1,17 @@
 package latice;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
 import latice.model.Case;
 import latice.model.Couleur;
-import latice.model.Tuile;
 import latice.model.Position;
 import latice.model.Symbole;
-import latice.test.exception.CaseInaccessibleException;
+import latice.model.Tuile;
+import latice.util.exception.CaseInaccessibleException;
 
 class CaseTest {
 

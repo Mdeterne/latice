@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import latice.model.Joueur;
-import latice.test.exception.PointInsuffisantException;
+import latice.util.exception.PointInsuffisantException;
 
 class JoueurTest {
 

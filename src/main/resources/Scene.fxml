@@ -501,5 +501,10 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
+      <Label fx:id="lblJoueurActuel" layoutX="25.0" layoutY="697.0" text="à vous de jouer !" textFill="#01ff00">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

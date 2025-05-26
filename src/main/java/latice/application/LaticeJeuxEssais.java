@@ -2,7 +2,7 @@ package latice.application;
 
 import static latice.console.LaticeConsole.message;
 import latice.model.*;
-import latice.test.exception.PiocheVideException;
+import latice.util.exception.PiocheVideException;
 
 public class LaticeJeuxEssais {
 

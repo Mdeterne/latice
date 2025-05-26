@@ -4,9 +4,9 @@ package latice.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import latice.test.exception.CaseInaccessibleException;
-import latice.test.exception.PiocheVideException;
-import latice.test.exception.PointInsuffisantException;
+import latice.util.exception.CaseInaccessibleException;
+import latice.util.exception.PiocheVideException;
+import latice.util.exception.PointInsuffisantException;
 
 
 public class Joueur {

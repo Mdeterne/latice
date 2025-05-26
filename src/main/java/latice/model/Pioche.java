@@ -3,7 +3,7 @@ package latice.model;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import latice.test.exception.PiocheVideException;
+import latice.util.exception.PiocheVideException;
 
 public abstract class Pioche {
 
