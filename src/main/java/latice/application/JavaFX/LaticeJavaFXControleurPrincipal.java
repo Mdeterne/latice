@@ -1,12 +1,12 @@
 package latice.application.JavaFX;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import latice.model.Tuile;
 
@@ -50,25 +50,32 @@ public class LaticeJavaFXControleurPrincipal {
     	this.musique = new LaticeGestionnaireDeMusique();
 		this.arbitre = new Arbitre();
     	arbitre.initialiser(joueur1,joueur2);
-    	changerImageRack(1);
+    	changerImageRack(arbitre.tourJoueur());
         lblBienvenue.setText("Bienvenue " + joueur1 + " et " + joueur2);
 		lancerLaMusique();
     }
     
-    public void changerImageRack(int joueur) {
+    @FXML
+    public void changerImageRack(boolean joueur) {
     	ArrayList<Tuile> tuiles = new ArrayList<Tuile>();
-    	if (joueur == 1) {
-    		tuiles = arbitre.getRackJoueur1();
+    	if (joueur) {
+    		tuiles = arbitre.RackJoueur1();
     	}
-    	if (joueur == 2) {
-    		tuiles = arbitre.getRackJoueur2();
+    	else {
+    		tuiles = arbitre.RackJoueur2();
     	}
-    	
-    	for (int i=0; i>=4 ;i++) {
-    		tuile1.setImage(tuiles[i].symbole()+"_"+tuiles[i].couleur()+".png"); 
-    	}
+    	System.out.println("img/"+tuiles.get(0).symbole()+"_"+tuiles.get(0).couleur()+".png");
+    	tuile1.setImage(loadImage("/img/"+tuiles.get(0).symbole()+"_"+tuiles.get(0).couleur()+".png"));
+    	tuile2.setImage(loadImage("/img/"+tuiles.get(1).symbole()+"_"+tuiles.get(1).couleur()+".png"));
+    	tuile3.setImage(loadImage("/img/"+tuiles.get(2).symbole()+"_"+tuiles.get(2).couleur()+".png"));
+    	tuile4.setImage(loadImage("/img/"+tuiles.get(3).symbole()+"_"+tuiles.get(3).couleur()+".png"));
+    	tuile5.setImage(loadImage("/img/"+tuiles.get(4).symbole()+"_"+tuiles.get(4).couleur()+".png"));
     }
     
+    
+    private Image loadImage(String chemin) {
+    	return new Image(getClass().getResourceAsStream(chemin));
+    }
     
     
     //Gestion de la musique

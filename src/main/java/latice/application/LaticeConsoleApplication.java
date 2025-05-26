@@ -23,7 +23,7 @@ public class LaticeConsoleApplication {
             
             Boolean continuer = true;
             String i;
-            Boolean tourJoueur = random.nextBoolean(); // true ou false
+            Boolean tourJoueur = random.nextBoolean(); 
             PiochePrincipal piochePrincipal = new PiochePrincipal();
            
             Joueur joueur1 = new Joueur(entrée("Entrez un nom: "));

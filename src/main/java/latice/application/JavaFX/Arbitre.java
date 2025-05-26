@@ -1,17 +1,24 @@
 package latice.application.JavaFX;
 
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import latice.model.Joueur;
 import latice.model.PiochePrincipal;
-import latice.model.Rack;
+import latice.model.Tuile;
 import latice.test.exception.PiocheVideException;
 
 public class Arbitre {
-
+	
+	Random random = new Random();
+	
 	private Joueur joueur1;
 	private Joueur joueur2;
 	
-	private PiochePrincipal piochePrincipal;
+	private PiochePrincipal piochePrincipal = new PiochePrincipal();
+	
+	private Boolean tourJoueur;
 	
 	
 	public void initialiser(String nomJoueur1, String nomJoueur2) {
@@ -39,13 +46,18 @@ public class Arbitre {
 		} catch (PiocheVideException e) {
 			e.printStackTrace();
 		}
+        tourJoueur = random.nextBoolean(); 
 	}
 	
-	public Rack getRackJoueur1() {
-	    return joueur1.rack();
+	public ArrayList<Tuile> RackJoueur1() {
+	    return joueur1.tuilesRack();
 	}
 
-	public Rack getRackJoueur2() {
-	    return joueur2.rack();
+	public ArrayList<Tuile> RackJoueur2() {
+	    return joueur2.tuilesRack();
+	}
+	
+	public Boolean tourJoueur() {
+		return tourJoueur;
 	}
 }
