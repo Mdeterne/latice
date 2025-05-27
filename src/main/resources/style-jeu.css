@@ -1,0 +1,46 @@
+
+.label {
+    -fx-text-fill: #32aafa; 
+    -fx-font-size: 20px;
+    -fx-font-family: "Comic Sans MS", "Chalkboard SE", "Segoe Print", cursive;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, #FFFFFF, 3, 0.8, 0, 0),
+                 dropshadow(gaussian, #000000, 6, 0.8, 2, 2);
+    -fx-background-color: transparent;
+    -fx-padding: 10;
+}
+
+.text2 {
+    -fx-text-fill: #fe0303; 
+    -fx-font-size: 20px;
+    -fx-font-family: "Comic Sans MS", "Chalkboard SE", "Segoe Print", cursive;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, #FFFFFF, 3, 0.8, 0, 0),
+                 dropshadow(gaussian, #000000, 6, 0.8, 2, 2);
+    -fx-background-color: transparent;
+    -fx-padding: 10;
+}
+
+.button {
+    -fx-background-color: linear-gradient(#4CAF50, #2E7D32); 
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #1B5E20;
+    -fx-border-width: 2;
+    -fx-cursor: hand;
+}
+
+
+.button:hover {
+    -fx-background-color: linear-gradient(#66BB6A, #388E3C);
+}
+
+
+.button:pressed {
+    -fx-background-color: linear-gradient(#2E7D32, #1B5E20);
+    -fx-translate-y: 2;
+}
