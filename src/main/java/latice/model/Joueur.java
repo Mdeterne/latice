@@ -119,7 +119,11 @@ public class Joueur {
 	}
 	
 	public void ajouterUneAction() {
-		actions = actions+1;
+		actions = actions + 1;
+	}
+	
+	public void enleverActions() {
+		actions = actions - 1;
 	}
 	
 }
