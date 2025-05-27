@@ -19,7 +19,7 @@ public class LaticeJavaFXControleurPrincipal {
 	private Arbitre arbitre;
     private LaticeGestionnaireDeMusique musique;
 
-    @FXML private Label lblBienvenue;
+    
     @FXML private Label lblJoueurActuel;
     
 
@@ -61,8 +61,8 @@ public class LaticeJavaFXControleurPrincipal {
     @FXML
     private Label erreurChangerRack;
     
-    @FXML
-    private Label indicateurPioche;
+    //@FXML
+    //private Label indicateurPioche;
     
     
     public void initialisation(String joueur1, String joueur2) {
@@ -77,7 +77,6 @@ public class LaticeJavaFXControleurPrincipal {
         arbitre.initialiser(joueur1, joueur2);
         changementTextDeJoueur(arbitre.tourJoueur());
         changementImageRack(arbitre.tourJoueur());
-        lblBienvenue.setText("Bienvenue " + joueur1 + " et " + joueur2);
         lancerLaMusique();
     }
     
@@ -128,7 +127,7 @@ public class LaticeJavaFXControleurPrincipal {
     	else {
     		lblJoueurActuel.setText(arbitre.nomJoueur2() + " à vous de jouer !");
     	}
-    	indicateurPioche.setText(""+arbitre.taillePioche());
+    	//indicateurPioche.setText(""+arbitre.taillePioche());
 	}
 
     private Image loadImage(String chemin) {
