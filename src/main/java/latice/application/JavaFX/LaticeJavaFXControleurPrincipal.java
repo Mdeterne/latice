@@ -2,6 +2,7 @@ package latice.application.JavaFX;
 
 import java.util.ArrayList;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -43,33 +44,6 @@ public class LaticeJavaFXControleurPrincipal {
     @FXML private ImageView case71; @FXML private ImageView case72; @FXML private ImageView case73; @FXML private ImageView case74; @FXML private ImageView case75; @FXML private ImageView case76; @FXML private ImageView case77; @FXML private ImageView case78; @FXML private ImageView case79;
     @FXML private ImageView case81; @FXML private ImageView case82; @FXML private ImageView case83; @FXML private ImageView case84; @FXML private ImageView case85; @FXML private ImageView case86; @FXML private ImageView case87; @FXML private ImageView case88; @FXML private ImageView case89;
     @FXML private ImageView case91; @FXML private ImageView case92; @FXML private ImageView case93; @FXML private ImageView case94; @FXML private ImageView case95; @FXML private ImageView case96; @FXML private ImageView case97; @FXML private ImageView case98; @FXML private ImageView case99;
-
-    @FXML
-    private Button boutonLancer;
-    
-    @FXML
-    private Button boutonArrêter;
-    
-    @FXML
-    private Slider barVolume;
-    
-    @FXML
-    private Label textVolume;
-    
-    @FXML
-    private ImageView tuile1;
-    
-    @FXML
-    private ImageView tuile2;
-    
-    @FXML
-    private ImageView tuile3;
-    
-    @FXML
-    private ImageView tuile4;
-    
-    @FXML
-    private ImageView tuile5;
     
     @FXML
     private Button changerRack;
@@ -161,13 +135,6 @@ public class LaticeJavaFXControleurPrincipal {
     	tuile3.setImage(loadImage("/img/"+tuiles.get(2).symbole()+"_"+tuiles.get(2).couleur()+".png"));
     	tuile4.setImage(loadImage("/img/"+tuiles.get(3).symbole()+"_"+tuiles.get(3).couleur()+".png"));
     	tuile5.setImage(loadImage("/img/"+tuiles.get(4).symbole()+"_"+tuiles.get(4).couleur()+".png"));
-
-    private void changementTextDeJoueur(Boolean tourJoueur) {
-        if (tourJoueur) {
-            lblJoueurActuel.setText(arbitre.nomJoueur1() + " à vous de jouer !");
-        } else {
-            lblJoueurActuel.setText(arbitre.nomJoueur2() + " à vous de jouer !");
-        }
     }
 
     @FXML
@@ -200,6 +167,12 @@ public class LaticeJavaFXControleurPrincipal {
         musique.changerVolume(barVolume.getValue() / 100);
         textVolume.setText(((int) barVolume.getValue()) + "");
     }
+    
+    @FXML
+    private void QuitterLatice() {
+        System.exit(0);
+    }
+
 
     private void makeDraggable(ImageView imageView) {
         imageView.setOnDragDetected(event -> {

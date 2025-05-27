@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="latice.application.JavaFX.LaticeJavaFXControleurPrincipal">
@@ -486,6 +487,7 @@
          </font></Label>
       <Button fx:id="boutonArrêter" layoutX="79.0" layoutY="65.0" mnemonicParsing="false" onAction="#arreterLaMusique" scaleX="0.75" scaleY="0.75" stylesheets="@style-jeu.css" text="Arrêter" />
       <Button fx:id="boutonLancer" layoutX="7.0" layoutY="65.0" mnemonicParsing="false" onAction="#lancerLaMusique" scaleX="0.75" scaleY="0.75" stylesheets="@style-jeu.css" text="Lancer" />
+      
       <Label layoutX="41.0" layoutY="22.0" stylesheets="@style-jeu.css" text="Musique" textFill="#fbff00">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -513,5 +515,10 @@
       </Label>
       <Button fx:id="changerRack" layoutX="795.0" layoutY="685.0" mnemonicParsing="false" text="Changer" />
       <Label layoutX="769.0" layoutY="665.0" text="Erreur Changer Rack" />
+      <VBox layoutX="877.0" layoutY="106.0" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Button fx:id="Quitter" mnemonicParsing="false" onAction="#QuitterLatice" text="Quitter" />
+         </children>
+      </VBox>
    </children>
 </Pane>
