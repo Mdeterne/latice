@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
@@ -14,9 +15,9 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="latice.application.JavaFX.LaticeJavaFXControleurPrincipal">
    <children>
-      <ImageView fitHeight="1277.0" fitWidth="1275.0" layoutX="-87.0" layoutY="-305.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="1015.0" fitWidth="1106.0" layoutX="-3.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@img/fond%20awai.png" />
+            <Image url="@img/fond%20awai%20(1)%20(1).jpg" />
          </image>
       </ImageView>
       <GridPane fx:id="plateau" alignment="CENTER" gridLinesVisible="true" layoutX="280.0" layoutY="63.0" prefHeight="540.0" prefWidth="540.0" scaleX="1.1" scaleY="1.1">
@@ -483,12 +484,16 @@
          <font>
             <Font size="19.0" />
          </font></Label>
-      <Button fx:id="boutonArrêter" layoutX="79.0" layoutY="65.0" mnemonicParsing="false" onAction="#arreterLaMusique" scaleX="0.75" scaleY="0.75" stylesheets="@style-bouton.css" text="Arrêter" />
-      <Button fx:id="boutonLancer" layoutX="13.0" layoutY="65.0" mnemonicParsing="false" onAction="#lancerLaMusique" scaleX="0.75" scaleY="0.75" stylesheets="@style-bouton.css" text="Lancer" />
-      <Label layoutX="41.0" layoutY="22.0" stylesheets="@style-texte.css" text="Musique" textFill="#fbff00">
+      <Button fx:id="boutonArrêter" layoutX="79.0" layoutY="65.0" mnemonicParsing="false" onAction="#arreterLaMusique" scaleX="0.75" scaleY="0.75" stylesheets="@style-jeu.css" text="Arrêter" />
+      <Button fx:id="boutonLancer" layoutX="7.0" layoutY="65.0" mnemonicParsing="false" onAction="#lancerLaMusique" scaleX="0.75" scaleY="0.75" stylesheets="@style-jeu.css" text="Lancer" />
+      <Label layoutX="41.0" layoutY="22.0" stylesheets="@style-jeu.css" text="Musique" textFill="#fbff00">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
+         <styleClass>
+            <String fx:value="label" />
+            <String fx:value="text" />
+         </styleClass>
       </Label>
       <Slider fx:id="barVolume" layoutX="17.0" layoutY="140.0" onMouseClicked="#changerLeVolume" prefHeight="28.0" prefWidth="140.0" scaleX="0.75" scaleY="0.75" value="50.0" />
       <Label layoutX="14.0" layoutY="97.0" scaleX="0.75" scaleY="0.75" stylesheets="@style-texte.css" text="Volume :" textFill="#a65a02">
@@ -496,15 +501,17 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="textVolume" layoutX="102.0" layoutY="97.0" scaleX="0.75" scaleY="0.75" stylesheets="@style-texte.css" text="50" textFill="#a65a02">
+      <Label fx:id="textVolume" layoutX="102.0" layoutY="97.0" scaleX="0.75" scaleY="0.75" stylesheets="@style-jeu.css" text="50" textFill="#a65a02">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="lblJoueurActuel" layoutX="24.0" layoutY="673.0" styleClass="text2" stylesheets="@style-texte.css" text="à vous de jouer !" textFill="#01ff00">
+      <Label fx:id="lblJoueurActuel" layoutX="24.0" layoutY="673.0" styleClass="text2" stylesheets="@style-jeu.css" text="à vous de jouer !" textFill="#01ff00">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
+      <Button fx:id="changerRack" layoutX="795.0" layoutY="685.0" mnemonicParsing="false" text="Changer" />
+      <Label layoutX="769.0" layoutY="665.0" text="Erreur Changer Rack" />
    </children>
 </Pane>

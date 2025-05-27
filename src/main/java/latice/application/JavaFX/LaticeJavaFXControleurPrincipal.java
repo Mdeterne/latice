@@ -2,6 +2,7 @@ package latice.application.JavaFX;
 
 import java.util.ArrayList;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -12,6 +13,7 @@ import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import latice.model.Tuile;
+import latice.util.exception.PiocheVideException;
 
 public class LaticeJavaFXControleurPrincipal {
 
@@ -43,6 +45,39 @@ public class LaticeJavaFXControleurPrincipal {
     @FXML private ImageView case91; @FXML private ImageView case92; @FXML private ImageView case93; @FXML private ImageView case94; @FXML private ImageView case95; @FXML private ImageView case96; @FXML private ImageView case97; @FXML private ImageView case98; @FXML private ImageView case99;
 
     @FXML
+    private Button boutonLancer;
+    
+    @FXML
+    private Button boutonArrêter;
+    
+    @FXML
+    private Slider barVolume;
+    
+    @FXML
+    private Label textVolume;
+    
+    @FXML
+    private ImageView tuile1;
+    
+    @FXML
+    private ImageView tuile2;
+    
+    @FXML
+    private ImageView tuile3;
+    
+    @FXML
+    private ImageView tuile4;
+    
+    @FXML
+    private ImageView tuile5;
+    
+    @FXML
+    private Button changerRack;
+    
+    @FXML
+    private Label erreurChangerRack;
+    
+    
     public void initialize() {
         // Activer le drag sur les tuiles
         makeDraggable(tuile1);
@@ -78,6 +113,54 @@ public class LaticeJavaFXControleurPrincipal {
         lblBienvenue.setText("Bienvenue " + joueur1 + " et " + joueur2);
         lancerLaMusique();
     }
+    
+    
+    public void verificationDuTour() {
+    	if(arbitre.getActions() == 0) {
+    		arbitre.changerTour();
+    		changementImageRack(arbitre.tourJoueur());
+    		changementTextDeJoueur(arbitre.tourJoueur());
+    	}
+    }
+    
+    public void changementTextDeJoueur(Boolean tourJoueur) {
+		
+    	if (tourJoueur) {
+			lblJoueurActuel.setText(arbitre.nomJoueur1() + " à vous de jouer !");
+		}
+    	else {
+    		lblJoueurActuel.setText(arbitre.nomJoueur2() + " à vous de jouer !");
+    	}
+		
+	}
+    
+    @FXML
+    private void changerRack(ActionEvent event) {
+    	try {
+			arbitre.changerRack();
+			arbitre.retirerAction();
+			verificationDuTour();
+		} catch (PiocheVideException e) {
+			erreurChangerRack.setText("Impossible votre pioche est vide");
+		}
+    }
+    
+    
+    //gestion des images
+    public void changementImageRack(boolean estPremierJoueur) {
+    	ArrayList<Tuile> tuiles = new ArrayList<Tuile>();
+    	if (estPremierJoueur) {
+    		tuiles = arbitre.RackJoueur1();
+    	}
+    	else {
+    		tuiles = arbitre.RackJoueur2();
+    	}
+    	System.out.println("img/"+tuiles.get(0).symbole()+"_"+tuiles.get(0).couleur()+".png");
+    	tuile1.setImage(loadImage("/img/"+tuiles.get(0).symbole()+"_"+tuiles.get(0).couleur()+".png"));
+    	tuile2.setImage(loadImage("/img/"+tuiles.get(1).symbole()+"_"+tuiles.get(1).couleur()+".png"));
+    	tuile3.setImage(loadImage("/img/"+tuiles.get(2).symbole()+"_"+tuiles.get(2).couleur()+".png"));
+    	tuile4.setImage(loadImage("/img/"+tuiles.get(3).symbole()+"_"+tuiles.get(3).couleur()+".png"));
+    	tuile5.setImage(loadImage("/img/"+tuiles.get(4).symbole()+"_"+tuiles.get(4).couleur()+".png"));
 
     private void changementTextDeJoueur(Boolean tourJoueur) {
         if (tourJoueur) {
