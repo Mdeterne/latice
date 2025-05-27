@@ -63,7 +63,6 @@ public class LaticeJavaFXControleurPrincipal {
     	arbitre.initialiser(joueur1,joueur2);
     	changementTextDeJoueur(arbitre.tourJoueur());
     	changementImageRack(arbitre.tourJoueur());
-        lblBienvenue.setText("Bienvenue " + joueur1 + " et " + joueur2);
 		lancerLaMusique();
     }
     

@@ -480,10 +480,6 @@
             </ImageView>
          </children>
       </HBox>
-      <Label fx:id="lblBienvenue" layoutX="18.0" layoutY="217.0">
-         <font>
-            <Font size="19.0" />
-         </font></Label>
       <Button fx:id="boutonArrêter" layoutX="79.0" layoutY="65.0" mnemonicParsing="false" onAction="#arreterLaMusique" scaleX="0.75" scaleY="0.75" stylesheets="@style-jeu.css" text="Arrêter" />
       <Button fx:id="boutonLancer" layoutX="7.0" layoutY="65.0" mnemonicParsing="false" onAction="#lancerLaMusique" scaleX="0.75" scaleY="0.75" stylesheets="@style-jeu.css" text="Lancer" />
       <Label layoutX="41.0" layoutY="22.0" stylesheets="@style-jeu.css" text="Musique" textFill="#fbff00">
