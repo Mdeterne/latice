@@ -67,9 +67,11 @@ public class Arbitre {
 		}
 		if(changement) {
 			tourJoueur = false;
+			joueur2.réinitialiserActions();
 		}
 		else {
 			tourJoueur = true;
+			joueur1.réinitialiserActions();
 		}
 	}
 }
