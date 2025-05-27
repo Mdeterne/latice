@@ -84,6 +84,15 @@ public class Arbitre {
 		}
 	}
 	
+	public void remplireRack() throws PiocheVideException {
+		if(tourJoueur) {
+			joueur1.remplirRack();;
+		}
+		else {
+			joueur2.remplirRack();
+		}
+	}
+	
 	public void changerTour() {
 		Boolean changement;
 		if(tourJoueur) {
