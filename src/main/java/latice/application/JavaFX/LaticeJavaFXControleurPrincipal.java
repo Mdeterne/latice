@@ -2,6 +2,7 @@ package latice.application.JavaFX;
 
 import java.util.ArrayList;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,15 +10,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.ClipboardContent;
-import javafx.scene.input.Dragboard;
-import javafx.scene.input.TransferMode;
 import latice.model.Tuile;
 import latice.util.exception.PiocheVideException;
 
 public class LaticeJavaFXControleurPrincipal {
-
-    private Arbitre arbitre;
+    
+	private Arbitre arbitre;
     private LaticeGestionnaireDeMusique musique;
 
     @FXML private Label lblBienvenue;
@@ -34,33 +32,6 @@ public class LaticeJavaFXControleurPrincipal {
     @FXML private ImageView case71; @FXML private ImageView case72; @FXML private ImageView case73; @FXML private ImageView case74; @FXML private ImageView case75; @FXML private ImageView case76; @FXML private ImageView case77; @FXML private ImageView case78; @FXML private ImageView case79;
     @FXML private ImageView case81; @FXML private ImageView case82; @FXML private ImageView case83; @FXML private ImageView case84; @FXML private ImageView case85; @FXML private ImageView case86; @FXML private ImageView case87; @FXML private ImageView case88; @FXML private ImageView case89;
     @FXML private ImageView case91; @FXML private ImageView case92; @FXML private ImageView case93; @FXML private ImageView case94; @FXML private ImageView case95; @FXML private ImageView case96; @FXML private ImageView case97; @FXML private ImageView case98; @FXML private ImageView case99;
-
-    @FXML
-    private Button boutonLancer;
-    
-    @FXML
-    private Button boutonArrêter;
-    
-    @FXML
-    private Slider barVolume;
-    
-    @FXML
-    private Label textVolume;
-    
-    @FXML
-    private ImageView tuile1;
-    
-    @FXML
-    private ImageView tuile2;
-    
-    @FXML
-    private ImageView tuile3;
-    
-    @FXML
-    private ImageView tuile4;
-    
-    @FXML
-    private ImageView tuile5;
     
     @FXML
     private Button changerRack;
@@ -72,33 +43,13 @@ public class LaticeJavaFXControleurPrincipal {
     private Label indicateurPioche;
     
     
-    public void initialize() {
-        // Activer le drag sur les tuiles
-        makeDraggable(tuile1);
-        makeDraggable(tuile2);
-        makeDraggable(tuile3);
-        makeDraggable(tuile4);
-        makeDraggable(tuile5);
-
-        // Activer le drop sur toutes les cases
-        for (int i = 1; i <= 9; i++) {
-            for (int j = 1; j <= 9; j++) {
-                int index = i * 10 + j;
-                try {
-                    ImageView caseView = (ImageView) this.getClass()
-                            .getDeclaredField("case" + index)
-                            .get(this);
-                    if (caseView != null) {
-                        makeDroppable(caseView);
-                    }
-                } catch (Exception e) {
-                    // Ignore les cases non définies
-                }
-            }
-        }
-    }
-
     public void initialisation(String joueur1, String joueur2) {
+    	this.musique = new LaticeGestionnaireDeMusique();
+		this.arbitre = new Arbitre();
+    	arbitre.initialiser(joueur1,joueur2);
+    	changementTextDeJoueur(arbitre.tourJoueur());
+    	changementImageRack(arbitre.tourJoueur());
+		lancerLaMusique();
         this.musique = new LaticeGestionnaireDeMusique();
         this.arbitre = new Arbitre();
         arbitre.initialiser(joueur1, joueur2);
@@ -161,28 +112,51 @@ public class LaticeJavaFXControleurPrincipal {
     	tuile3.setImage(loadImage("/img/"+tuiles.get(2).symbole()+"_"+tuiles.get(2).couleur()+".png"));
     	tuile4.setImage(loadImage("/img/"+tuiles.get(3).symbole()+"_"+tuiles.get(3).couleur()+".png"));
     	tuile5.setImage(loadImage("/img/"+tuiles.get(4).symbole()+"_"+tuiles.get(4).couleur()+".png"));
+<<<<<<< HEAD
     }
+
+    @FXML
+    public void changerImageRack(boolean estPremierJoueur) {
+        ArrayList<Tuile> tuiles = estPremierJoueur ? arbitre.RackJoueur1() : arbitre.RackJoueur2();
+        tuile1.setImage(loadImage("/img/" + tuiles.get(0).symbole() + "_" + tuiles.get(0).couleur() + ".png"));
+        tuile2.setImage(loadImage("/img/" + tuiles.get(1).symbole() + "_" + tuiles.get(1).couleur() + ".png"));
+        tuile3.setImage(loadImage("/img/" + tuiles.get(2).symbole() + "_" + tuiles.get(2).couleur() + ".png"));
+        tuile4.setImage(loadImage("/img/" + tuiles.get(3).symbole() + "_" + tuiles.get(3).couleur() + ".png"));
+        tuile5.setImage(loadImage("/img/" + tuiles.get(4).symbole() + "_" + tuiles.get(4).couleur() + ".png"));
+=======
+>>>>>>> origin/V5
+    }
+    
+    
 
     private Image loadImage(String chemin) {
-        return new Image(getClass().getResourceAsStream(chemin));
+    	return new Image(getClass().getResourceAsStream(chemin));
     }
-
+    
+    
+    //Gestion de la musique
     @FXML
     public void lancerLaMusique() {
-        musique.chargerMusique("/laticeMainTheme.mp3");
-        musique.jouer();
+    	musique.chargerMusique("/laticeMainTheme.mp3");
+    	musique.jouer();
     }
-
+    
     @FXML
     public void arreterLaMusique() {
-        musique.stop();
+    	musique.stop();
     }
-
+    
     @FXML
     public void changerLeVolume() {
-        musique.changerVolume(barVolume.getValue() / 100);
-        textVolume.setText(((int) barVolume.getValue()) + "");
+    	musique.changerVolume(barVolume.getValue()/100);
+    	textVolume.setText(((int)barVolume.getValue())+"");
     }
+    
+    @FXML
+    private void QuitterLatice() {
+        System.exit(0);
+    }
+
 
     
     //gestion drag and drop
