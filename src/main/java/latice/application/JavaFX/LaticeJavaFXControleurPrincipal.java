@@ -68,6 +68,9 @@ public class LaticeJavaFXControleurPrincipal {
     @FXML
     private Label erreurChangerRack;
     
+    @FXML
+    private Label indicateurPioche;
+    
     
     public void initialize() {
         // Activer le drag sur les tuiles
@@ -128,6 +131,7 @@ public class LaticeJavaFXControleurPrincipal {
     	else {
     		lblJoueurActuel.setText(arbitre.nomJoueur2() + " à vous de jouer !");
     	}
+    	indicateurPioche.setText(""+arbitre.taillePioche());
 	}
     
     @FXML

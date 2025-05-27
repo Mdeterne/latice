@@ -93,6 +93,15 @@ public class Arbitre {
 		}
 	}
 	
+	public int taillePioche() {
+		if(tourJoueur) {
+			return joueur1.taillePiochePersonelle();
+		}
+		else {
+			return joueur2.taillePiochePersonelle();
+		}
+	}
+	
 	public void changerTour() {
 		Boolean changement;
 		if(tourJoueur) {
