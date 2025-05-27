@@ -16,13 +16,22 @@ public class LaticeJavaFXControleurPrincipal {
     
 	private Arbitre arbitre;
     private LaticeGestionnaireDeMusique musique;
-	
-	@FXML
-    private Label lblBienvenue;
-	
-	@FXML
-	private Label lblJoueurActuel;
+
+    @FXML private Label lblBienvenue;
+    @FXML private Label lblJoueurActuel;
     
+
+    // Déclaration des cases de case11 à case99
+    @FXML private ImageView case11; @FXML private ImageView case12; @FXML private ImageView case13; @FXML private ImageView case14; @FXML private ImageView case15; @FXML private ImageView case16; @FXML private ImageView case17; @FXML private ImageView case18; @FXML private ImageView case19;
+    @FXML private ImageView case21; @FXML private ImageView case22; @FXML private ImageView case23; @FXML private ImageView case24; @FXML private ImageView case25; @FXML private ImageView case26; @FXML private ImageView case27; @FXML private ImageView case28; @FXML private ImageView case29;
+    @FXML private ImageView case31; @FXML private ImageView case32; @FXML private ImageView case33; @FXML private ImageView case34; @FXML private ImageView case35; @FXML private ImageView case36; @FXML private ImageView case37; @FXML private ImageView case38; @FXML private ImageView case39;
+    @FXML private ImageView case41; @FXML private ImageView case42; @FXML private ImageView case43; @FXML private ImageView case44; @FXML private ImageView case45; @FXML private ImageView case46; @FXML private ImageView case47; @FXML private ImageView case48; @FXML private ImageView case49;
+    @FXML private ImageView case51; @FXML private ImageView case52; @FXML private ImageView case53; @FXML private ImageView case54; @FXML private ImageView case55; @FXML private ImageView case56; @FXML private ImageView case57; @FXML private ImageView case58; @FXML private ImageView case59;
+    @FXML private ImageView case61; @FXML private ImageView case62; @FXML private ImageView case63; @FXML private ImageView case64; @FXML private ImageView case65; @FXML private ImageView case66; @FXML private ImageView case67; @FXML private ImageView case68; @FXML private ImageView case69;
+    @FXML private ImageView case71; @FXML private ImageView case72; @FXML private ImageView case73; @FXML private ImageView case74; @FXML private ImageView case75; @FXML private ImageView case76; @FXML private ImageView case77; @FXML private ImageView case78; @FXML private ImageView case79;
+    @FXML private ImageView case81; @FXML private ImageView case82; @FXML private ImageView case83; @FXML private ImageView case84; @FXML private ImageView case85; @FXML private ImageView case86; @FXML private ImageView case87; @FXML private ImageView case88; @FXML private ImageView case89;
+    @FXML private ImageView case91; @FXML private ImageView case92; @FXML private ImageView case93; @FXML private ImageView case94; @FXML private ImageView case95; @FXML private ImageView case96; @FXML private ImageView case97; @FXML private ImageView case98; @FXML private ImageView case99;
+
     @FXML
     private Button boutonLancer;
     
@@ -64,12 +73,25 @@ public class LaticeJavaFXControleurPrincipal {
     	changementTextDeJoueur(arbitre.tourJoueur());
     	changementImageRack(arbitre.tourJoueur());
 		lancerLaMusique();
+        this.musique = new LaticeGestionnaireDeMusique();
+        this.arbitre = new Arbitre();
+        arbitre.initialiser(joueur1, joueur2);
+        changementTextDeJoueur(arbitre.tourJoueur());
+        changementImageRack(arbitre.tourJoueur());
+        lblBienvenue.setText("Bienvenue " + joueur1 + " et " + joueur2);
+        lancerLaMusique();
     }
     
     
     public void verificationDuTour() {
     	if(arbitre.getActions() == 0) {
     		arbitre.changerTour();
+    		try {
+				arbitre.remplireRack();
+			} catch (PiocheVideException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
     		changementImageRack(arbitre.tourJoueur());
     		changementTextDeJoueur(arbitre.tourJoueur());
     	}
@@ -83,7 +105,6 @@ public class LaticeJavaFXControleurPrincipal {
     	else {
     		lblJoueurActuel.setText(arbitre.nomJoueur2() + " à vous de jouer !");
     	}
-		
 	}
     
     @FXML
@@ -116,6 +137,7 @@ public class LaticeJavaFXControleurPrincipal {
     }
     
     
+
     private Image loadImage(String chemin) {
     	return new Image(getClass().getResourceAsStream(chemin));
     }
@@ -138,4 +160,45 @@ public class LaticeJavaFXControleurPrincipal {
     	musique.changerVolume(barVolume.getValue()/100);
     	textVolume.setText(((int)barVolume.getValue())+"");
     }
+
+    
+    //gestion drag and drop
+    private void makeDraggable(ImageView imageView) {
+        imageView.setOnDragDetected(event -> {
+            if (imageView.getImage() != null) {
+                Dragboard db = imageView.startDragAndDrop(TransferMode.MOVE);
+                ClipboardContent content = new ClipboardContent();
+                content.putImage(imageView.getImage());
+                db.setContent(content);
+            }
+            event.consume();
+        });
+    }
+
+    private void makeDroppable(ImageView imageView) {
+        imageView.setOnDragOver(event -> {
+            if (event.getGestureSource() != imageView && event.getDragboard().hasImage()) {
+                event.acceptTransferModes(TransferMode.MOVE);
+            }
+            event.consume();
+        });
+
+        imageView.setOnDragDropped(event -> {
+            Dragboard db = event.getDragboard();
+            boolean success = false;
+            if (db.hasImage()) {
+                imageView.setImage(db.getImage());
+                // Supprimer l'image de la source (le rack)
+                ImageView source = (ImageView) event.getGestureSource();
+                source.setImage(null);
+                success = true;
+            }
+            event.setDropCompleted(success);
+            event.consume();
+            arbitre.retirerAction();
+            verificationDuTour();
+            
+        });
+    }
+
 }

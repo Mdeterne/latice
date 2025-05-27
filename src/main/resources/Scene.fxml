@@ -507,7 +507,10 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="changerRack" layoutX="795.0" layoutY="685.0" mnemonicParsing="false" text="Changer" />
-      <Label layoutX="769.0" layoutY="665.0" text="Erreur Changer Rack" />
+      <Button fx:id="changerRack" layoutX="795.0" layoutY="685.0" mnemonicParsing="false" onAction="#changerRack" text="Changer" />
+      <Label fx:id="erreurChangerRack" layoutX="769.0" layoutY="665.0" textFill="RED">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
    </children>
 </Pane>
