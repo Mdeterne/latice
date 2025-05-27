@@ -34,6 +34,27 @@ public class LaticeJavaFXControleurPrincipal {
     @FXML private ImageView case91; @FXML private ImageView case92; @FXML private ImageView case93; @FXML private ImageView case94; @FXML private ImageView case95; @FXML private ImageView case96; @FXML private ImageView case97; @FXML private ImageView case98; @FXML private ImageView case99;
     
     @FXML
+    private ImageView tuile1;
+    
+    @FXML
+    private ImageView tuile2;
+    
+    @FXML
+    private ImageView tuile3;
+    
+    @FXML
+    private ImageView tuile4;
+    
+    @FXML
+    private ImageView tuile5;
+    
+    @FXML
+    private Slider barVolume;
+    
+    @FXML
+    private Label textVolume;
+    
+    @FXML
     private Button changerRack;
     
     @FXML
@@ -74,17 +95,6 @@ public class LaticeJavaFXControleurPrincipal {
     	}
     }
     
-    public void changementTextDeJoueur(Boolean tourJoueur) {
-		
-    	if (tourJoueur) {
-			lblJoueurActuel.setText(arbitre.nomJoueur1() + " à vous de jouer !");
-		}
-    	else {
-    		lblJoueurActuel.setText(arbitre.nomJoueur2() + " à vous de jouer !");
-    	}
-    	indicateurPioche.setText(""+arbitre.taillePioche());
-	}
-    
     @FXML
     private void changerRack(ActionEvent event) {
     	try {
@@ -98,36 +108,27 @@ public class LaticeJavaFXControleurPrincipal {
     
     
     //gestion des images
-    public void changementImageRack(boolean estPremierJoueur) {
-    	ArrayList<Tuile> tuiles = new ArrayList<Tuile>();
-    	if (estPremierJoueur) {
-    		tuiles = arbitre.RackJoueur1();
-    	}
-    	else {
-    		tuiles = arbitre.RackJoueur2();
-    	}
-    	System.out.println("img/"+tuiles.get(0).symbole()+"_"+tuiles.get(0).couleur()+".png");
-    	tuile1.setImage(loadImage("/img/"+tuiles.get(0).symbole()+"_"+tuiles.get(0).couleur()+".png"));
-    	tuile2.setImage(loadImage("/img/"+tuiles.get(1).symbole()+"_"+tuiles.get(1).couleur()+".png"));
-    	tuile3.setImage(loadImage("/img/"+tuiles.get(2).symbole()+"_"+tuiles.get(2).couleur()+".png"));
-    	tuile4.setImage(loadImage("/img/"+tuiles.get(3).symbole()+"_"+tuiles.get(3).couleur()+".png"));
-    	tuile5.setImage(loadImage("/img/"+tuiles.get(4).symbole()+"_"+tuiles.get(4).couleur()+".png"));
-<<<<<<< HEAD
-    }
-
     @FXML
-    public void changerImageRack(boolean estPremierJoueur) {
+    public void changementImageRack(boolean estPremierJoueur) {
         ArrayList<Tuile> tuiles = estPremierJoueur ? arbitre.RackJoueur1() : arbitre.RackJoueur2();
-        tuile1.setImage(loadImage("/img/" + tuiles.get(0).symbole() + "_" + tuiles.get(0).couleur() + ".png"));
+		tuile1.setImage(loadImage("/img/" + tuiles.get(0).symbole() + "_" + tuiles.get(0).couleur() + ".png"));
         tuile2.setImage(loadImage("/img/" + tuiles.get(1).symbole() + "_" + tuiles.get(1).couleur() + ".png"));
         tuile3.setImage(loadImage("/img/" + tuiles.get(2).symbole() + "_" + tuiles.get(2).couleur() + ".png"));
         tuile4.setImage(loadImage("/img/" + tuiles.get(3).symbole() + "_" + tuiles.get(3).couleur() + ".png"));
         tuile5.setImage(loadImage("/img/" + tuiles.get(4).symbole() + "_" + tuiles.get(4).couleur() + ".png"));
-=======
->>>>>>> origin/V5
+
     }
     
-    
+    public void changementTextDeJoueur(Boolean tourJoueur) {
+		
+    	if (tourJoueur) {
+			lblJoueurActuel.setText(arbitre.nomJoueur1() + " à vous de jouer !");
+		}
+    	else {
+    		lblJoueurActuel.setText(arbitre.nomJoueur2() + " à vous de jouer !");
+    	}
+    	indicateurPioche.setText(""+arbitre.taillePioche());
+	}
 
     private Image loadImage(String chemin) {
     	return new Image(getClass().getResourceAsStream(chemin));
@@ -148,7 +149,7 @@ public class LaticeJavaFXControleurPrincipal {
     
     @FXML
     public void changerLeVolume() {
-    	musique.changerVolume(barVolume.getValue()/100);
+		musique.changerVolume(barVolume.getValue()/100);
     	textVolume.setText(((int)barVolume.getValue())+"");
     }
     
