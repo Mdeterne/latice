@@ -54,10 +54,12 @@ public class LaticeJavaFXControleurPrincipal {
 		this.arbitre = new Arbitre();
     	arbitre.initialiser(joueur1,joueur2);
     	changementTextDeJoueur(arbitre.tourJoueur());
-    	changerImageRack(arbitre.tourJoueur());
+    	changementImageRack(arbitre.tourJoueur());
         lblBienvenue.setText("Bienvenue " + joueur1 + " et " + joueur2);
 		lancerLaMusique();
     }
+    
+    
     
     private void changementTextDeJoueur(Boolean tourJoueur) {
 		
@@ -71,7 +73,7 @@ public class LaticeJavaFXControleurPrincipal {
 	}
 
 	@FXML
-    public void changerImageRack(boolean estPremierJoueur) {
+    public void changementImageRack(boolean estPremierJoueur) {
     	ArrayList<Tuile> tuiles = new ArrayList<Tuile>();
     	if (estPremierJoueur) {
     		tuiles = arbitre.RackJoueur1();

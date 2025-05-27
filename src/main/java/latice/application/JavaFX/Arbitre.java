@@ -56,4 +56,20 @@ public class Arbitre {
 	public Boolean tourJoueur() {
 		return tourJoueur;
 	}
+	
+	public void changerTour() {
+		Boolean changement;
+		if(tourJoueur) {
+			changement = true;
+		}
+		else {
+			changement = false;
+		}
+		if(changement) {
+			tourJoueur = false;
+		}
+		else {
+			tourJoueur = true;
+		}
+	}
 }
