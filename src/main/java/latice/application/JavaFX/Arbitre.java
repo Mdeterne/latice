@@ -57,6 +57,33 @@ public class Arbitre {
 		return tourJoueur;
 	}
 	
+	public void changerRack() throws PiocheVideException {
+		if(tourJoueur) {
+			joueur1.echangerRack();
+		}
+		else {
+			joueur2.echangerRack();
+		}
+	}
+	
+	public int getActions() {
+		if(tourJoueur) {
+			return joueur1.actions();
+		}
+		else {
+			return joueur2.actions();
+		}
+	}
+	
+	public void retirerAction() {
+		if(tourJoueur) {
+			joueur1.enleverAction();;
+		}
+		else {
+			joueur2.enleverAction();
+		}
+	}
+	
 	public void changerTour() {
 		Boolean changement;
 		if(tourJoueur) {
