@@ -15,11 +15,13 @@ public class Joueur {
 	private int point;
 	private Rack rack;
 	private PiochePersonelle piochePersonelle;
+	private int actions;
 	
 	public Joueur(String nom) {
 		this.nom = nom;
 		this.point = 0;
 		this.rack = new Rack();
+		this.actions = 1;
 		this.piochePersonelle = new PiochePersonelle();
 	}
 	
@@ -106,6 +108,22 @@ public class Joueur {
 	
 	public ArrayList<Tuile> afficherPiochePersonelle() {
 		return piochePersonelle.pioche();
+	}
+	
+	public int actions() {
+		return actions;
+	}
+	
+	public void réinitialiserActions() {
+		actions = 1;
+	}
+	
+	public void ajouterUneAction() {
+		actions = actions + 1;
+	}
+	
+	public void enleverAction() {
+		actions = actions - 1;
 	}
 	
 }

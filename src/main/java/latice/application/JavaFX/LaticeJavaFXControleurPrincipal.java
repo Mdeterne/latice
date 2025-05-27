@@ -2,6 +2,7 @@ package latice.application.JavaFX;
 
 import java.util.ArrayList;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -9,6 +10,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import latice.model.Tuile;
+import latice.util.exception.PiocheVideException;
 
 public class LaticeJavaFXControleurPrincipal {
     
@@ -48,18 +50,33 @@ public class LaticeJavaFXControleurPrincipal {
     @FXML
     private ImageView tuile5;
     
+    @FXML
+    private Button changerRack;
+    
+    @FXML
+    private Label erreurChangerRack;
+    
     
     public void initialisation(String joueur1, String joueur2) {
     	this.musique = new LaticeGestionnaireDeMusique();
 		this.arbitre = new Arbitre();
     	arbitre.initialiser(joueur1,joueur2);
     	changementTextDeJoueur(arbitre.tourJoueur());
-    	changerImageRack(arbitre.tourJoueur());
+    	changementImageRack(arbitre.tourJoueur());
         lblBienvenue.setText("Bienvenue " + joueur1 + " et " + joueur2);
 		lancerLaMusique();
     }
     
-    private void changementTextDeJoueur(Boolean tourJoueur) {
+    
+    public void verificationDuTour() {
+    	if(arbitre.getActions() == 0) {
+    		arbitre.changerTour();
+    		changementImageRack(arbitre.tourJoueur());
+    		changementTextDeJoueur(arbitre.tourJoueur());
+    	}
+    }
+    
+    public void changementTextDeJoueur(Boolean tourJoueur) {
 		
     	if (tourJoueur) {
 			lblJoueurActuel.setText(arbitre.nomJoueur1() + " à vous de jouer !");
@@ -69,9 +86,21 @@ public class LaticeJavaFXControleurPrincipal {
     	}
 		
 	}
-
-	@FXML
-    public void changerImageRack(boolean estPremierJoueur) {
+    
+    @FXML
+    private void changerRack(ActionEvent event) {
+    	try {
+			arbitre.changerRack();
+			arbitre.retirerAction();
+			verificationDuTour();
+		} catch (PiocheVideException e) {
+			erreurChangerRack.setText("Impossible votre pioche est vide");
+		}
+    }
+    
+    
+    //gestion des images
+    public void changementImageRack(boolean estPremierJoueur) {
     	ArrayList<Tuile> tuiles = new ArrayList<Tuile>();
     	if (estPremierJoueur) {
     		tuiles = arbitre.RackJoueur1();
@@ -107,7 +136,7 @@ public class LaticeJavaFXControleurPrincipal {
     
     @FXML
     public void changerLeVolume() {
-    	musique.changerVolume(barVolume.getValue());
+    	musique.changerVolume(barVolume.getValue()/100);
     	textVolume.setText(((int)barVolume.getValue())+"");
     }
 }
