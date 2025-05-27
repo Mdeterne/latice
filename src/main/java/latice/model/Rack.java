@@ -32,4 +32,8 @@ public class Rack {
 	public ArrayList<Tuile> affichertuiles() {
         return new ArrayList<>(tuiles);
     }
+	
+	public int taille() {
+		return tuiles.size();
+	}
 }

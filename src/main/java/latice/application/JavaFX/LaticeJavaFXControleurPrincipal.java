@@ -23,16 +23,7 @@ public class LaticeJavaFXControleurPrincipal {
 
     @FXML private Label lblBienvenue;
     @FXML private Label lblJoueurActuel;
-    @FXML private Button boutonLancer;
-    @FXML private Button boutonArrêter;
-    @FXML private Slider barVolume;
-    @FXML private Label textVolume;
-
-    @FXML private ImageView tuile1;
-    @FXML private ImageView tuile2;
-    @FXML private ImageView tuile3;
-    @FXML private ImageView tuile4;
-    @FXML private ImageView tuile5;
+    
 
     // Déclaration des cases de case11 à case99
     @FXML private ImageView case11; @FXML private ImageView case12; @FXML private ImageView case13; @FXML private ImageView case14; @FXML private ImageView case15; @FXML private ImageView case16; @FXML private ImageView case17; @FXML private ImageView case18; @FXML private ImageView case19;
@@ -83,7 +74,7 @@ public class LaticeJavaFXControleurPrincipal {
         this.arbitre = new Arbitre();
         arbitre.initialiser(joueur1, joueur2);
         changementTextDeJoueur(arbitre.tourJoueur());
-        changerImageRack(arbitre.tourJoueur());
+        changementImageRack(arbitre.tourJoueur());
         lblBienvenue.setText("Bienvenue " + joueur1 + " et " + joueur2);
         lancerLaMusique();
     }
@@ -92,6 +83,12 @@ public class LaticeJavaFXControleurPrincipal {
     public void verificationDuTour() {
     	if(arbitre.getActions() == 0) {
     		arbitre.changerTour();
+    		try {
+				arbitre.remplireRack();
+			} catch (PiocheVideException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
     		changementImageRack(arbitre.tourJoueur());
     		changementTextDeJoueur(arbitre.tourJoueur());
     	}
@@ -105,7 +102,6 @@ public class LaticeJavaFXControleurPrincipal {
     	else {
     		lblJoueurActuel.setText(arbitre.nomJoueur2() + " à vous de jouer !");
     	}
-		
 	}
     
     @FXML
@@ -135,6 +131,7 @@ public class LaticeJavaFXControleurPrincipal {
     	tuile3.setImage(loadImage("/img/"+tuiles.get(2).symbole()+"_"+tuiles.get(2).couleur()+".png"));
     	tuile4.setImage(loadImage("/img/"+tuiles.get(3).symbole()+"_"+tuiles.get(3).couleur()+".png"));
     	tuile5.setImage(loadImage("/img/"+tuiles.get(4).symbole()+"_"+tuiles.get(4).couleur()+".png"));
+<<<<<<< HEAD
     }
 
     @FXML
@@ -145,6 +142,8 @@ public class LaticeJavaFXControleurPrincipal {
         tuile3.setImage(loadImage("/img/" + tuiles.get(2).symbole() + "_" + tuiles.get(2).couleur() + ".png"));
         tuile4.setImage(loadImage("/img/" + tuiles.get(3).symbole() + "_" + tuiles.get(3).couleur() + ".png"));
         tuile5.setImage(loadImage("/img/" + tuiles.get(4).symbole() + "_" + tuiles.get(4).couleur() + ".png"));
+=======
+>>>>>>> origin/V5
     }
 
     private Image loadImage(String chemin) {
@@ -174,6 +173,8 @@ public class LaticeJavaFXControleurPrincipal {
     }
 
 
+    
+    //gestion drag and drop
     private void makeDraggable(ImageView imageView) {
         imageView.setOnDragDetected(event -> {
             if (imageView.getImage() != null) {
@@ -206,6 +207,8 @@ public class LaticeJavaFXControleurPrincipal {
             }
             event.setDropCompleted(success);
             event.consume();
+            arbitre.retirerAction();
+            verificationDuTour();
             
         });
     }
