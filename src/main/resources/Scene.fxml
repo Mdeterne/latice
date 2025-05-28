@@ -493,12 +493,12 @@
          </styleClass>
       </Label>
       <Slider fx:id="barVolume" layoutX="17.0" layoutY="140.0" onMouseClicked="#changerLeVolume" prefHeight="28.0" prefWidth="140.0" scaleX="0.75" scaleY="0.75" value="50.0" />
-      <Label fx:id="ErreurEchangerRack" layoutX="26.0" layoutY="117.0" scaleX="0.75" scaleY="0.75" styleClass="style" stylesheets="@style-jeu.css" text="Volume :" textFill="#a65a02">
+      <Label fx:id="ErreurEchangerRack" layoutX="21.0" layoutY="101.0" scaleX="0.75" scaleY="0.75" styleClass="style" stylesheets="@style-jeu.css" text="Volume :" textFill="#a65a02">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="textVolume" layoutX="102.0" layoutY="97.0" scaleX="0.75" scaleY="0.75" stylesheets="@style-jeu.css" text="50" textFill="#a65a02">
+      <Label fx:id="textVolume" layoutX="102.0" layoutY="101.0" scaleX="0.75" scaleY="0.75" stylesheets="@style-jeu.css" text="50" textFill="#a65a02">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -509,12 +509,8 @@
          </font>
       </Label>
       <Button fx:id="changerRack" layoutX="795.0" layoutY="685.0" mnemonicParsing="false" text="Changer" />
-      <Label fx:id="ErreurChnagerRack" layoutX="771.0" layoutY="649.0" />
-      <Button fx:id="changerRack" layoutX="775.0" layoutY="675.0" mnemonicParsing="false" onAction="#changerRack" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Changer" />
-      <Label fx:id="erreurChangerRack" layoutX="769.0" layoutY="665.0" textFill="RED">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
+      <Label fx:id="ErreurChangerRack" layoutX="765.0" layoutY="634.0" scaleX="0.75" scaleY="0.75" styleClass="textErreur" stylesheets="@style-jeu.css" />
+      <Button fx:id="changerRack" layoutX="775.0" layoutY="676.0" mnemonicParsing="false" onAction="#changerRack" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Changer" />
       <Button fx:id="Quitter" layoutX="936.0" layoutY="81.0" mnemonicParsing="false" onAction="#QuitterLatice" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Quitter" />
       <Label layoutX="979.0" layoutY="662.0" prefHeight="49.0" prefWidth="34.0" scaleX="5.0" scaleY="5.0" stylesheets="@style-jeu.css" text="0" textFill="#62ff00">
          <font>
