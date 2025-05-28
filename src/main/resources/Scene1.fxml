@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="latice.application.JavaFX.LaticeJavaFXControleurConection">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@styles-login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="latice.application.JavaFX.LaticeJavaFXControleurConection">
    <children>
       <Label layoutX="75.0" layoutY="189.0" prefHeight="27.0" prefWidth="126.0" text="Nom joueur 1:" />
       <Label layoutX="404.0" layoutY="189.0" prefHeight="27.0" prefWidth="126.0" text="Nom joueur 2:" />
