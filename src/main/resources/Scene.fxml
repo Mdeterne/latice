@@ -11,10 +11,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="latice.application.JavaFX.LaticeJavaFXControleurPrincipal">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="latice.application.JavaFX.LaticeJavaFXControleurPrincipal">
    <children>
       <ImageView fitHeight="1015.0" fitWidth="1106.0" layoutX="-3.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -494,7 +493,7 @@
          </styleClass>
       </Label>
       <Slider fx:id="barVolume" layoutX="17.0" layoutY="140.0" onMouseClicked="#changerLeVolume" prefHeight="28.0" prefWidth="140.0" scaleX="0.75" scaleY="0.75" value="50.0" />
-      <Label layoutX="14.0" layoutY="97.0" scaleX="0.75" scaleY="0.75" stylesheets="@style-texte.css" text="Volume :" textFill="#a65a02">
+      <Label fx:id="ErreurEchangerRack" layoutX="26.0" layoutY="117.0" scaleX="0.75" scaleY="0.75" styleClass="style" stylesheets="@style-jeu.css" text="Volume :" textFill="#a65a02">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -510,18 +509,14 @@
          </font>
       </Label>
       <Button fx:id="changerRack" layoutX="795.0" layoutY="685.0" mnemonicParsing="false" text="Changer" />
-      <Label layoutX="769.0" layoutY="665.0" text="Erreur Changer Rack" />
-      <VBox layoutX="877.0" layoutY="106.0" prefHeight="200.0" prefWidth="100.0">
-         <children>
-            <Button fx:id="Quitter" mnemonicParsing="false" onAction="#QuitterLatice" text="Quitter" />
-         </children>
-      </VBox>
-      <Button fx:id="changerRack" layoutX="795.0" layoutY="685.0" mnemonicParsing="false" onAction="#changerRack" text="Changer" />
+      <Label fx:id="ErreurChnagerRack" layoutX="771.0" layoutY="649.0" />
+      <Button fx:id="changerRack" layoutX="775.0" layoutY="675.0" mnemonicParsing="false" onAction="#changerRack" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Changer" />
       <Label fx:id="erreurChangerRack" layoutX="769.0" layoutY="665.0" textFill="RED">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="979.0" layoutY="662.0" text="0" textFill="#62ff00">
+      <Button fx:id="Quitter" layoutX="936.0" layoutY="81.0" mnemonicParsing="false" onAction="#QuitterLatice" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Quitter" />
+      <Label layoutX="979.0" layoutY="662.0" prefHeight="49.0" prefWidth="34.0" scaleX="5.0" scaleY="5.0" stylesheets="@style-jeu.css" text="0" textFill="#62ff00">
          <font>
             <Font size="48.0" />
          </font>
