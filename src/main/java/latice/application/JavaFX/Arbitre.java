@@ -93,6 +93,15 @@ public class Arbitre {
 		}
 	}
 	
+	public void retirertuile(Tuile tuile) {
+	    if (tourJoueur) {
+	        joueur1.getRack().retirertuile(tuile);
+	    } else {
+	        joueur2.getRack().retirertuile(tuile);
+	    }
+	}
+
+	
 	public int taillePioche() {
 		if(tourJoueur) {
 			return joueur1.taillePiochePersonelle();

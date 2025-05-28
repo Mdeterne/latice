@@ -76,6 +76,11 @@ public class Joueur {
 	 public Rack rack() { 
 		 return rack; 
 	}
+	 
+	 public Rack getRack() {
+		    return rack;
+		}
+
 	
 	public ArrayList<Tuile> tuilesRack() {
 		return rack().affichertuiles();

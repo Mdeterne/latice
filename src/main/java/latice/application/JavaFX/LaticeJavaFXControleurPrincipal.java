@@ -78,6 +78,36 @@ public class LaticeJavaFXControleurPrincipal {
         changementTextDeJoueur(arbitre.tourJoueur());
         changementImageRack(arbitre.tourJoueur());
         lancerLaMusique();
+        
+        makeDraggable(tuile1);
+        makeDraggable(tuile2);
+        makeDraggable(tuile3);
+        makeDraggable(tuile4);
+        makeDraggable(tuile5);
+        
+        tuile1.setUserData(0);
+        tuile2.setUserData(1);
+        tuile3.setUserData(2);
+        tuile4.setUserData(3);
+        tuile5.setUserData(4);
+
+        
+     // Activer le drop sur toutes les cases
+        for (int i = 1; i <= 9; i++) {
+            for (int j = 1; j <= 9; j++) {
+                int index = i * 10 + j;
+                try {
+                    ImageView caseView = (ImageView) this.getClass()
+                            .getDeclaredField("case" + index)
+                            .get(this);
+                    if (caseView != null) {
+                        makeDroppable(caseView);
+                    }
+                } catch (Exception e) {
+                    // Ignore les cases non définies
+                }
+            }
+        }
     }
     
     
@@ -107,17 +137,27 @@ public class LaticeJavaFXControleurPrincipal {
     }
     
     
-    //gestion des images
+    //gestion des images    
     @FXML
     public void changementImageRack(boolean estPremierJoueur) {
         ArrayList<Tuile> tuiles = estPremierJoueur ? arbitre.RackJoueur1() : arbitre.RackJoueur2();
-		tuile1.setImage(loadImage("/img/" + tuiles.get(0).symbole() + "_" + tuiles.get(0).couleur() + ".png"));
-        tuile2.setImage(loadImage("/img/" + tuiles.get(1).symbole() + "_" + tuiles.get(1).couleur() + ".png"));
-        tuile3.setImage(loadImage("/img/" + tuiles.get(2).symbole() + "_" + tuiles.get(2).couleur() + ".png"));
-        tuile4.setImage(loadImage("/img/" + tuiles.get(3).symbole() + "_" + tuiles.get(3).couleur() + ".png"));
-        tuile5.setImage(loadImage("/img/" + tuiles.get(4).symbole() + "_" + tuiles.get(4).couleur() + ".png"));
 
+        tuile1.setImage(loadImage("/img/" + tuiles.get(0).symbole() + "_" + tuiles.get(0).couleur() + ".png"));
+        tuile1.setUserData(tuiles.get(0));
+
+        tuile2.setImage(loadImage("/img/" + tuiles.get(1).symbole() + "_" + tuiles.get(1).couleur() + ".png"));
+        tuile2.setUserData(tuiles.get(1));
+
+        tuile3.setImage(loadImage("/img/" + tuiles.get(2).symbole() + "_" + tuiles.get(2).couleur() + ".png"));
+        tuile3.setUserData(tuiles.get(2));
+
+        tuile4.setImage(loadImage("/img/" + tuiles.get(3).symbole() + "_" + tuiles.get(3).couleur() + ".png"));
+        tuile4.setUserData(tuiles.get(3));
+
+        tuile5.setImage(loadImage("/img/" + tuiles.get(4).symbole() + "_" + tuiles.get(4).couleur() + ".png"));
+        tuile5.setUserData(tuiles.get(4));
     }
+
     
     public void changementTextDeJoueur(Boolean tourJoueur) {
 		
@@ -157,9 +197,7 @@ public class LaticeJavaFXControleurPrincipal {
     private void QuitterLatice() {
         System.exit(0);
     }
-
-
-    
+        
     //gestion drag and drop
     private void makeDraggable(ImageView imageView) {
         imageView.setOnDragDetected(event -> {
@@ -172,7 +210,7 @@ public class LaticeJavaFXControleurPrincipal {
             event.consume();
         });
     }
-
+    
     private void makeDroppable(ImageView imageView) {
         imageView.setOnDragOver(event -> {
             if (event.getGestureSource() != imageView && event.getDragboard().hasImage()) {
@@ -184,19 +222,31 @@ public class LaticeJavaFXControleurPrincipal {
         imageView.setOnDragDropped(event -> {
             Dragboard db = event.getDragboard();
             boolean success = false;
+
             if (db.hasImage()) {
                 imageView.setImage(db.getImage());
-                // Supprimer l'image de la source (le rack)
+
+                // Supprimer l'image de la source
                 ImageView source = (ImageView) event.getGestureSource();
                 source.setImage(null);
+
+                // Récupérer la tuile directement
+                Object tuileObj = source.getUserData();
+                if (tuileObj instanceof Tuile) {
+                    Tuile tuile = (Tuile) tuileObj;
+                    arbitre.retirertuile(tuile);
+                }
+
+                changementImageRack(arbitre.tourJoueur());
                 success = true;
             }
+
             event.setDropCompleted(success);
             event.consume();
+
             arbitre.retirerAction();
             verificationDuTour();
-            
         });
     }
 
-}
+	}
