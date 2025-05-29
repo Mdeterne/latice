@@ -1,6 +1,8 @@
 package latice.application.JavaFX;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -11,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
+import latice.model.Position;
 import latice.model.Tuile;
 import latice.util.exception.PiocheVideException;
 
@@ -21,6 +24,8 @@ public class LaticeJavaFXControleurPrincipal {
 
     
     @FXML private Label lblJoueurActuel;
+    
+
     
 
     // Déclaration des cases de case11 à case99
@@ -66,31 +71,24 @@ public class LaticeJavaFXControleurPrincipal {
     
     
     public void initialisation(String joueur1, String joueur2) {
-    	this.musique = new LaticeGestionnaireDeMusique();
-		this.arbitre = new Arbitre();
+    	musique = new LaticeGestionnaireDeMusique();
+		arbitre = new Arbitre();
     	arbitre.initialiser(joueur1,joueur2);
     	changementTextDeJoueur(arbitre.tourJoueur());
     	changementImageRack(arbitre.tourJoueur());
 		lancerLaMusique();
-        this.musique = new LaticeGestionnaireDeMusique();
-        this.arbitre = new Arbitre();
-        arbitre.initialiser(joueur1, joueur2);
-        changementTextDeJoueur(arbitre.tourJoueur());
-        changementImageRack(arbitre.tourJoueur());
-        lancerLaMusique();
         
-        makeDraggable(tuile1);
-        makeDraggable(tuile2);
-        makeDraggable(tuile3);
-        makeDraggable(tuile4);
-        makeDraggable(tuile5);
-        
-        tuile1.setUserData(0);
-        tuile2.setUserData(1);
-        tuile3.setUserData(2);
-        tuile4.setUserData(3);
-        tuile5.setUserData(4);
 
+        List<Tuile> tuiles = arbitre.getJoueurCourant().getRack().affichertuiles();
+        ImageView[] imageViews = { tuile1, tuile2, tuile3, tuile4, tuile5 };
+
+        for (int i = 0; i < tuiles.size(); i++) {
+            Tuile tuile = tuiles.get(i);
+            ImageView iv = imageViews[i];
+
+            iv.setUserData(tuile);
+            makeDraggable(iv);
+        }
         
      // Activer le drop sur toutes les cases
         for (int i = 1; i <= 9; i++) {
@@ -224,21 +222,29 @@ public class LaticeJavaFXControleurPrincipal {
             boolean success = false;
 
             if (db.hasImage()) {
-                imageView.setImage(db.getImage());
-
-                // Supprimer l'image de la source
                 ImageView source = (ImageView) event.getGestureSource();
-                source.setImage(null);
+                Object ud = source.getUserData();
+                System.out.println("🎁 UserData reçu : " + ud);
+                System.out.println("📦 Type : " + (ud != null ? ud.getClass().getName() : "null"));
+                if (!(ud instanceof Tuile)) return;
+                Tuile tuile = (Tuile) ud;
 
-                // Récupérer la tuile directement
-                Object tuileObj = source.getUserData();
-                if (tuileObj instanceof Tuile) {
-                    Tuile tuile = (Tuile) tuileObj;
-                    arbitre.retirertuile(tuile);
-                }
+                String id = imageView.getId();
+                int x = Character.getNumericValue(id.charAt(4)) - 1;
+                int y = Character.getNumericValue(id.charAt(5)) - 1;
+                Position pos = new Position(x, y);
 
-                changementImageRack(arbitre.tourJoueur());
-                success = true;
+				boolean ok = arbitre.jouerTuile(pos, tuile);
+				System.out.println("jouerTuile() a retourné : " + ok);
+
+				if (ok) {
+					imageView.setImage(db.getImage());
+					source.setImage(null);
+					changementImageRack(arbitre.tourJoueur());
+					success = true;
+				} else {
+					imageView.getStyleClass().add("shake");
+				}
             }
 
             event.setDropCompleted(success);
