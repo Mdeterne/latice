@@ -6,7 +6,10 @@ import java.util.Random;
 
 import latice.model.Joueur;
 import latice.model.PiochePrincipal;
+import latice.model.Plateau;
+import latice.model.Position;
 import latice.model.Tuile;
+import latice.util.exception.CaseInaccessibleException;
 import latice.util.exception.PiocheVideException;
 
 public class Arbitre {
@@ -20,6 +23,41 @@ public class Arbitre {
 	
 	private Boolean tourJoueur;
 	
+	private final Plateau plateau = new Plateau();
+	
+    public Joueur getJoueurCourant() {
+        return tourJoueur ? joueur1 : joueur2;
+    }
+
+    public boolean jouerTuile(Position p, Tuile t){
+        if (!plateau.estPositionValide(p)) {
+            return false;
+        }
+        try {
+            plateau.posertuile(t, p);
+        } catch (CaseInaccessibleException e) {
+            return false;
+        }
+        retirertuile(t);
+
+        int pointsGagnes;
+        if (plateau.getCase(p).estSoleil()) {
+            pointsGagnes = 2;
+        } else {
+            pointsGagnes = 1;
+        }
+
+        plateau.donnerPoint(getJoueurCourant(), pointsGagnes);
+
+        try {
+            remplireRack();
+        } catch (PiocheVideException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+        return true;
+    }	
 	
 	public void initialiser(String nomJoueur1, String nomJoueur2) {
 		joueur1 = new Joueur(nomJoueur1);
