@@ -18,15 +18,14 @@ public class Arbitre {
 	
 	private Joueur joueur1;
 	private Joueur joueur2;
+	private Joueur joueurActuel;
 	
 	private PiochePrincipal piochePrincipal = new PiochePrincipal();
-	
-	private Boolean tourJoueur;
 	
 	private final Plateau plateau = new Plateau();
 	
     public Joueur getJoueurCourant() {
-        return tourJoueur ? joueur1 : joueur2;
+        return joueurActuel;
     }
 
     public boolean jouerTuile(Position p, Tuile t){
@@ -72,7 +71,11 @@ public class Arbitre {
 			System.out.println(e.getMessage());
 		}
 		
-        tourJoueur = random.nextBoolean(); 
+        if(random.nextBoolean()) {
+        	joueurActuel = joueur1;
+        } else {
+        	joueurActuel = joueur2;
+        }
 	}
 	
 	public String nomJoueur1() {
@@ -91,12 +94,8 @@ public class Arbitre {
 	    return joueur2.tuilesRack();
 	}
 	
-	public Boolean tourJoueur() {
-		return tourJoueur;
-	}
-	
 	public void changerRack() throws PiocheVideException {
-		if(tourJoueur) {
+		if(joueurActuel == joueur1) {
 			joueur1.echangerRack();
 		}
 		else {
@@ -105,7 +104,7 @@ public class Arbitre {
 	}
 	
 	public int getActions() {
-		if(tourJoueur) {
+		if(joueurActuel == joueur1) {
 			return joueur1.actions();
 		}
 		else {
@@ -114,7 +113,7 @@ public class Arbitre {
 	}
 	
 	public void retirerAction() {
-		if(tourJoueur) {
+		if(joueurActuel == joueur1) {
 			joueur1.enleverAction();;
 		}
 		else {
@@ -123,7 +122,7 @@ public class Arbitre {
 	}
 	
 	public void remplireRack() throws PiocheVideException {
-		if(tourJoueur) {
+		if(joueurActuel == joueur1) {
 			joueur1.remplirRack();;
 		}
 		else {
@@ -132,7 +131,7 @@ public class Arbitre {
 	}
 	
 	public void retirertuile(Tuile tuile) {
-	    if (tourJoueur) {
+	    if (joueurActuel == joueur1) {
 	        joueur1.getRack().retirertuile(tuile);
 	    } else {
 	        joueur2.getRack().retirertuile(tuile);
@@ -141,7 +140,7 @@ public class Arbitre {
 
 	
 	public int taillePioche() {
-		if(tourJoueur) {
+		if(joueurActuel == joueur1) {
 			return joueur1.taillePiochePersonelle();
 		}
 		else {
@@ -150,20 +149,13 @@ public class Arbitre {
 	}
 	
 	public void changerTour() {
-		Boolean changement;
-		if(tourJoueur) {
-			changement = true;
-		}
-		else {
-			changement = false;
-		}
-		if(changement) {
-			tourJoueur = false;
-			joueur2.réinitialiserActions();
-		}
-		else {
-			tourJoueur = true;
-			joueur1.réinitialiserActions();
-		}
+	    if (getJoueurCourant() == joueur1) {
+	        joueurActuel = joueur2;
+	        joueur2.réinitialiserActions();
+	    } else {
+	        joueurActuel = joueur1;
+	        joueur1.réinitialiserActions();
+	    }
 	}
 }
+
