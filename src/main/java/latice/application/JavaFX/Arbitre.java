@@ -22,7 +22,7 @@ public class Arbitre {
 	
 	private PiochePrincipal piochePrincipal = new PiochePrincipal();
 	
-	private final Plateau plateau = new Plateau();
+	final Plateau plateau = new Plateau();
 	
 	private boolean premierCoup = true;
 

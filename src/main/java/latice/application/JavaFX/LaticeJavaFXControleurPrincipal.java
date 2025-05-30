@@ -16,11 +16,13 @@ import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import latice.model.Position;
 import latice.model.Tuile;
+import latice.model.Plateau;
 import latice.util.exception.PiocheVideException;
 
 public class LaticeJavaFXControleurPrincipal {
     private Arbitre arbitre;
     private LaticeGestionnaireDeMusique musique;
+    private Plateau plateau;
 
     @FXML private Label lblJoueurActuel;
 
@@ -68,6 +70,7 @@ public class LaticeJavaFXControleurPrincipal {
         musique = new LaticeGestionnaireDeMusique();
         arbitre = new Arbitre();
         arbitre.initialiser(nomJoueur1, nomJoueur2);
+        plateau = arbitre.plateau;
 
         // Affiche le joueur courant et son rack
         changementTextDeJoueur();
@@ -253,8 +256,15 @@ public class LaticeJavaFXControleurPrincipal {
                     source.setImage(null);
                     success = true;
                     arbitre.retirerAction();
-                } else {
-                    imageView.getStyleClass().add("shake");
+
+                    // Vérification des tuiles adjacentes après placement
+                    int nbCompatibles = arbitre.plateau.compterCompatibilitesAutourCaseId(id, tuile);
+                    if (nbCompatibles > 0) {
+                        System.out.println("Tuile correspond");
+                    } else {
+                        System.out.println("rien de trouvé");
+                    }
+                    verifierPatternAngleAutour(id);
                 }
             }
 
@@ -262,5 +272,59 @@ public class LaticeJavaFXControleurPrincipal {
             event.consume();
             verificationDuTour();
         });
+    }
+
+    private void verifierPatternAngleAutour(String caseId) {
+        int col = Character.getNumericValue(caseId.charAt(4));
+        int lig = Character.getNumericValue(caseId.charAt(5));
+        String[] ids = new String[] {
+            caseId,
+            (col > 1 ? "case" + (col-1) + lig : null),
+            (col < 9 ? "case" + (col+1) + lig : null),
+            (lig > 1 ? "case" + col + (lig-1) : null),
+            (lig < 9 ? "case" + col + (lig+1) : null)
+        };
+        boolean found = false;
+        for (String idTest : ids) {
+            if (idTest != null && arbitre.plateau.detecterAngleAmateur(idTest)) {
+                System.out.println("Patern de 3 trouvé sur " + idTest);
+                afficherTuilesAngle(idTest);
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("Pas de pattern trouvé");
+        }
+    }
+
+    // Affiche les tuiles impliquées dans le pattern angle amateur pour debug
+    private void afficherTuilesAngle(String caseId) {
+        int col = Character.getNumericValue(caseId.charAt(4));
+        int lig = Character.getNumericValue(caseId.charAt(5));
+        String[] angles = {
+            "Haut+Gauche", "Haut+Droite", "Bas+Gauche", "Bas+Droite"
+        };
+        int[][] deltas = {
+            {-1, 0, 0, -1}, // Haut+Gauche
+            {-1, 0, 0, 1},  // Haut+Droite
+            {1, 0, 0, -1},  // Bas+Gauche
+            {1, 0, 0, 1}    // Bas+Droite
+        };
+        for (int i = 0; i < 4; i++) {
+            int dLig1 = deltas[i][0]; int dCol1 = deltas[i][1];
+            int dLig2 = deltas[i][2]; int dCol2 = deltas[i][3];
+            int lig1 = lig + dLig1; int col1 = col + dCol1;
+            int lig2 = lig + dLig2; int col2 = col + dCol2;
+            if (col1 >= 1 && col1 <= 9 && lig1 >= 1 && lig1 <= 9 && col2 >= 1 && col2 <= 9 && lig2 >= 1 && lig2 <= 9) {
+                String id1 = "case" + col1 + lig1;
+                String id2 = "case" + col2 + lig2;
+                Tuile tCentre = arbitre.plateau.detecterAngleAmateur(caseId) ? arbitre.plateau.getCase(new Position(col-1, lig-1)).gettuile() : null;
+                Tuile t1 = arbitre.plateau.getCase(new Position(col1-1, lig1-1)).gettuile();
+                Tuile t2 = arbitre.plateau.getCase(new Position(col2-1, lig2-1)).gettuile();
+                if (tCentre != null && t1 != null && t2 != null) {
+                    System.out.println("Angle " + angles[i] + ": centre=" + tCentre + ", t1=" + t1 + ", t2=" + t2);
+                }
+            }
+        }
     }
 }
