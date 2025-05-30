@@ -25,6 +25,8 @@ public class LaticeJavaFXControleurPrincipal {
     private Plateau plateau;
 
     @FXML private Label lblJoueurActuel;
+    @FXML private Label lblPiocheJoueur1;
+    @FXML private Label lblPiocheJoueur2;
 
     // Déclaration des cases de case11 à case99
     @FXML private ImageView case11; @FXML private ImageView case12; @FXML private ImageView case13;
@@ -174,6 +176,11 @@ public class LaticeJavaFXControleurPrincipal {
     //Met à jour le texte indiquant le joueur courant.
     private void changementTextDeJoueur() {
         lblJoueurActuel.setText(arbitre.getJoueurCourant().nom() + " à vous de jouer !");
+        // Mise à jour du nombre de tuiles dans la pioche personnelle de chaque joueur
+        if (arbitre != null && arbitre.getJoueurCourant() != null) {
+            lblPiocheJoueur1.setText(arbitre.getJoueur1().nom() + " : " + arbitre.getJoueur1().taillePiochePersonelle() + " tuiles");
+            lblPiocheJoueur2.setText(arbitre.getJoueur2().nom() + " : " + arbitre.getJoueur2().taillePiochePersonelle() + " tuiles");
+        }
     }
 
     private Image loadImage(String chemin) {
@@ -256,6 +263,9 @@ public class LaticeJavaFXControleurPrincipal {
                     source.setImage(null);
                     success = true;
                     arbitre.retirerAction();
+
+                    // Mise à jour du nombre de tuiles dans la pioche personnelle
+                    changementTextDeJoueur();
 
                     // Vérification des tuiles adjacentes après placement
                     int nbCompatibles = arbitre.plateau.compterCompatibilitesAutourCaseId(id, tuile);

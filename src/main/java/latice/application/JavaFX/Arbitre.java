@@ -30,6 +30,9 @@ public class Arbitre {
         return joueurActuel;
     }
 
+    public Joueur getJoueur1() { return joueur1; }
+    public Joueur getJoueur2() { return joueur2; }
+
     public boolean premier_coup() {
         return premierCoup;
     }
