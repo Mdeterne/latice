@@ -1,6 +1,5 @@
 package latice.application.JavaFX;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javafx.event.ActionEvent;
@@ -18,185 +17,160 @@ import latice.model.Tuile;
 import latice.util.exception.PiocheVideException;
 
 public class LaticeJavaFXControleurPrincipal {
-    
-	private Arbitre arbitre;
+    private Arbitre arbitre;
     private LaticeGestionnaireDeMusique musique;
 
-    
     @FXML private Label lblJoueurActuel;
-    
-
-    
 
     // Déclaration des cases de case11 à case99
-    @FXML private ImageView case11; @FXML private ImageView case12; @FXML private ImageView case13; @FXML private ImageView case14; @FXML private ImageView case15; @FXML private ImageView case16; @FXML private ImageView case17; @FXML private ImageView case18; @FXML private ImageView case19;
-    @FXML private ImageView case21; @FXML private ImageView case22; @FXML private ImageView case23; @FXML private ImageView case24; @FXML private ImageView case25; @FXML private ImageView case26; @FXML private ImageView case27; @FXML private ImageView case28; @FXML private ImageView case29;
-    @FXML private ImageView case31; @FXML private ImageView case32; @FXML private ImageView case33; @FXML private ImageView case34; @FXML private ImageView case35; @FXML private ImageView case36; @FXML private ImageView case37; @FXML private ImageView case38; @FXML private ImageView case39;
-    @FXML private ImageView case41; @FXML private ImageView case42; @FXML private ImageView case43; @FXML private ImageView case44; @FXML private ImageView case45; @FXML private ImageView case46; @FXML private ImageView case47; @FXML private ImageView case48; @FXML private ImageView case49;
-    @FXML private ImageView case51; @FXML private ImageView case52; @FXML private ImageView case53; @FXML private ImageView case54; @FXML private ImageView case55; @FXML private ImageView case56; @FXML private ImageView case57; @FXML private ImageView case58; @FXML private ImageView case59;
-    @FXML private ImageView case61; @FXML private ImageView case62; @FXML private ImageView case63; @FXML private ImageView case64; @FXML private ImageView case65; @FXML private ImageView case66; @FXML private ImageView case67; @FXML private ImageView case68; @FXML private ImageView case69;
-    @FXML private ImageView case71; @FXML private ImageView case72; @FXML private ImageView case73; @FXML private ImageView case74; @FXML private ImageView case75; @FXML private ImageView case76; @FXML private ImageView case77; @FXML private ImageView case78; @FXML private ImageView case79;
-    @FXML private ImageView case81; @FXML private ImageView case82; @FXML private ImageView case83; @FXML private ImageView case84; @FXML private ImageView case85; @FXML private ImageView case86; @FXML private ImageView case87; @FXML private ImageView case88; @FXML private ImageView case89;
-    @FXML private ImageView case91; @FXML private ImageView case92; @FXML private ImageView case93; @FXML private ImageView case94; @FXML private ImageView case95; @FXML private ImageView case96; @FXML private ImageView case97; @FXML private ImageView case98; @FXML private ImageView case99;
-    
-    @FXML
-    private ImageView tuile1;
-    
-    @FXML
-    private ImageView tuile2;
-    
-    @FXML
-    private ImageView tuile3;
-    
-    @FXML
-    private ImageView tuile4;
-    
-    @FXML
-    private ImageView tuile5;
-    
-    @FXML
-    private Slider barVolume;
-    
-    @FXML
-    private Label textVolume;
-    
-    @FXML
-    private Button changerRack;
-    
-    @FXML
-    private Label erreurChangerRack;
-    
-    //@FXML
-    //private Label indicateurPioche;
-    
-    
-    public void initialisation(String joueur1, String joueur2) {
-    	musique = new LaticeGestionnaireDeMusique();
-		arbitre = new Arbitre();
-    	arbitre.initialiser(joueur1,joueur2);
-    	changementTextDeJoueur(arbitre.tourJoueur());
-    	changementImageRack(arbitre.tourJoueur());
-		lancerLaMusique();
-        
+    @FXML private ImageView case11; @FXML private ImageView case12; @FXML private ImageView case13;
+    @FXML private ImageView case14; @FXML private ImageView case15; @FXML private ImageView case16;
+    @FXML private ImageView case17; @FXML private ImageView case18; @FXML private ImageView case19;
+    @FXML private ImageView case21; @FXML private ImageView case22; @FXML private ImageView case23;
+    @FXML private ImageView case24; @FXML private ImageView case25; @FXML private ImageView case26;
+    @FXML private ImageView case27; @FXML private ImageView case28; @FXML private ImageView case29;
+    @FXML private ImageView case31; @FXML private ImageView case32; @FXML private ImageView case33;
+    @FXML private ImageView case34; @FXML private ImageView case35; @FXML private ImageView case36;
+    @FXML private ImageView case37; @FXML private ImageView case38; @FXML private ImageView case39;
+    @FXML private ImageView case41; @FXML private ImageView case42; @FXML private ImageView case43;
+    @FXML private ImageView case44; @FXML private ImageView case45; @FXML private ImageView case46;
+    @FXML private ImageView case47; @FXML private ImageView case48; @FXML private ImageView case49;
+    @FXML private ImageView case51; @FXML private ImageView case52; @FXML private ImageView case53;
+    @FXML private ImageView case54; @FXML private ImageView case55; @FXML private ImageView case56;
+    @FXML private ImageView case57; @FXML private ImageView case58; @FXML private ImageView case59;
+    @FXML private ImageView case61; @FXML private ImageView case62; @FXML private ImageView case63;
+    @FXML private ImageView case64; @FXML private ImageView case65; @FXML private ImageView case66;
+    @FXML private ImageView case67; @FXML private ImageView case68; @FXML private ImageView case69;
+    @FXML private ImageView case71; @FXML private ImageView case72; @FXML private ImageView case73;
+    @FXML private ImageView case74; @FXML private ImageView case75; @FXML private ImageView case76;
+    @FXML private ImageView case77; @FXML private ImageView case78; @FXML private ImageView case79;
+    @FXML private ImageView case81; @FXML private ImageView case82; @FXML private ImageView case83;
+    @FXML private ImageView case84; @FXML private ImageView case85; @FXML private ImageView case86;
+    @FXML private ImageView case87; @FXML private ImageView case88; @FXML private ImageView case89;
+    @FXML private ImageView case91; @FXML private ImageView case92; @FXML private ImageView case93;
+    @FXML private ImageView case94; @FXML private ImageView case95; @FXML private ImageView case96;
+    @FXML private ImageView case97; @FXML private ImageView case98; @FXML private ImageView case99;
 
-        List<Tuile> tuiles = arbitre.getJoueurCourant().getRack().affichertuiles();
-        ImageView[] imageViews = { tuile1, tuile2, tuile3, tuile4, tuile5 };
+    @FXML private ImageView tuile1;
+    @FXML private ImageView tuile2;
+    @FXML private ImageView tuile3;
+    @FXML private ImageView tuile4;
+    @FXML private ImageView tuile5;
+    @FXML private Slider barVolume;
+    @FXML private Label textVolume;
+    @FXML private Button changerRack;
+    @FXML private Label erreurChangerRack;
 
-        for (int i = 0; i < tuiles.size(); i++) {
-            Tuile tuile = tuiles.get(i);
-            ImageView iv = imageViews[i];
+    //Initialisation du contrôleur : joueurs, rack, cases et musique.
+    public void initialisation(String nomJoueur1, String nomJoueur2) {
+        musique = new LaticeGestionnaireDeMusique();
+        arbitre = new Arbitre();
+        arbitre.initialiser(nomJoueur1, nomJoueur2);
 
-            iv.setUserData(tuile);
+        // Affiche le joueur courant et son rack
+        changementTextDeJoueur();
+        changementImageRack();
+        lancerLaMusique();
+
+        // Configure drag sur les tuiles du rack
+        ImageView[] rackViews = { tuile1, tuile2, tuile3, tuile4, tuile5 };
+        List<Tuile> rack = arbitre.getJoueurCourant().getRack().affichertuiles();
+        for (int i = 0; i < rack.size(); i++) {
+            Tuile t = rack.get(i);
+            ImageView iv = rackViews[i];
+            iv.setImage(loadImage("/img/" + t.symbole() + "_" + t.couleur() + ".png"));
+            iv.setUserData(t);
             makeDraggable(iv);
         }
-        
-     // Activer le drop sur toutes les cases
+
+        // Active le drop sur toutes les cases du plateau
         for (int i = 1; i <= 9; i++) {
             for (int j = 1; j <= 9; j++) {
-                int index = i * 10 + j;
                 try {
-                    ImageView caseView = (ImageView) this.getClass()
-                            .getDeclaredField("case" + index)
-                            .get(this);
-                    if (caseView != null) {
-                        makeDroppable(caseView);
-                    }
+                    ImageView caseView = (ImageView) getClass()
+                        .getDeclaredField("case" + (i * 10 + j))
+                        .get(this);
+                    makeDroppable(caseView);
                 } catch (Exception e) {
-                    // Ignore les cases non définies
+                    // Ignore
                 }
             }
         }
     }
-    
-    
-    public void verificationDuTour() {
-    	if(arbitre.getActions() == 0) {
-    		arbitre.changerTour();
-    		try {
-				arbitre.remplireRack();
-			} catch (PiocheVideException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-    		changementImageRack(arbitre.tourJoueur());
-    		changementTextDeJoueur(arbitre.tourJoueur());
-    	}
-    }
-    
+
+    //Change le rack du joueur courant en échange de toutes les tuiles.
     @FXML
     private void changerRack(ActionEvent event) {
-    	try {
-			arbitre.changerRack();
-			arbitre.retirerAction();
-			verificationDuTour();
-		} catch (PiocheVideException e) {
-			erreurChangerRack.setText("Impossible votre pioche est vide");
-		}
-    }
-    
-    
-    //gestion des images    
-    @FXML
-    public void changementImageRack(boolean estPremierJoueur) {
-        ArrayList<Tuile> tuiles = estPremierJoueur ? arbitre.RackJoueur1() : arbitre.RackJoueur2();
-
-        tuile1.setImage(loadImage("/img/" + tuiles.get(0).symbole() + "_" + tuiles.get(0).couleur() + ".png"));
-        tuile1.setUserData(tuiles.get(0));
-
-        tuile2.setImage(loadImage("/img/" + tuiles.get(1).symbole() + "_" + tuiles.get(1).couleur() + ".png"));
-        tuile2.setUserData(tuiles.get(1));
-
-        tuile3.setImage(loadImage("/img/" + tuiles.get(2).symbole() + "_" + tuiles.get(2).couleur() + ".png"));
-        tuile3.setUserData(tuiles.get(2));
-
-        tuile4.setImage(loadImage("/img/" + tuiles.get(3).symbole() + "_" + tuiles.get(3).couleur() + ".png"));
-        tuile4.setUserData(tuiles.get(3));
-
-        tuile5.setImage(loadImage("/img/" + tuiles.get(4).symbole() + "_" + tuiles.get(4).couleur() + ".png"));
-        tuile5.setUserData(tuiles.get(4));
+        try {
+            arbitre.changerRack();
+            arbitre.retirerAction();
+            verificationDuTour();
+        } catch (PiocheVideException e) {
+            erreurChangerRack.setText("Impossible : votre pioche est vide");
+        }
     }
 
-    
-    public void changementTextDeJoueur(Boolean tourJoueur) {
-		
-    	if (tourJoueur) {
-			lblJoueurActuel.setText(arbitre.nomJoueur1() + " à vous de jouer !");
-		}
-    	else {
-    		lblJoueurActuel.setText(arbitre.nomJoueur2() + " à vous de jouer !");
-    	}
-    	//indicateurPioche.setText(""+arbitre.taillePioche());
-	}
+    //Vérifie si le tour doit changer
+    private void verificationDuTour() {
+        if (arbitre.getActions() == 0) {
+            arbitre.changerTour();
+            try {
+                arbitre.remplireRack();
+            } catch (PiocheVideException e) {
+                e.printStackTrace();
+            }
+            changementImageRack();
+            changementTextDeJoueur();
+        } else {
+            // Met à jour le rack pour le même joueur après chaque action
+            changementImageRack();
+        }
+    }
+
+    //Met à jour les images du rack avec les tuiles du joueur courant
+    private void changementImageRack() {
+        List<Tuile> tuiles = arbitre.getJoueurCourant().getRack().affichertuiles();
+        ImageView[] rackViews = { tuile1, tuile2, tuile3, tuile4, tuile5 };
+        for (int i = 0; i < tuiles.size(); i++) {
+            Tuile t = tuiles.get(i);
+            ImageView iv = rackViews[i];
+            iv.setImage(loadImage("/img/" + t.symbole() + "_" + t.couleur() + ".png"));
+            iv.setUserData(t);
+        }
+    }
+
+    //Met à jour le texte indiquant le joueur courant.
+    private void changementTextDeJoueur() {
+        lblJoueurActuel.setText(arbitre.getJoueurCourant().nom() + " à vous de jouer !");
+    }
 
     private Image loadImage(String chemin) {
-    	return new Image(getClass().getResourceAsStream(chemin));
+        return new Image(getClass().getResourceAsStream(chemin));
     }
-    
-    
-    //Gestion de la musique
+
     @FXML
     public void lancerLaMusique() {
-    	musique.chargerMusique("/laticeMainTheme.mp3");
-    	musique.jouer();
+        musique.chargerMusique("/laticeMainTheme.mp3");
+        musique.jouer();
     }
-    
+
     @FXML
     public void arreterLaMusique() {
-    	musique.stop();
+        musique.stop();
     }
-    
+
     @FXML
     public void changerLeVolume() {
-		musique.changerVolume(barVolume.getValue()/100);
-    	textVolume.setText(((int)barVolume.getValue())+"");
+        musique.changerVolume(barVolume.getValue() / 100);
+        textVolume.setText(String.valueOf((int) barVolume.getValue()));
     }
-    
+
     @FXML
     private void QuitterLatice() {
         System.exit(0);
     }
-        
-    //gestion drag and drop
+
+    // gestion du drag & drop
     private void makeDraggable(ImageView imageView) {
         imageView.setOnDragDetected(event -> {
             if (imageView.getImage() != null) {
@@ -208,7 +182,7 @@ public class LaticeJavaFXControleurPrincipal {
             event.consume();
         });
     }
-    
+
     private void makeDroppable(ImageView imageView) {
         imageView.setOnDragOver(event -> {
             if (event.getGestureSource() != imageView && event.getDragboard().hasImage()) {
@@ -220,39 +194,33 @@ public class LaticeJavaFXControleurPrincipal {
         imageView.setOnDragDropped(event -> {
             Dragboard db = event.getDragboard();
             boolean success = false;
-
             if (db.hasImage()) {
                 ImageView source = (ImageView) event.getGestureSource();
                 Object ud = source.getUserData();
-                System.out.println("🎁 UserData reçu : " + ud);
-                System.out.println("📦 Type : " + (ud != null ? ud.getClass().getName() : "null"));
                 if (!(ud instanceof Tuile)) return;
                 Tuile tuile = (Tuile) ud;
 
                 String id = imageView.getId();
                 int x = Character.getNumericValue(id.charAt(4)) - 1;
                 int y = Character.getNumericValue(id.charAt(5)) - 1;
-                Position pos = new Position(x, y);
+                Position position = new Position(x, y);
 
-				boolean ok = arbitre.jouerTuile(pos, tuile);
-				System.out.println("jouerTuile() a retourné : " + ok);
+                boolean ok = arbitre.jouerTuile(position, tuile);
+                System.out.println("Placement ok? " + ok);
 
-				if (ok) {
-					imageView.setImage(db.getImage());
-					source.setImage(null);
-					changementImageRack(arbitre.tourJoueur());
-					success = true;
-				} else {
-					imageView.getStyleClass().add("shake");
-				}
+                if (ok) {
+                    imageView.setImage(db.getImage());
+                    source.setImage(null);
+                    success = true;
+					arbitre.retirerAction();
+                } else {
+                    imageView.getStyleClass().add("shake");
+                }
             }
 
             event.setDropCompleted(success);
             event.consume();
-
-            arbitre.retirerAction();
-            verificationDuTour();
+			verificationDuTour();
         });
     }
-
-	}
+}
