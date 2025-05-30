@@ -24,8 +24,14 @@ public class Arbitre {
 	
 	private final Plateau plateau = new Plateau();
 	
+	private boolean premierCoup = true;
+
     public Joueur getJoueurCourant() {
         return joueurActuel;
+    }
+
+    public boolean premier_coup() {
+        return premierCoup;
     }
 
     public boolean jouerTuile(Position p, Tuile t){
@@ -48,8 +54,9 @@ public class Arbitre {
 
         plateau.donnerPoint(getJoueurCourant(), pointsGagnes);
 
-
-
+        if (premierCoup) {
+            premierCoup = false;
+        }
         return true;
     }	
 	
@@ -153,4 +160,3 @@ public class Arbitre {
 	    }
 	}
 }
-

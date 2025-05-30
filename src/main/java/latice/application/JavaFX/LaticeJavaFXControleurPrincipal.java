@@ -234,6 +234,17 @@ public class LaticeJavaFXControleurPrincipal {
                 int y = Character.getNumericValue(id.charAt(5)) - 1;
                 Position position = new Position(x, y);
 
+                // Ajout de la vérification du premier coup
+                if (arbitre.premier_coup() && !"case55".equals(id)) {
+                    // Affiche un message d'erreur et refuse le drop
+                    erreurChangerRack.setText("Le premier coup doit être joué sur la case Lune (case centrale)");
+                    event.setDropCompleted(false);
+                    event.consume();
+                    return;
+                } else {
+                    erreurChangerRack.setText(""); // Efface l'erreur si tout va bien
+                }
+
                 boolean ok = arbitre.jouerTuile(position, tuile);
                 System.out.println("Placement ok? " + ok);
 
@@ -241,7 +252,7 @@ public class LaticeJavaFXControleurPrincipal {
                     imageView.setImage(db.getImage());
                     source.setImage(null);
                     success = true;
-					arbitre.retirerAction();
+                    arbitre.retirerAction();
                 } else {
                     imageView.getStyleClass().add("shake");
                 }
@@ -249,7 +260,7 @@ public class LaticeJavaFXControleurPrincipal {
 
             event.setDropCompleted(success);
             event.consume();
-			verificationDuTour();
+            verificationDuTour();
         });
     }
 }
