@@ -48,11 +48,6 @@ public class Arbitre {
 
         plateau.donnerPoint(getJoueurCourant(), pointsGagnes);
 
-        try {
-            remplireRack();
-        } catch (PiocheVideException e) {
-            System.out.println(e.getMessage());
-        }
 
 
         return true;
@@ -123,7 +118,7 @@ public class Arbitre {
 	
 	public void remplireRack() throws PiocheVideException {
 		if(joueurActuel == joueur1) {
-			joueur1.remplirRack();;
+			joueur1.remplirRack();
 		}
 		else {
 			joueur2.remplirRack();
