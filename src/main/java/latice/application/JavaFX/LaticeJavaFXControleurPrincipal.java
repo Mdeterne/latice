@@ -4,6 +4,8 @@ import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -102,30 +104,57 @@ public class LaticeJavaFXControleurPrincipal {
     @FXML
     private void changerRack(ActionEvent event) {
         try {
+            // Échange le rack du joueur + retire action
             arbitre.changerRack();
             arbitre.retirerAction();
-            verificationDuTour();
+            changementTextDeJoueur();
+            changementImageRack();
         } catch (PiocheVideException e) {
             erreurChangerRack.setText("Impossible : votre pioche est vide");
         }
+        verificationDuTour();
     }
 
-    //Vérifie si le tour doit changer
+    //Vérifie si le tour doit changer, remplit le rack et met à jour l'interface.
     private void verificationDuTour() {
         if (arbitre.getActions() == 0) {
             arbitre.changerTour();
             try {
                 arbitre.remplireRack();
             } catch (PiocheVideException e) {
-                e.printStackTrace();
+                // terminer la partie si rack vide
+                if (arbitre.getJoueurCourant().getRack().affichertuiles().isEmpty()) {
+                    finDePartie();
+                    return;
+                }
+                if (arbitre.getActions() == 0) {
+                    arbitre.changerTour();
+                }
+                // maj de l'interface
+                changementTextDeJoueur();
+                changementImageRack();
             }
-            changementImageRack();
-            changementTextDeJoueur();
-        } else {
-            // Met à jour le rack pour le même joueur après chaque action
-            changementImageRack();
         }
+        // maj de l'interface
+        changementTextDeJoueur();
+        changementImageRack();
     }
+    private void finDePartie() {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Fin de partie");
+        alert.setHeaderText(null);
+        alert.setContentText("La pioche est vide, partie terminée !");
+        alert.showAndWait();
+
+        // Désactivation tuiles et bouton
+        tuile1.setDisable(true);
+        tuile2.setDisable(true);
+        tuile3.setDisable(true);
+        tuile4.setDisable(true);
+        tuile5.setDisable(true);
+        changerRack.setDisable(true);
+    }
+
 
     //Met à jour les images du rack avec les tuiles du joueur courant
     private void changementImageRack() {
