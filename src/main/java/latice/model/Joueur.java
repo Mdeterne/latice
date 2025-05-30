@@ -100,8 +100,8 @@ public class Joueur {
 	}
 	
 	public void remplirRack() throws PiocheVideException {
-		int nbTuileAPoser = Rack.TAILLE_MAX-rack.taille();
-		for(int i=1;i>=nbTuileAPoser;i++) {
+		int nbTuileARemplir = Rack.TAILLE_MAX-rack.taille();
+		for(int i = 0; i < nbTuileARemplir; i++) {
 			Tuile tuile = piochePersonelle.piocher();
 			rack.ajoutertuile(tuile);
 		}
