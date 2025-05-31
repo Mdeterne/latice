@@ -251,9 +251,15 @@ public class LaticeJavaFXControleurPrincipal {
                     event.setDropCompleted(false);
                     event.consume();
                     return;
-                } else {
-                    erreurChangerRack.setText(""); // Efface l'erreur si tout va bien
                 }
+
+				if (!arbitre.premier_coup() && !arbitre.getPlateau().estPlacementCompatible(position, tuile)) {
+					imageView.getStyleClass().add("shake");
+					event.setDropCompleted(false);
+					event.consume();
+					return;
+                }
+                
 
                 boolean ok = arbitre.jouerTuile(position, tuile);
                 System.out.println("Placement ok? " + ok);
@@ -328,9 +334,9 @@ public class LaticeJavaFXControleurPrincipal {
             if (col1 >= 1 && col1 <= 9 && lig1 >= 1 && lig1 <= 9 && col2 >= 1 && col2 <= 9 && lig2 >= 1 && lig2 <= 9) {
                 String id1 = "case" + col1 + lig1;
                 String id2 = "case" + col2 + lig2;
-                Tuile tCentre = arbitre.plateau.detecterAngleAmateur(caseId) ? arbitre.plateau.getCase(new Position(col-1, lig-1)).gettuile() : null;
-                Tuile t1 = arbitre.plateau.getCase(new Position(col1-1, lig1-1)).gettuile();
-                Tuile t2 = arbitre.plateau.getCase(new Position(col2-1, lig2-1)).gettuile();
+                Tuile tCentre = arbitre.plateau.detecterAngleAmateur(caseId) ? arbitre.plateau.getCase(new Position(col-1, lig-1)).getTuile() : null;
+                Tuile t1 = arbitre.plateau.getCase(new Position(col1-1, lig1-1)).getTuile();
+                Tuile t2 = arbitre.plateau.getCase(new Position(col2-1, lig2-1)).getTuile();
                 if (tCentre != null && t1 != null && t2 != null) {
                     System.out.println("Angle " + angles[i] + ": centre=" + tCentre + ", t1=" + t1 + ", t2=" + t2);
                 }
