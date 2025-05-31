@@ -84,6 +84,39 @@ public class Plateau {
     public int getTaille() {
     	return taille;
     }
+    
+    
+    public boolean estPlacementCompatible(Position pos, Tuile tuile) {
+        int x = pos.x();
+        int y = pos.y();
+        boolean compatible = false;
+
+        // 4 directions(haut, bas, gauche, droite)
+        int[][] directions = { {0, -1}, {0, 1}, {-1, 0}, {1, 0} };
+
+        for (int[] dir : directions) {
+            int nx = x + dir[0];
+            int ny = y + dir[1];
+            Position voisinPosition = new Position(nx, ny);
+
+            if (estPositionValide(voisinPosition)) {
+                Tuile voisine = getCase(voisinPosition).getTuile();
+                if (voisine != null) {
+                    compatible = true;
+                    if (!tuile.estCompatible(voisine)) {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        return compatible;
+    }
+
+    
+    
+    
+    
 
     // Compte le nombre de tuiles compatibles autour d'une case à partir de son id
     public int compterCompatibilitesAutourCaseId(String caseId, Tuile tuile) {
@@ -124,7 +157,7 @@ public class Plateau {
         Position pos = new Position(col-1, lig-1);
         Case c = getCase(pos);
         if (c == null) return false;
-        Tuile t = c.gettuile();
+        Tuile t = c.getTuile();
         if (t == null) return false;
         return t.couleur() == tuile.couleur() || t.symbole() == tuile.symbole();
     }
@@ -137,7 +170,7 @@ public class Plateau {
         Position pos = new Position(col-1, lig-1);
         Case c = getCase(pos);
         if (c == null) return null;
-        return c.gettuile();
+        return c.getTuile();
     }
     
     public boolean detecterAngleAmateur(String caseId) {
