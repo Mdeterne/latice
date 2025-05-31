@@ -162,4 +162,7 @@ public class Arbitre {
 	        joueur1.réinitialiserActions();
 	    }
 	}
+	public Plateau getPlateau() {
+	    return plateau;
+	}
 }
