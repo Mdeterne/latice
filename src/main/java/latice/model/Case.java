@@ -29,7 +29,7 @@ public class Case {
         
     }
     
-    public Tuile gettuile() {
+    public Tuile getTuile() {
         return tuile;
     }
     

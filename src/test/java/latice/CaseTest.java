@@ -41,7 +41,7 @@ class CaseTest {
         Case maCase = new Case(position, false, false);
         maCase.posertuile(tuile);
 
-        assertEquals(tuile, maCase.gettuile());
+        assertEquals(tuile, maCase.getTuile());
     }
 
     @Test
