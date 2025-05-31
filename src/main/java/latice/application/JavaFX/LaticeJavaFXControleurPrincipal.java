@@ -72,7 +72,6 @@ public class LaticeJavaFXControleurPrincipal {
         musique = new LaticeGestionnaireDeMusique();
         arbitre = new Arbitre();
         arbitre.initialiser(nomJoueur1, nomJoueur2);
-        plateau = arbitre.plateau;
 
         // Affiche le joueur courant et son rack
         changementTextDeJoueur();
@@ -245,19 +244,13 @@ public class LaticeJavaFXControleurPrincipal {
                 Position position = new Position(x, y);
 
                 // Ajout de la vérification du premier coup
-                if (arbitre.premier_coup() && !"case55".equals(id)) {
+                if (arbitre.premierCoup() && !"case55".equals(id)) {
                     // Affiche un message d'erreur et refuse le drop
                     erreurChangerRack.setText("Le premier coup doit être joué sur la case Lune (case centrale)");
                     event.setDropCompleted(false);
                     event.consume();
+                    changementTextDeJoueur();
                     return;
-                }
-
-				if (!arbitre.premier_coup() && (arbitre.getPlateau().nombreTuilesCompatibles(position, tuile) == 0)) {
-					imageView.getStyleClass().add("shake");
-					event.setDropCompleted(false);
-					event.consume();
-					return;
                 }
                 
 
@@ -268,19 +261,8 @@ public class LaticeJavaFXControleurPrincipal {
                     imageView.setImage(db.getImage());
                     source.setImage(null);
                     success = true;
-                    arbitre.retirerAction();
-
                     // Mise à jour du nombre de tuiles dans la pioche personnelle
                     changementTextDeJoueur();
-
-                    // Vérification des tuiles adjacentes après placement
-                    int nbCompatibles = arbitre.plateau.compterCompatibilitesAutourCaseId(id, tuile);
-                    if (nbCompatibles > 0) {
-                        System.out.println("Tuile correspond");
-                    } else {
-                        System.out.println("rien de trouvé");
-                    }
-                    verifierPatternAngleAutour(id);
                 }
             }
 
@@ -289,6 +271,7 @@ public class LaticeJavaFXControleurPrincipal {
             verificationDuTour();
         });
     }
+    /*
 
     private void verifierPatternAngleAutour(String caseId) {
         int col = Character.getNumericValue(caseId.charAt(4));
@@ -343,4 +326,5 @@ public class LaticeJavaFXControleurPrincipal {
             }
         }
     }
+    */
 }

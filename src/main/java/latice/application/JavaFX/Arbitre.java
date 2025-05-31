@@ -22,7 +22,7 @@ public class Arbitre {
 	
 	private PiochePrincipal piochePrincipal = new PiochePrincipal();
 	
-	final Plateau plateau = new Plateau();
+	private final Plateau plateau = new Plateau();
 	
 	private boolean premierCoup = true;
 
@@ -33,26 +33,33 @@ public class Arbitre {
     public Joueur getJoueur1() { return joueur1; }
     public Joueur getJoueur2() { return joueur2; }
 
-    public boolean premier_coup() {
+    public boolean premierCoup() {
         return premierCoup;
     }
 
-    public boolean jouerTuile(Position p, Tuile t){
-        if (!plateau.estPositionValide(p)) {
+    public boolean jouerTuile(Position position, Tuile tuile){
+    	// On gère d'abord si le positionnement des tuiles est valide
+        if (!plateau.estPositionValide(position)) {
             return false;
         }
         try {
-            plateau.posertuile(t, p);
+            plateau.posertuile(tuile, position);
         } catch (CaseInaccessibleException e) {
             return false;
         }
-        retirertuile(t);
 
-        int pointsGagnes;
-        if (plateau.getCase(p).estSoleil()) {
-            pointsGagnes = 2;
+        int nombreTuilesCompatibles = plateau.nombreTuilesCompatibles(position, tuile);
+        if(!premierCoup() && nombreTuilesCompatibles == 0) {
+        	return false;
+        }
+
+        retirertuile(tuile);
+
+        int pointsGagnes = 0;
+        if (plateau.getCase(position).estSoleil()) {
+            pointsGagnes += 2;
         } else {
-            pointsGagnes = 1;
+            pointsGagnes += 1;
         }
 
         plateau.donnerPoint(getJoueurCourant(), pointsGagnes);
@@ -60,6 +67,7 @@ public class Arbitre {
         if (premierCoup) {
             premierCoup = false;
         }
+        retirerAction();
         return true;
     }	
 	
