@@ -86,10 +86,11 @@ public class Plateau {
     }
     
     
-    public boolean estPlacementCompatible(Position pos, Tuile tuile) {
+    //renvoie le nombre de tuiles compatibles si une tuiles n'est pas compatible renvoie 0
+    public int nombreTuilesCompatibles(Position pos, Tuile tuile) {
         int x = pos.x();
         int y = pos.y();
-        boolean compatible = false;
+        int tuilesCompatibles = 0;
 
         // 4 directions(haut, bas, gauche, droite)
         int[][] directions = { {0, -1}, {0, 1}, {-1, 0}, {1, 0} };
@@ -102,15 +103,15 @@ public class Plateau {
             if (estPositionValide(voisinPosition)) {
                 Tuile voisine = getCase(voisinPosition).getTuile();
                 if (voisine != null) {
-                    compatible = true;
+                    tuilesCompatibles += 1;
                     if (!tuile.estCompatible(voisine)) {
-                        return false;
+                        return 0;
                     }
                 }
             }
         }
 
-        return compatible;
+        return tuilesCompatibles;
     }
 
     

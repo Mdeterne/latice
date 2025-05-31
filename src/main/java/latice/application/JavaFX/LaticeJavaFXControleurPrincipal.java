@@ -253,7 +253,7 @@ public class LaticeJavaFXControleurPrincipal {
                     return;
                 }
 
-				if (!arbitre.premier_coup() && !arbitre.getPlateau().estPlacementCompatible(position, tuile)) {
+				if (!arbitre.premier_coup() && (arbitre.getPlateau().nombreTuilesCompatibles(position, tuile) == 0)) {
 					imageView.getStyleClass().add("shake");
 					event.setDropCompleted(false);
 					event.consume();
