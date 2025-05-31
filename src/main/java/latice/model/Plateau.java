@@ -46,21 +46,33 @@ public class Plateau {
 	    return position.x() == centre && position.y() == centre;
 	}
 	
-    public void afficherPlateau() {
-        for (int i = 0; i < taille; i++) {
-            for (int j = 0; j < taille; j++) {
-                Case c = plateau[i][j];
-                if (c.estSoleil()) {
-                    System.out.print("[X]");
-                } else if (c.estLune()) {
-					System.out.print("[L]");
-                } else {
-                    System.out.print("[ ]");
-                }
-            }
-            System.out.println();
-        }
-    }
+
+	public void afficherPlateau() {
+	    System.out.println("    0   1   2   3   4   5   6   7   8");
+	    System.out.println("  +---+---+---+---+---+---+---+---+---+");
+
+	    for (int y = 0; y < taille; y++) {
+	        System.out.print(y + " |");
+	        for (int x = 0; x < taille; x++) {
+	            Case c = plateau[x][y];
+	            Tuile t = c.getTuile();
+
+	            if (t != null) {
+	                char sym = t.symbole().name().charAt(0);
+	                char coul = t.couleur().name().charAt(0);
+	                System.out.print("" + coul + sym + "|");
+	            } else if (c.estLune()) {
+	                System.out.print(" L |");
+	            } else if (c.estSoleil()) {
+	                System.out.print(" S |");
+	            } else {
+	                System.out.print("   |");
+	            }
+	        }
+	        System.out.println();
+	        System.out.println("  +---+---+---+---+---+---+---+---+---+");
+	    }
+	}
 
     public void posertuile(Tuile tuile, Position position) throws CaseInaccessibleException {
         plateau[position.x()][position.y()].posertuile(tuile);
