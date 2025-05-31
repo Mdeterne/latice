@@ -177,8 +177,8 @@ public class LaticeJavaFXControleurPrincipal {
         lblJoueurActuel.setText(arbitre.getJoueurCourant().nom() + " à vous de jouer !");
         // Mise à jour du nombre de tuiles dans la pioche personnelle de chaque joueur
         if (arbitre != null && arbitre.getJoueurCourant() != null) {
-            lblPiocheJoueur1.setText(arbitre.getJoueur1().nom() + " : " + arbitre.getJoueur1().taillePiochePersonelle() + " tuiles");
-            lblPiocheJoueur2.setText(arbitre.getJoueur2().nom() + " : " + arbitre.getJoueur2().taillePiochePersonelle() + " tuiles");
+            lblPiocheJoueur1.setText(arbitre.getJoueur1().nom() + " : " + (arbitre.getJoueur1().taillePiochePersonelle() + arbitre.getJoueur1().getRack().affichertuiles().size()) + " tuiles");
+            lblPiocheJoueur2.setText(arbitre.getJoueur2().nom() + " : " + (arbitre.getJoueur2().taillePiochePersonelle() + arbitre.getJoueur2().getRack().affichertuiles().size()) + " tuiles");
         }
     }
 
@@ -249,7 +249,6 @@ public class LaticeJavaFXControleurPrincipal {
                     erreurChangerRack.setText("Le premier coup doit être joué sur la case Lune (case centrale)");
                     event.setDropCompleted(false);
                     event.consume();
-                    changementTextDeJoueur();
                     return;
                 }
                 
@@ -262,7 +261,6 @@ public class LaticeJavaFXControleurPrincipal {
                     source.setImage(null);
                     success = true;
                     // Mise à jour du nombre de tuiles dans la pioche personnelle
-                    changementTextDeJoueur();
                 }
             }
 

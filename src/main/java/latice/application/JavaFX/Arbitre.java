@@ -42,18 +42,17 @@ public class Arbitre {
         if (!plateau.estPositionValide(position)) {
             return false;
         }
-        try {
-            plateau.posertuile(tuile, position);
-        } catch (CaseInaccessibleException e) {
-            return false;
-        }
 
         int nombreTuilesCompatibles = plateau.nombreTuilesCompatibles(position, tuile);
         if(!premierCoup() && nombreTuilesCompatibles == 0) {
         	return false;
         }
 
-        retirertuile(tuile);
+        try {
+            plateau.posertuile(tuile, position);
+        } catch (CaseInaccessibleException e) {
+            return false;
+        }
 
         int pointsGagnes = 0;
         if (plateau.getCase(position).estSoleil()) {
@@ -67,6 +66,8 @@ public class Arbitre {
         if (premierCoup) {
             premierCoup = false;
         }
+
+        retirertuile(tuile);
         retirerAction();
         return true;
     }	
