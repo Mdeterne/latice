@@ -261,7 +261,6 @@ public class LaticeJavaFXControleurPrincipal {
                     source.setImage(null);
                     success = true;
                     // Mise à jour du nombre de tuiles dans la pioche personnelle
-                    changementTextDeJoueur();
                 }
             }
 
