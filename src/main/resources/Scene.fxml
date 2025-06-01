@@ -218,7 +218,7 @@
             <Image url="@img/flowers.gif" />
          </image>
       </ImageView>
-      <HBox layoutX="400.0" layoutY="667.0" prefHeight="60.0" prefWidth="300.0" scaleX="1.3" scaleY="1.3">
+      <HBox layoutX="400.0" layoutY="667.0" prefHeight="60.0" prefWidth="300.0" scaleX="1.3" scaleY="1.3" style="-fx-border-color: #001c33; -fx-border-width: 7; -fx-border-radius: 5;">
          <children>
             <ImageView fx:id="tuile1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <image>
