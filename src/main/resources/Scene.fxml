@@ -284,14 +284,14 @@
             <Font size="48.0" />
          </font>
       </Label>
-      <VBox layoutX="15.0" layoutY="237.0" prefHeight="66.0" prefWidth="163.0" spacing="8" style="-fx-background-color: #e0e0e0; -fx-border-color: #333; -fx-border-radius: 10; -fx-background-radius: 10;">
+      <VBox layoutX="52.0" layoutY="237.0" prefHeight="66.0" prefWidth="163.0" spacing="8" style="-fx-background-color: #e0e0e0; -fx-border-color: #333; -fx-border-radius: 10; -fx-background-radius: 10;">
          <children>
-            <Label fx:id="lblPiocheJoueur1" prefHeight="67.0" prefWidth="163.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-alignment: center;" text="Joueur 1 : 0 tuiles" />
+            <Label fx:id="lblPiocheJoueur1" prefHeight="67.0" prefWidth="163.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-alignment: center; -fx-background-color: #001c33; -fx-background-radius: 10; -fx-text-fill: #00f0ff;" text="Joueur 1 : 0 tuiles" />
          </children>
       </VBox>
       <VBox layoutX="884.0" layoutY="237.0" prefHeight="66.0" prefWidth="163.0" spacing="8" style="-fx-background-color: #e0e0e0; -fx-border-color: #333; -fx-border-radius: 10; -fx-background-radius: 10;">
          <children>
-            <Label fx:id="lblPiocheJoueur2" prefHeight="72.0" prefWidth="168.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-alignment: center;" text="Joueur 2 : 0 tuiles" />
+            <Label fx:id="lblPiocheJoueur2" prefHeight="72.0" prefWidth="168.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-alignment: center; -fx-background-color: #001c33; -fx-background-radius: 10; -fx-text-fill: #00f0ff;" text="Joueur 2 : 0 tuiles" />
          </children>
       </VBox>
    </children>
