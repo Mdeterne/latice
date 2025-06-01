@@ -45,6 +45,9 @@ public class Arbitre {
         }
 
         int nombreTuilesCompatibles = plateau.nombreTuilesCompatibles(position, tuile);
+        if(!premierCoup && nombreTuilesCompatibles == 0) {
+        	return false;
+        }
 
         try {
             plateau.posertuile(tuile, position);
@@ -71,8 +74,6 @@ public class Arbitre {
 
         if (plateau.getCase(position).estSoleil()) {
             pointsGagnes += 2;
-        } else {
-            pointsGagnes += 1;
         }
 
         plateau.donnerPoint(getJoueurCourant(), pointsGagnes);

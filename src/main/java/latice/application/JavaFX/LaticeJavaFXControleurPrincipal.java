@@ -196,8 +196,8 @@ public class LaticeJavaFXControleurPrincipal {
 		lblJoueurActuel.setText(arbitre.getJoueurCourant().nom() + " à vous de jouer !");
 		// Mise à jour du nombre de tuiles dans la pioche personnelle de chaque joueur
 		if (arbitre != null && arbitre.getJoueurCourant() != null) {
-			lblPiocheJoueur1.setText(arbitre.getJoueur1().nom() + " : " + (arbitre.getJoueur1().taillePiochePersonelle() + arbitre.getJoueur1().getRack().afficherTuiles().size()) + " tuiles");
-			lblPiocheJoueur2.setText(arbitre.getJoueur2().nom() + " : " + (arbitre.getJoueur2().taillePiochePersonelle() + arbitre.getJoueur2().getRack().afficherTuiles().size()) + " tuiles");
+			lblPiocheJoueur1.setText(arbitre.getJoueur1().nom() + "\n" + (arbitre.getJoueur1().taillePiochePersonelle() + arbitre.getJoueur1().getRack().afficherTuiles().size()) + " tuiles" + "\n" + arbitre.getJoueur1().point() + " points");
+			lblPiocheJoueur2.setText(arbitre.getJoueur2().nom() + "\n" + (arbitre.getJoueur2().taillePiochePersonelle() + arbitre.getJoueur2().getRack().afficherTuiles().size()) + " tuiles" + "\n" + arbitre.getJoueur2().point() + " points");
 		}
 	}
 
