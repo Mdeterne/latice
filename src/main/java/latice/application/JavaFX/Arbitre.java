@@ -19,6 +19,7 @@ public class Arbitre {
 	private Joueur joueur1;
 	private Joueur joueur2;
 	private Joueur joueurActuel;
+	private int nombreTours = 20;
 	
 	private PiochePrincipal piochePrincipal = new PiochePrincipal();
 	
@@ -44,9 +45,6 @@ public class Arbitre {
         }
 
         int nombreTuilesCompatibles = plateau.nombreTuilesCompatibles(position, tuile);
-        if(!premierCoup() && nombreTuilesCompatibles == 0) {
-        	return false;
-        }
 
         try {
             plateau.posertuile(tuile, position);
@@ -84,6 +82,17 @@ public class Arbitre {
         retirerAction();
         return true;
     }	
+    
+    public boolean estFinDuJeu() {
+    	if (joueurActuel.actions() == 0) {
+    		nombreTours--;
+    	}
+    	System.out.println(nombreTours);
+    	if(nombreTours == 0) {
+    		return true;
+    	}
+    	return false;
+    }
 	
 	public void initialiser(String nomJoueur1, String nomJoueur2) {
 		joueur1 = new Joueur(nomJoueur1);
@@ -141,7 +150,7 @@ public class Arbitre {
 	
 	public void retirerAction() {
 		if(joueurActuel == joueur1) {
-			joueur1.enleverAction();;
+			joueur1.enleverAction();
 		}
 		else {
 			joueur2.enleverAction();
