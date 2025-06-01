@@ -80,7 +80,7 @@ public class LaticeJavaFXControleurPrincipal {
 
         // Configure drag sur les tuiles du rack
         ImageView[] rackViews = { tuile1, tuile2, tuile3, tuile4, tuile5 };
-        List<Tuile> rack = arbitre.getJoueurCourant().getRack().affichertuiles();
+        List<Tuile> rack = arbitre.getJoueurCourant().getRack().afficherTuiles();
         for (int i = 0; i < rack.size(); i++) {
             Tuile t = rack.get(i);
             ImageView iv = rackViews[i];
@@ -127,7 +127,7 @@ public class LaticeJavaFXControleurPrincipal {
                 arbitre.remplireRack();
             } catch (PiocheVideException e) {
                 // terminer la partie si rack vide
-                if (arbitre.getJoueurCourant().getRack().affichertuiles().isEmpty()) {
+                if (arbitre.getJoueurCourant().getRack().afficherTuiles().isEmpty()) {
                     finDePartie();
                     return;
                 }
@@ -162,7 +162,7 @@ public class LaticeJavaFXControleurPrincipal {
 
     //Met à jour les images du rack avec les tuiles du joueur courant
     private void changementImageRack() {
-        List<Tuile> tuiles = arbitre.getJoueurCourant().getRack().affichertuiles();
+        List<Tuile> tuiles = arbitre.getJoueurCourant().getRack().afficherTuiles();
         ImageView[] rackViews = { tuile1, tuile2, tuile3, tuile4, tuile5 };
         for (int i = 0; i < tuiles.size(); i++) {
             Tuile t = tuiles.get(i);
@@ -177,8 +177,8 @@ public class LaticeJavaFXControleurPrincipal {
         lblJoueurActuel.setText(arbitre.getJoueurCourant().nom() + " à vous de jouer !");
         // Mise à jour du nombre de tuiles dans la pioche personnelle de chaque joueur
         if (arbitre != null && arbitre.getJoueurCourant() != null) {
-            lblPiocheJoueur1.setText(arbitre.getJoueur1().nom() + " : " + (arbitre.getJoueur1().taillePiochePersonelle() + arbitre.getJoueur1().getRack().affichertuiles().size()) + " tuiles");
-            lblPiocheJoueur2.setText(arbitre.getJoueur2().nom() + " : " + (arbitre.getJoueur2().taillePiochePersonelle() + arbitre.getJoueur2().getRack().affichertuiles().size()) + " tuiles");
+            lblPiocheJoueur1.setText(arbitre.getJoueur1().nom() + " : " + (arbitre.getJoueur1().taillePiochePersonelle() + arbitre.getJoueur1().getRack().afficherTuiles().size()) + " tuiles");
+            lblPiocheJoueur2.setText(arbitre.getJoueur2().nom() + " : " + (arbitre.getJoueur2().taillePiochePersonelle() + arbitre.getJoueur2().getRack().afficherTuiles().size()) + " tuiles");
         }
     }
 

@@ -146,9 +146,9 @@ public class Arbitre {
 	
 	public void retirertuile(Tuile tuile) {
 	    if (joueurActuel == joueur1) {
-	        joueur1.getRack().retirertuile(tuile);
+	        joueur1.getRack().retirerTuile(tuile);
 	    } else {
-	        joueur2.getRack().retirertuile(tuile);
+	        joueur2.getRack().retirerTuile(tuile);
 	    }
 	}
 

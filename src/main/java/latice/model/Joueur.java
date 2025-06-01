@@ -28,11 +28,11 @@ public class Joueur {
 	public void jouer(Plateau plateau, Tuile tuile, Position position) throws CaseInaccessibleException{
 		
 		plateau.posertuile(tuile, position);
-	    rack.retirertuile(tuile);
+	    rack.retirerTuile(tuile);
 	    Tuile tuile2;
 		try {
 			tuile2 = piochePersonelle.piocher();
-			rack.ajoutertuile(tuile2);
+			rack.ajouterTuile(tuile2);
 		} catch (PiocheVideException e) {
 			e.printStackTrace();
 		}
@@ -52,8 +52,8 @@ public class Joueur {
 		List<Tuile> ancienstuiles = rack.vider();
 		ancienstuiles.forEach(tuile -> piochePersonelle.ajoutertuile(tuile));
 		piochePersonelle.mélanger();
-		while (rack.affichertuiles().size() < Rack.TAILLE_MAX && !piochePersonelle.estVide()) {
-            rack.ajoutertuile(piochePersonelle.piocher());
+		while (rack.afficherTuiles().size() < Rack.TAILLE_MAX && !piochePersonelle.estVide()) {
+            rack.ajouterTuile(piochePersonelle.piocher());
         }
 		return (this.nom+" à échanger son rack");
 	}
@@ -83,11 +83,11 @@ public class Joueur {
 
 	
 	public ArrayList<Tuile> tuilesRack() {
-		return rack().affichertuiles();
+		return rack().afficherTuiles();
 	}
 	
 	public String affichertuilesRack() {
-		return ""+rack().affichertuiles();
+		return ""+rack().afficherTuiles();
 	}
 	
 	public void initialiserRack() throws PiocheVideException {
@@ -95,7 +95,7 @@ public class Joueur {
 	     
 	    for (int i = 0; i < Rack.TAILLE_MAX && !piochePersonelle.estVide(); i++) {
 	        Tuile tuile = piochePersonelle.piocher();
-	        rack.ajoutertuile(tuile);
+	        rack.ajouterTuile(tuile);
 	    }
 	}
 	
@@ -103,7 +103,7 @@ public class Joueur {
 		int nbTuileARemplir = Rack.TAILLE_MAX-rack.taille();
 		for(int i = 0; i < nbTuileARemplir; i++) {
 			Tuile tuile = piochePersonelle.piocher();
-			rack.ajoutertuile(tuile);
+			rack.ajouterTuile(tuile);
 		}
 	}
 	

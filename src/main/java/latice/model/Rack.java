@@ -19,17 +19,17 @@ public class Rack {
         return tuilesVides;
     }
 
-	public void ajoutertuile(Tuile tuile) {
+	public void ajouterTuile(Tuile tuile) {
 		if (tuiles.size() < TAILLE_MAX) {
             tuiles.add(tuile);
         }
 	}
 	
-	public void retirertuile(Tuile tuile){
+	public void retirerTuile(Tuile tuile){
 		tuiles.remove(tuile);   
     }
 	
-	public ArrayList<Tuile> affichertuiles() {
+	public ArrayList<Tuile> afficherTuiles() {
         return new ArrayList<>(tuiles);
     }
 	
