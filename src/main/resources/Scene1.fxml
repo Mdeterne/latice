@@ -9,9 +9,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@styles-login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="latice.application.JavaFX.LaticeJavaFXControleurConection">
    <children>
-      <ImageView fitHeight="456.0" fitWidth="619.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="554.0" fitWidth="763.0" layoutX="-47.0" layoutY="-12.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@img/FondBob.jpg" />
+            <Image url="@img/fondGif.gif" />
          </image>
       </ImageView>
       <Label layoutX="75.0" layoutY="189.0" prefHeight="27.0" prefWidth="126.0" text="Nom joueur 1:" />
