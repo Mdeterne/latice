@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
@@ -16,7 +17,7 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="latice.application.JavaFX.LaticeJavaFXControleurPrincipal">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="latice.application.JavaFX.LaticeJavaFXControleurPrincipal">
    <children>
       <ImageView fx:id="compteurTour" fitHeight="1041.0" fitWidth="1100.0" layoutY="-161.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -279,14 +280,12 @@
       <Label fx:id="messagesErreur" alignment="CENTER" layoutX="409.0" layoutY="625.0" scaleX="0.75" scaleY="0.75" styleClass="textErreur" stylesheets="@style-jeu.css" />
       <Button fx:id="changerRack" layoutX="775.0" layoutY="676.0" mnemonicParsing="false" onAction="#changerRack" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Changer" />
       <Button fx:id="Quitter" layoutX="936.0" layoutY="81.0" mnemonicParsing="false" onAction="#QuitterLatice" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Quitter" />
-      <Label layoutX="979.0" layoutY="662.0" prefHeight="49.0" prefWidth="34.0" scaleX="5.0" scaleY="5.0" stylesheets="@style-jeu.css" text="0" textFill="#62ff00">
-         <font>
-            <Font size="48.0" />
-         </font>
-      </Label>
       <VBox layoutX="52.0" layoutY="237.0" prefHeight="66.0" prefWidth="163.0" spacing="8" style="-fx-background-color: #e0e0e0; -fx-border-color: #333; -fx-border-radius: 10; -fx-background-radius: 10;">
          <children>
-            <Label fx:id="lblPiocheJoueur1" prefHeight="67.0" prefWidth="163.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-alignment: center; -fx-background-color: #001c33; -fx-background-radius: 10; -fx-text-fill: #00f0ff;" text="Joueur 1 : 0 tuiles" />
+            <Label fx:id="lblPiocheJoueur1" prefHeight="67.0" prefWidth="163.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-alignment: center; -fx-background-color: #001c33; -fx-background-radius: 10; -fx-text-fill: #00f0ff;" text="Joueur 1 : 0 tuiles">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin></Label>
          </children>
       </VBox>
       <VBox layoutX="884.0" layoutY="237.0" prefHeight="66.0" prefWidth="163.0" spacing="8" style="-fx-background-color: #e0e0e0; -fx-border-color: #333; -fx-border-radius: 10; -fx-background-radius: 10;">
