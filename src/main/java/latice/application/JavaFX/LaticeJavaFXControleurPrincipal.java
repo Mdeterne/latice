@@ -65,7 +65,7 @@ public class LaticeJavaFXControleurPrincipal {
     @FXML private Slider barVolume;
     @FXML private Label textVolume;
     @FXML private Button changerRack;
-    @FXML private Label erreurChangerRack;
+    @FXML private Label messagesErreur;
 
     //Initialisation du contrôleur : joueurs, rack, cases et musique.
     public void initialisation(String nomJoueur1, String nomJoueur2) {
@@ -114,7 +114,7 @@ public class LaticeJavaFXControleurPrincipal {
             changementTextDeJoueur();
             changementImageRack();
         } catch (PiocheVideException e) {
-            erreurChangerRack.setText("Impossible : votre pioche est vide");
+            messagesErreur.setText("Impossible : votre pioche est vide");
         }
         verificationDuTour();
     }
@@ -246,7 +246,7 @@ public class LaticeJavaFXControleurPrincipal {
                 // Ajout de la vérification du premier coup
                 if (arbitre.premierCoup() && !"case55".equals(id)) {
                     // Affiche un message d'erreur et refuse le drop
-                    erreurChangerRack.setText("Le premier coup doit être joué sur la case Lune (case centrale)");
+                    messagesErreur.setText("Le premier coup doit être joué sur la case Lune (case centrale)");
                     event.setDropCompleted(false);
                     event.consume();
                     return;
@@ -257,10 +257,13 @@ public class LaticeJavaFXControleurPrincipal {
                 System.out.println("Placement ok? " + ok);
 
                 if (ok) {
+					messagesErreur.setText("");
                     imageView.setImage(db.getImage());
                     source.setImage(null);
                     success = true;
                     // Mise à jour du nombre de tuiles dans la pioche personnelle
+                }else {
+                	messagesErreur.setText("Impossible de poser la tuile ici !");
                 }
             }
 
