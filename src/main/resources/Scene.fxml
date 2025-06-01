@@ -28,11 +28,6 @@
             <Image url="@img/rouge.gif" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="906.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/summer.gif" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="17.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/flowers2.gif" />
