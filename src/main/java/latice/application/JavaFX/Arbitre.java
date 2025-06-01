@@ -78,6 +78,7 @@ public class Arbitre {
         plateau.donnerPoint(getJoueurCourant(), pointsGagnes);
 
 
+        joueurActuel.ajoutTuilePosé();
         retirertuile(tuile);
         retirerAction();
         return true;
@@ -92,6 +93,16 @@ public class Arbitre {
     		return true;
     	}
     	return false;
+    }
+    
+    public Joueur getGagnant() {
+    	if(joueur1.getTuilesPosées()>joueur2.getTuilesPosées()) {
+    		return joueur1;
+    	} else if (joueur1.getTuilesPosées()<joueur2.getTuilesPosées()) {
+    		return joueur2;
+    	}else {
+    		return null;
+    	}
     }
 	
 	public void initialiser(String nomJoueur1, String nomJoueur2) {

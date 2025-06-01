@@ -162,7 +162,11 @@ public class LaticeJavaFXControleurPrincipal {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Fin de partie");
 		alert.setHeaderText(null);
-		alert.setContentText("La pioche est vide, partie terminée !");
+		if (arbitre.getGagnant()==null) {
+			alert.setContentText("Il y a égalité, bonne partie !");
+		}else {
+			alert.setContentText(arbitre.getGagnant().nom() + "à gagné, bravo !");
+		}
 		alert.showAndWait();
 
 		// Désactivation tuiles et bouton

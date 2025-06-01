@@ -16,6 +16,7 @@ public class Joueur {
 	private Rack rack;
 	private PiochePersonelle piochePersonelle;
 	private int actions;
+	private int nombreTuilesPosées = 0;
 	
 	public Joueur(String nom) {
 		this.nom = nom;
@@ -64,6 +65,14 @@ public class Joueur {
 
 	public void ajouterPoints(int nombresPoints) {
 		point = point + nombresPoints;
+	}
+	
+	public void ajoutTuilePosé() {
+		nombreTuilesPosées++;
+	}
+	
+	public int getTuilesPosées() {
+		return nombreTuilesPosées;
 	}
 	
 	 public String nom() { 
