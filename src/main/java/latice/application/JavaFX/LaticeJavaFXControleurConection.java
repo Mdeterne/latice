@@ -28,6 +28,14 @@ public class LaticeJavaFXControleurConection {
     
 	private Stage stage;
 	
+	private LaticeGestionnaireDeMusique musique = new LaticeGestionnaireDeMusique();
+
+	@FXML
+	public void initialize() {
+	    musique.chargerMusique("/connectionMainTheme.mp3");
+	    musique.jouer();
+	}
+	
     @FXML
     private void sauvegardeDesNoms(ActionEvent event) throws IOException {
         String nom1 = nomJoueur1.getText().trim();
@@ -48,6 +56,7 @@ public class LaticeJavaFXControleurConection {
 	
     
     public void changerDeScene(Stage stage) throws IOException {
+    	musique.stop();
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/Scene.fxml"));
         Parent root = loader.load();
     	LaticeJavaFXControleurPrincipal ControleurPrincipal = loader.getController();
