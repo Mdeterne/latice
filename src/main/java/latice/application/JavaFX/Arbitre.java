@@ -62,6 +62,15 @@ public class Arbitre {
         }
 
         int pointsGagnes = 0;
+        
+        if (nombreTuilesCompatibles == 2) {
+        	pointsGagnes += 1;
+        } else if (nombreTuilesCompatibles == 3) {
+        	pointsGagnes += 2;
+        } else if (nombreTuilesCompatibles == 4) {
+        	pointsGagnes += 4;
+        }
+
         if (plateau.getCase(position).estSoleil()) {
             pointsGagnes += 2;
         } else {
