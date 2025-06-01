@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
+import javafx.scene.media.MediaView;
 import latice.model.Position;
 import latice.model.Tuile;
 import latice.model.Plateau;
@@ -66,10 +67,21 @@ public class LaticeJavaFXControleurPrincipal {
     @FXML private Label textVolume;
     @FXML private Button changerRack;
     @FXML private Label messagesErreur;
+    @FXML private MediaView fond;
+    @FXML private javafx.scene.media.MediaPlayer mediaPlayer;
 
     //Initialisation du contrôleur : joueurs, rack, cases et musique.
     public void initialisation(String nomJoueur1, String nomJoueur2) {
         musique = new LaticeGestionnaireDeMusique();
+        // Chargement de la vidéo
+        String cheminVideo = getClass().getResource("/video/bg_sea.mp4").toExternalForm();
+        javafx.scene.media.Media media = new javafx.scene.media.Media(cheminVideo);
+        mediaPlayer = new javafx.scene.media.MediaPlayer(media);
+        mediaPlayer.setCycleCount(javafx.scene.media.MediaPlayer.INDEFINITE);
+        mediaPlayer.setAutoPlay(true);
+        fond.setPreserveRatio(false);
+        fond.setMediaPlayer(mediaPlayer);
+
         arbitre = new Arbitre();
         arbitre.initialiser(nomJoueur1, nomJoueur2);
 
