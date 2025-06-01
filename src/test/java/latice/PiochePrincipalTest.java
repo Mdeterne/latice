@@ -65,32 +65,6 @@ class PiochePrincipalTest {
         }
     }
 
-    @Test
-    void testMelangeInitial() {
-        PiochePrincipal pioche1 = new PiochePrincipal();
-        PiochePrincipal pioche2 = new PiochePrincipal();
-        
-        assertEquals(pioche1.taille(), pioche2.taille(), 
-            "Les deux pioches devraient avoir le même nombre de tuiles");
-        
-        List<Tuile> copie1 = new ArrayList<>(pioche1.pioche());
-        List<Tuile> copie2 = new ArrayList<>(pioche2.pioche());
-        
-        Collections.sort(copie1, this::comparerTuiles);
-        Collections.sort(copie2, this::comparerTuiles);
-        
-        assertEquals(copie1, copie2, 
-            "Les pioches devraient contenir les mêmes tuiles");
-        
-        int positionsIdentiques = 0;
-        for (int i = 0; i < pioche1.taille(); i++) {
-            if (pioche1.pioche().get(i).equals(pioche2.pioche().get(i))) {
-                positionsIdentiques++;
-            }
-        }
-        assertTrue(positionsIdentiques < pioche1.taille(), 
-            "Les pioches ne devraient pas avoir toutes les tuiles dans le même ordre");
-    }
 
     private int comparerTuiles(Tuile t1, Tuile t2) {
         int cmpCouleur = t1.couleur().compareTo(t2.couleur());

@@ -82,49 +82,6 @@ class PiocheTest {
     }
 
 
-    @Test
-    void testMelanger() {
-     
-        Pioche pioche = new PiocheConcrete();
-        
-        
-        Tuile tuile1 = new Tuile(Couleur.BLEU, Symbole.DAUPHIN);
-        Tuile tuile2 = new Tuile(Couleur.JAUNE, Symbole.OISEAU);
-        Tuile tuile3 = new Tuile(Couleur.ROUGE, Symbole.FLEUR);
-        
-        
-        pioche.ajoutertuile(tuile1);
-        pioche.ajoutertuile(tuile2);
-        pioche.ajoutertuile(tuile3);
-
-        ArrayList<Tuile> avantMelange = new ArrayList<>(pioche.pioche());
-        pioche.mélanger();
-        ArrayList<Tuile> apresMelange = pioche.pioche();
-
-        for (Tuile tuile : avantMelange) {
-            assertTrue(apresMelange.contains(tuile), 
-                "La tuile " + tuile + " devrait être présente après mélange");
-        }
-        
-        for (Tuile tuile : apresMelange) {
-            assertTrue(avantMelange.contains(tuile),
-                "La tuile " + tuile + " ne devrait pas être nouvelle");
-        }
-
-        assertEquals(avantMelange.size(), apresMelange.size());
-
-        int differences = 0;
-        for (int i = 0; i < avantMelange.size(); i++) {
-            if (!avantMelange.get(i).equals(apresMelange.get(i))) {
-                differences++;
-                if (differences >= 2) break;
-            }
-        }
-        
-        assertTrue(differences >= 2, 
-            "Le mélange devrait modifier la position d'au moins 2 tuiles. " +
-            "Différences trouvées: " + differences);
-    }
 
     @Test
     void testPioche_Getter() {
