@@ -116,6 +116,7 @@ public class LaticeJavaFXControleurPrincipal {
         } catch (PiocheVideException e) {
             messagesErreur.setText("Impossible : votre pioche est vide");
         }
+		messagesErreur.setText("");
         verificationDuTour();
     }
 
@@ -261,7 +262,6 @@ public class LaticeJavaFXControleurPrincipal {
                     imageView.setImage(db.getImage());
                     source.setImage(null);
                     success = true;
-                    // Mise à jour du nombre de tuiles dans la pioche personnelle
                 }else {
                 	messagesErreur.setText("Impossible de poser la tuile ici !");
                 }
