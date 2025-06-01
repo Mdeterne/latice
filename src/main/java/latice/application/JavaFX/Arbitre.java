@@ -96,6 +96,10 @@ public class Arbitre {
     	return false;
     }
     
+    public int nombreTours() {
+    	return nombreTours;
+    }
+    
     public Joueur getGagnant() {
     	if(joueur1.getTuilesPosées()>joueur2.getTuilesPosées()) {
     		return joueur1;

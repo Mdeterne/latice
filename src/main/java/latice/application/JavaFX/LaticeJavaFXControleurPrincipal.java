@@ -69,6 +69,7 @@ public class LaticeJavaFXControleurPrincipal {
 	@FXML private Label messagesErreur;
 	@FXML private MediaView fond;
 	@FXML private javafx.scene.media.MediaPlayer mediaPlayer;
+	@FXML private Label compteurTours;
 
 	//Initialisation du contrôleur : joueurs, rack, cases et musique.
 	public void initialisation(String nomJoueur1, String nomJoueur2) {
@@ -88,6 +89,7 @@ public class LaticeJavaFXControleurPrincipal {
 		// Affiche le joueur courant et son rack
 		changementTextDeJoueur();
 		changementImageRack();
+		changementTextCompteurTours();
 		lancerLaMusique();
 
 		// Configure drag sur les tuiles du rack
@@ -157,6 +159,7 @@ public class LaticeJavaFXControleurPrincipal {
 		// maj de l'interface
 		changementTextDeJoueur();
 		changementImageRack();
+		changementTextCompteurTours();
 	}
 	private void finDePartie() {
 		Alert alert = new Alert(AlertType.INFORMATION);
@@ -165,7 +168,7 @@ public class LaticeJavaFXControleurPrincipal {
 		if (arbitre.getGagnant()==null) {
 			alert.setContentText("Il y a égalité, bonne partie !");
 		}else {
-			alert.setContentText(arbitre.getGagnant().nom() + "à gagné, bravo !");
+			alert.setContentText(arbitre.getGagnant().nom() + " à gagné, bravo !");
 		}
 		alert.showAndWait();
 
@@ -199,6 +202,9 @@ public class LaticeJavaFXControleurPrincipal {
 			lblPiocheJoueur1.setText(arbitre.getJoueur1().nom() + "\n" + (arbitre.getJoueur1().taillePiochePersonelle() + arbitre.getJoueur1().getRack().afficherTuiles().size()) + " tuiles" + "\n" + arbitre.getJoueur1().point() + " points");
 			lblPiocheJoueur2.setText(arbitre.getJoueur2().nom() + "\n" + (arbitre.getJoueur2().taillePiochePersonelle() + arbitre.getJoueur2().getRack().afficherTuiles().size()) + " tuiles" + "\n" + arbitre.getJoueur2().point() + " points");
 		}
+	}
+	private void changementTextCompteurTours() {
+		compteurTours.setText("Tour restants : " + arbitre.nombreTours());
 	}
 
 	private Image loadImage(String chemin) {

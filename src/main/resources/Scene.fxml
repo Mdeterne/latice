@@ -18,7 +18,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="latice.application.JavaFX.LaticeJavaFXControleurPrincipal">
    <children>
-      <ImageView fitHeight="1041.0" fitWidth="1100.0" layoutY="-161.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="compteurTour" fitHeight="1041.0" fitWidth="1100.0" layoutY="-161.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/bg.gif" />
          </image>
@@ -294,5 +294,6 @@
             <Label fx:id="lblPiocheJoueur2" prefHeight="72.0" prefWidth="168.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-alignment: center; -fx-background-color: #001c33; -fx-background-radius: 10; -fx-text-fill: #00f0ff;" text="Joueur 2 : 0 tuiles" />
          </children>
       </VBox>
+      <Label fx:id="compteurTours" layoutX="378.0" layoutY="8.0" prefHeight="23.0" prefWidth="359.0" style="-fx-alignment: center; -fx-font-size: 30; -fx-font-weight: bold; -fx-text-fill: #00f0ff; -fx-background-color: #001c33; -fx-background-radius: 10;" text="Tour 1" />
    </children>
 </Pane>
