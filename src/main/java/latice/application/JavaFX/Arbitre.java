@@ -54,6 +54,13 @@ public class Arbitre {
             return false;
         }
 
+        if (premierCoup) {
+        	if (position.x() != 4 && position.y() != 4) {
+        		return false;
+        	}
+            premierCoup = false;
+        }
+
         int pointsGagnes = 0;
         if (plateau.getCase(position).estSoleil()) {
             pointsGagnes += 2;
@@ -63,9 +70,6 @@ public class Arbitre {
 
         plateau.donnerPoint(getJoueurCourant(), pointsGagnes);
 
-        if (premierCoup) {
-            premierCoup = false;
-        }
 
         retirertuile(tuile);
         retirerAction();
