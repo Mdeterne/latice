@@ -17,7 +17,7 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="latice.application.JavaFX.LaticeJavaFXControleurPrincipal">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="latice.application.JavaFX.LaticeJavaFXControleurPrincipal">
    <children>
       <ImageView fx:id="compteurTour" fitHeight="1041.0" fitWidth="1100.0" layoutY="-133.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -219,7 +219,7 @@
             <Image url="@img/flowers.gif" />
          </image>
       </ImageView>
-      <HBox layoutX="403.0" layoutY="678.0" prefHeight="60.0" prefWidth="300.0" scaleX="1.3" scaleY="1.3" style="-fx-border-color: #001c33; -fx-border-width: 7; -fx-border-radius: 5;">
+      <HBox layoutX="403.0" layoutY="678.0" prefHeight="60.0" prefWidth="300.0" scaleX="1.3" scaleY="1.3" style="-fx-border-color: #001c33; -fx-border-width: 7; -fx-border-radius: 5; -fx-background-color: #001c33;">
          <children>
             <ImageView fx:id="tuile1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <image>
