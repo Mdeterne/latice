@@ -323,8 +323,11 @@ public class LaticeJavaFXControleurPrincipal {
 					imageView.setImage(db.getImage());
 					source.setImage(null);
 					success = true;
-				}else {
-					messagesErreur.setText("Impossible de poser la tuile ici ou vous n'avez plus d'action !");
+				}else if(arbitre.getActions() == 0){
+					messagesErreur.setText("Vous ne possédez plus d'actions");
+				}
+				else {
+					messagesErreur.setText("Impossible de poser la tuile ici !");
 				}
 				
 			}
