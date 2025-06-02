@@ -295,5 +295,6 @@
       </VBox>
       <Label fx:id="compteurTours" layoutX="309.0" layoutY="14.0" prefHeight="23.0" prefWidth="483.0" style="-fx-alignment: center; -fx-font-size: 30; -fx-font-weight: bold; -fx-text-fill: #00f0ff; -fx-background-color: #001c33; -fx-background-radius: 10;" text="Tour 1" />
    	  <Button fx:id="boutonAcheterAction" layoutX="879.0" layoutY="538.0" mnemonicParsing="false" onAction="#acheterUneAction" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="acheter une actions" />
+      <Button fx:id="boutonChangerTour" layoutX="936.0" layoutY="674.0" mnemonicParsing="false" onAction="#changerSonTour" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Fin du tour" />
    </children>
 </Pane>

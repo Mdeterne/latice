@@ -4,6 +4,7 @@ package latice.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import latice.util.exception.ActionsInsuffisanteException;
 import latice.util.exception.CaseInaccessibleException;
 import latice.util.exception.PiocheVideException;
 import latice.util.exception.PointInsuffisantException;
@@ -153,8 +154,13 @@ public class Joueur {
 		actions = actions + 1;
 	}
 	
-	public void enleverAction() {
-		actions = actions - 1;
+	public void enleverAction() throws ActionsInsuffisanteException{
+		if(actions == 0) {
+			throw new ActionsInsuffisanteException("vous n'avez plus d'actions");
+		}
+		else {
+			actions = actions - 1;
+		}
 	}
 	
 }

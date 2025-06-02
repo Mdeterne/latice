@@ -9,6 +9,7 @@ import latice.model.PiochePrincipal;
 import latice.model.Plateau;
 import latice.model.Position;
 import latice.model.Tuile;
+import latice.util.exception.ActionsInsuffisanteException;
 import latice.util.exception.CaseInaccessibleException;
 import latice.util.exception.PiocheVideException;
 import latice.util.exception.PointInsuffisantException;
@@ -39,7 +40,7 @@ public class Arbitre {
         return premierCoup;
     }
 
-    public boolean jouerTuile(Position position, Tuile tuile){
+    public boolean jouerTuile(Position position, Tuile tuile) {
     	// On gère d'abord si le positionnement des tuiles est valide
         if (!plateau.estPositionValide(position)) {
             return false;
@@ -82,7 +83,11 @@ public class Arbitre {
 
         joueurActuel.ajoutTuilePosé();
         retirertuile(tuile);
-        retirerAction();
+        try {
+			retirerAction();
+		} catch (ActionsInsuffisanteException e) {
+			return false;
+		}
         return true;
     }	
     
@@ -165,7 +170,7 @@ public class Arbitre {
 		}
 	}
 	
-	public void retirerAction() {
+	public void retirerAction() throws ActionsInsuffisanteException{
 		if(joueurActuel == joueur1) {
 			joueur1.enleverAction();
 		}

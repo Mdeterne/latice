@@ -17,14 +17,14 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.media.MediaView;
 import latice.model.Position;
 import latice.model.Tuile;
-import latice.model.Plateau;
+import latice.util.exception.ActionsInsuffisanteException;
 import latice.util.exception.PiocheVideException;
 import latice.util.exception.PointInsuffisantException;
 
 public class LaticeJavaFXControleurPrincipal {
 	private Arbitre arbitre;
 	private LaticeGestionnaireDeMusique musique;
-	private Plateau plateau;
+	
 
 	@FXML private Label lblJoueurActuel;
 	@FXML private Label lblPiocheJoueur1;
@@ -71,6 +71,7 @@ public class LaticeJavaFXControleurPrincipal {
 	@FXML private MediaView fond;
 	@FXML private javafx.scene.media.MediaPlayer mediaPlayer;
 	@FXML private Label compteurTours;
+	@FXML private Button boutonChangerTour;
 
 	//Initialisation du contrôleur : joueurs, rack, cases et musique.
 	public void initialisation(String nomJoueur1, String nomJoueur2) {
@@ -123,9 +124,14 @@ public class LaticeJavaFXControleurPrincipal {
 	@FXML
 	private void changerRack(ActionEvent event) {
 		try {
-			// Échange le rack du joueur + retire action
-			arbitre.changerRack();
-			arbitre.retirerAction();
+			
+			try {
+				// Échange le rack du joueur + retire action
+				arbitre.changerRack();
+				arbitre.retirerAction();
+			} catch (ActionsInsuffisanteException e) {
+				messagesErreur.setText(e.getMessage());
+			}
 			changementTextDeJoueur();
 			changementImageRack();
 		} catch (PiocheVideException e) {
@@ -139,24 +145,8 @@ public class LaticeJavaFXControleurPrincipal {
 	private void verificationDuTour() {
 		if (arbitre.estFinDuJeu()) {
 			finDePartie();
-		} else if (arbitre.getActions() == 0) {
-			arbitre.changerTour();
-			try {
-				arbitre.remplireRack();
-			} catch (PiocheVideException e) {
-				// terminer la partie si rack vide
-				if (arbitre.getJoueurCourant().getRack().afficherTuiles().isEmpty()) {
-					finDePartie();
-					return;
-				}
-				if (arbitre.getActions() == 0) {
-					arbitre.changerTour();
-				}
-				// maj de l'interface
-				changementTextDeJoueur();
-				changementImageRack();
-			}
 		}
+
 		// maj de l'interface
 		changementTextDeJoueur();
 		changementImageRack();
@@ -194,6 +184,25 @@ public class LaticeJavaFXControleurPrincipal {
 		}
 	}
 
+	@FXML
+	private void changerSonTour() {
+		arbitre.changerTour();
+		try {
+			arbitre.remplireRack();
+		} catch (PiocheVideException e) {
+			// terminer la partie si rack vide
+			if (arbitre.getJoueurCourant().getRack().afficherTuiles().isEmpty()) {
+				finDePartie();
+				return;
+			}
+			if (arbitre.getActions() == 0) {
+				arbitre.changerTour();
+			}
+			// maj de l'interface
+			changementTextDeJoueur();
+			changementImageRack();
+		}
+	}
 	
 	//Met à jour les images du rack avec les tuiles du joueur courant
 	private void changementImageRack() {
@@ -301,7 +310,10 @@ public class LaticeJavaFXControleurPrincipal {
 				}
 
 
-				boolean ok = arbitre.jouerTuile(position, tuile);
+				boolean ok;
+				
+				ok = arbitre.jouerTuile(position, tuile);
+				
 				System.out.println("Placement ok? " + ok);
 
 				if (ok) {
@@ -310,8 +322,9 @@ public class LaticeJavaFXControleurPrincipal {
 					source.setImage(null);
 					success = true;
 				}else {
-					messagesErreur.setText("Impossible de poser la tuile ici !");
+					messagesErreur.setText("Impossible de poser la tuile ici ou vous n'avez plus d'action !");
 				}
+				
 			}
 
 			event.setDropCompleted(success);
