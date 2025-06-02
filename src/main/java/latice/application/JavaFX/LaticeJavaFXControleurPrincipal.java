@@ -72,6 +72,7 @@ public class LaticeJavaFXControleurPrincipal {
 	@FXML private javafx.scene.media.MediaPlayer mediaPlayer;
 	@FXML private Label compteurTours;
 	@FXML private Button boutonChangerTour;
+	@FXML private Label nombreAction;
 
 	//Initialisation du contrôleur : joueurs, rack, cases et musique.
 	public void initialisation(String nomJoueur1, String nomJoueur2) {
@@ -94,6 +95,7 @@ public class LaticeJavaFXControleurPrincipal {
 		changementImageRack();
 		changementTextCompteurTours();
 		lancerLaMusique();
+		nombreAction.setText(""+arbitre.getActions());
 
 		// Configure drag sur les tuiles du rack
 		ImageView[] rackViews = { tuile1, tuile2, tuile3, tuile4, tuile5 };
@@ -146,6 +148,11 @@ public class LaticeJavaFXControleurPrincipal {
 		if (arbitre.estFinDuJeu()) {
 			finDePartie();
 		}
+		nombreAction.setText(""+arbitre.getActions());
+		// maj de l'interface
+		changementTextDeJoueur();
+		changementImageRack();
+		changementTextCompteurTours();
 	}
 	
 	private void finDePartie() {
@@ -179,6 +186,7 @@ public class LaticeJavaFXControleurPrincipal {
 		catch(PointInsuffisantException e){
 			messagesErreur.setText("Impossible : vous ne possédez pas assez de points");
 		}
+		nombreAction.setText(""+arbitre.getActions());
 	}
 
 	@FXML
@@ -198,6 +206,7 @@ public class LaticeJavaFXControleurPrincipal {
 		changementTextDeJoueur();
 		changementImageRack();
 		changementTextCompteurTours();
+		nombreAction.setText(""+arbitre.getActions());
 	}
 	
 	//Met à jour les images du rack avec les tuiles du joueur courant
