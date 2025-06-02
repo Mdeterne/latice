@@ -11,6 +11,7 @@ import latice.model.PiochePrincipal;
 import latice.model.Plateau;
 import latice.model.Position;
 import latice.model.Tuile;
+import latice.util.exception.ActionsInsuffisanteException;
 import latice.util.exception.PiocheVideException;
 
 public class LaticeConsoleApplication {
@@ -47,7 +48,12 @@ public class LaticeConsoleApplication {
 			} else if (action.equals("changer")) {
 				try {
 					arbitre.changerRack();
-					arbitre.retirerAction();
+					try {
+						arbitre.retirerAction();
+					} catch (ActionsInsuffisanteException e) {
+						
+						message(e.getMessage());
+					}
 					message("Nouveau rack : " + joueur.affichertuilesRack());
 				} catch (PiocheVideException e) {
 					message("La pioche est vide.");

@@ -15,6 +15,7 @@ import latice.model.Position;
 import latice.model.Rack;
 import latice.model.Symbole;
 import latice.model.Tuile;
+import latice.util.exception.ActionsInsuffisanteException;
 import latice.util.exception.CaseInaccessibleException;
 import latice.util.exception.PiocheVideException;
 
@@ -154,7 +155,11 @@ class ArbitreTest {
         
         
         arbitre.changerRack();
-        arbitre.retirerAction();
+        try {
+			arbitre.retirerAction();
+		} catch (ActionsInsuffisanteException e) {
+			System.out.println(e.getMessage());
+		}
         
         assertEquals(5, courant.getRack().taille());
         assertEquals(31, arbitre.taillePioche());
@@ -240,7 +245,11 @@ class ArbitreTest {
         Joueur joueurActuel = arbitre.getJoueurCourant();
 
         while (joueurActuel.actions() > 0) {
-            joueurActuel.enleverAction();
+            try {
+				joueurActuel.enleverAction();
+			} catch (ActionsInsuffisanteException e) {
+				System.out.println(e.getMessage());
+			}
         }
 
         int toursAvant = arbitre.nombreTours();
@@ -260,7 +269,11 @@ class ArbitreTest {
 
         for (int i = 0; i < 20; i++) {
             while (joueurActuel.actions() > 0) {
-                joueurActuel.enleverAction();
+                try {
+					joueurActuel.enleverAction();
+				} catch (ActionsInsuffisanteException e) {
+					System.out.println(e.getMessage());
+				}
             }
             arbitre.estFinDuJeu();
             arbitre.changerTour();

@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 import latice.model.Joueur;
 import latice.model.PiochePrincipal;
 import latice.model.Tuile;
+import latice.util.exception.ActionsInsuffisanteException;
 import latice.util.exception.PiocheVideException;
 import latice.util.exception.PointInsuffisantException;
 
@@ -111,7 +112,11 @@ class JoueurTest {
         // par défaut actions() vaut 1
         assertEquals(1, joueur.actions());
 
-        joueur.enleverAction();
+        try {
+			joueur.enleverAction();
+		} catch (ActionsInsuffisanteException e) {
+			System.out.println(e.getMessage());
+		}
         assertEquals(0, joueur.actions());
 
         joueur.ajouterUneAction();
