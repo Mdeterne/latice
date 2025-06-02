@@ -298,8 +298,8 @@ public class LaticeJavaFXControleurPrincipal {
 				Tuile tuile = (Tuile) ud;
 
 				String id = imageView.getId();
-				int x = Character.getNumericValue(id.charAt(4)) - 1;
-				int y = Character.getNumericValue(id.charAt(5)) - 1;
+				int y = Character.getNumericValue(id.charAt(4)) - 1;
+				int x = Character.getNumericValue(id.charAt(5)) - 1;
 				Position position = new Position(x, y);
 
 				// Ajout de la vérification du premier coup
