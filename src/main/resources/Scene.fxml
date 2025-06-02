@@ -17,7 +17,7 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="latice.application.JavaFX.LaticeJavaFXControleurPrincipal">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="latice.application.JavaFX.LaticeJavaFXControleurPrincipal">
    <children>
       <ImageView fx:id="compteurTour" fitHeight="1041.0" fitWidth="1100.0" layoutY="-133.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -219,7 +219,7 @@
             <Image url="@img/flowers.gif" />
          </image>
       </ImageView>
-      <HBox layoutX="403.0" layoutY="678.0" prefHeight="60.0" prefWidth="300.0" scaleX="1.3" scaleY="1.3" style="-fx-border-color: #001c33; -fx-border-width: 7; -fx-border-radius: 5;">
+      <HBox layoutX="403.0" layoutY="678.0" prefHeight="60.0" prefWidth="300.0" scaleX="1.3" scaleY="1.3" style="-fx-border-color: #001c33; -fx-border-width: 7; -fx-border-radius: 5; -fx-background-color: #001c33;">
          <children>
             <ImageView fx:id="tuile1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -271,14 +271,13 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="lblJoueurActuel" layoutX="24.0" layoutY="673.0" styleClass="text2" stylesheets="@style-jeu.css" text="à vous de jouer !" textFill="#01ff00">
+      <Label fx:id="lblJoueurActuel" layoutX="32.0" layoutY="697.0" style="-fx-background-color: rgba(0, 28, 51, 1); -fx-background-radius: 10; -fx-alignment: center;" styleClass="text2" stylesheets="@style-jeu.css" text="à vous de jouer !" textFill="#01ff00">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="changerRack" layoutX="795.0" layoutY="685.0" mnemonicParsing="false" text="Changer" />
       <Label fx:id="messagesErreur" alignment="CENTER" layoutX="409.0" layoutY="625.0" scaleX="0.75" scaleY="0.75" styleClass="textErreur" stylesheets="@style-jeu.css" />
-      <Button fx:id="changerRack" layoutX="775.0" layoutY="676.0" mnemonicParsing="false" onAction="#changerRack" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Changer" />
+      <Button fx:id="changerRack" layoutX="787.0" layoutY="663.0" mnemonicParsing="false" onAction="#changerRack" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Changer Rack" />
       <Button fx:id="Quitter" layoutX="936.0" layoutY="81.0" mnemonicParsing="false" onAction="#QuitterLatice" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Quitter" />
       <VBox layoutX="52.0" layoutY="237.0" prefHeight="100.0" prefWidth="163.0" spacing="8" style="-fx-background-color: #e0e0e0; -fx-border-color: #333; -fx-border-radius: 10; -fx-background-radius: 10;">
          <children>
@@ -294,9 +293,8 @@
          </children>
       </VBox>
       <Label fx:id="compteurTours" layoutX="309.0" layoutY="14.0" prefHeight="23.0" prefWidth="483.0" style="-fx-alignment: center; -fx-font-size: 30; -fx-font-weight: bold; -fx-text-fill: #00f0ff; -fx-background-color: #001c33; -fx-background-radius: 10;" text="Tour 1" />
-   	  <Button fx:id="boutonAcheterAction" layoutX="879.0" layoutY="538.0" mnemonicParsing="false" onAction="#acheterUneAction" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="acheter une actions" />
-      <Button fx:id="boutonChangerTour" layoutX="936.0" layoutY="674.0" mnemonicParsing="false" onAction="#changerSonTour" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Fin du tour" />
-      <Label fx:id="nombreAction" layoutX="1024.0" layoutY="464.0" prefHeight="43.0" prefWidth="33.0" styleClass="text2" stylesheets="@style-jeu.css" text="0" />
-      <Label layoutX="847.0" layoutY="464.0" styleClass="text2" stylesheets="@style-jeu.css" text="Nombre d'actions :" />
+   	  <Button fx:id="boutonAcheterAction" layoutX="837.0" layoutY="542.0" mnemonicParsing="false" onAction="#acheterUneAction" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="acheter une actions" />
+      <Button fx:id="boutonChangerTour" layoutX="797.0" layoutY="712.0" mnemonicParsing="false" onAction="#changerSonTour" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Fin du tour" />
+      <Label fx:id="nombreAction" layoutX="835.0" layoutY="497.0" style="-fx-background-color: rgba(0, 28, 51, 1); -fx-background-radius: 10;" styleClass="text2" stylesheets="@style-jeu.css" text="Nombre d'actions :" />
    </children>
 </Pane>
