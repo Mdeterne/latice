@@ -95,7 +95,6 @@ public class LaticeJavaFXControleurPrincipal {
 		changementImageRack();
 		changementTextCompteurTours();
 		lancerLaMusique();
-		nombreAction.setText(""+arbitre.getActions());
 
 		// Configure drag sur les tuiles du rack
 		ImageView[] rackViews = { tuile1, tuile2, tuile3, tuile4, tuile5 };
@@ -148,7 +147,6 @@ public class LaticeJavaFXControleurPrincipal {
 		if (arbitre.estFinDuJeu()) {
 			finDePartie();
 		}
-		nombreAction.setText(""+arbitre.getActions());
 		// maj de l'interface
 		changementTextDeJoueur();
 	}
@@ -184,7 +182,6 @@ public class LaticeJavaFXControleurPrincipal {
 		catch(PointInsuffisantException e){
 			messagesErreur.setText("Impossible : vous ne possédez pas assez de points");
 		}
-		nombreAction.setText(""+arbitre.getActions());
 	}
 
 	@FXML
@@ -204,7 +201,6 @@ public class LaticeJavaFXControleurPrincipal {
 		changementTextDeJoueur();
 		changementImageRack();
 		changementTextCompteurTours();
-		nombreAction.setText(""+arbitre.getActions());
 		if (arbitre.estFinDuJeu()) {
 			finDePartie();
 		}
@@ -230,6 +226,7 @@ public class LaticeJavaFXControleurPrincipal {
 			lblPiocheJoueur1.setText(arbitre.getJoueur1().nom() + "\n" + (arbitre.getJoueur1().taillePiochePersonelle() + arbitre.getJoueur1().getRack().afficherTuiles().size()) + " tuiles" + "\n" + arbitre.getJoueur1().point() + " points");
 			lblPiocheJoueur2.setText(arbitre.getJoueur2().nom() + "\n" + (arbitre.getJoueur2().taillePiochePersonelle() + arbitre.getJoueur2().getRack().afficherTuiles().size()) + " tuiles" + "\n" + arbitre.getJoueur2().point() + " points");
 		}
+		nombreAction.setText("Nombre d'actions : "+arbitre.getActions());
 	}
 	private void changementTextCompteurTours() {
 		compteurTours.setText("Tour restants : " + arbitre.nombreTours());

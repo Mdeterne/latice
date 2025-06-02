@@ -271,7 +271,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="lblJoueurActuel" layoutX="886.0" layoutY="582.0" style="-fx-background-color: rgba(0, 28, 51, 1); -fx-background-radius: 10; -fx-alignment: center;" styleClass="text2" stylesheets="@style-jeu.css" text="à vous de jouer !" textFill="#01ff00">
+      <Label fx:id="lblJoueurActuel" layoutX="856.0" layoutY="582.0" style="-fx-background-color: rgba(0, 28, 51, 1); -fx-background-radius: 10; -fx-alignment: center;" styleClass="text2" stylesheets="@style-jeu.css" text="à vous de jouer !" textFill="#01ff00">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
