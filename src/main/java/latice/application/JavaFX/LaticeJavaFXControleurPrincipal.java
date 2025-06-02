@@ -312,13 +312,14 @@ public class LaticeJavaFXControleurPrincipal {
 				}
 
 
-				boolean ok;
+				int ok;
 				
 				ok = arbitre.jouerTuile(position, tuile);
 				
-				System.out.println("Placement ok? " + ok);
+				
+				System.out.println("Placement ok? "+ position.x()+position.y() +" "+ ok);
 
-				if (ok) {
+				if (ok == 5) {
 					messagesErreur.setText("");
 					imageView.setImage(db.getImage());
 					source.setImage(null);

@@ -72,8 +72,8 @@ public class LaticeConsoleApplication {
 					continue;
 				}
 
-				boolean ok = arbitre.jouerTuile(position, tuile);
-				if (ok) {
+				int ok = arbitre.jouerTuile(position, tuile);
+				if (ok == 5) {
 					message("Tuile posée");
 				} else {
 					message("Placement invalide");
