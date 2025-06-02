@@ -5,85 +5,90 @@ import static latice.console.LaticeConsole.message;
 
 import java.util.Random;
 
+import latice.application.JavaFX.Arbitre;
 import latice.model.Joueur;
 import latice.model.PiochePrincipal;
+import latice.model.Plateau;
+import latice.model.Position;
+import latice.model.Tuile;
+import latice.util.exception.ActionsInsuffisanteException;
+import latice.util.exception.PiocheVideException;
 
 public class LaticeConsoleApplication {
 
 	public static void main(String[] args) {
-			message("-----------------------------------------------------");
-            message("-- Bienvenue dans notre magnifique jeu de latice ! --");
-            message("-- développé par Julian Ray-Constanty              --");
-            message("-- et par Julian Barre                             --");
-            message("-- et par Marty Benjamin                            --");
-            message("-----------------------------------------------------");
-            
-            Random random = new Random();
-            
-            Boolean continuer = true;
-            String i;
-            Boolean tourJoueur = random.nextBoolean(); // true ou false
-            PiochePrincipal piochePrincipal = new PiochePrincipal();
-           
-            Joueur joueur1 = new Joueur(entrée("Entrez un nom: "));
-            Joueur joueur2 = new Joueur(entrée("Entrez un nom: "));
-            
-            
-            joueur1.remplirPiochePersonelle(piochePrincipal);
-            joueur2.remplirPiochePersonelle(piochePrincipal);
-           
-           
-            joueur1.initialiserRack();
-            joueur2.initialiserRack();
-           
-           
-            while (continuer) {
-            	
-				if (tourJoueur) {
-					message(joueur1.nom() + " : " + joueur1.afficherJetonsRack());
-					message("voici votre pioche : " + joueur1.afficherPiochePersonelle());
-					message("voici le nombre de jetons présent dans votre pioche : "
-							+ joueur1.taillePiochePersonelle());
-					i = entrée("Voulez-vous changer votre rack ? : (oui/non)");
-					if (i.equals("oui")) {
-						joueur1.echangerRack();
-						message("votre pioche vien d'etre modifier voici la nouvelle : "
-								+ joueur1.afficherJetonsRack());
-						message("voici le nombre de jetons présent dans votre pioche : "
-								+ joueur1.taillePiochePersonelle());
+		message("-----------------------------------------------------");
+		message("-- Bienvenue dans notre magnifique jeu de latice ! --");
+		message("-- développé par Julian Ray-Constanty              --");
+		message("-- et par Julian Barre                             --");
+		message("-- et par Marty Benjamin                            --");
+		message("-----------------------------------------------------");
+
+		Arbitre arbitre = new Arbitre();
+		String nomJ1 = entrée("Nom du joueur 1 : ");
+		String nomJ2 = entrée("Nom du joueur 2 : ");
+		arbitre.initialiser(nomJ1, nomJ2);
+
+		boolean continuer = true;
+
+		while (continuer) {
+			Joueur joueur = arbitre.getJoueurCourant();
+			Plateau plateau = arbitre.getPlateau();
+
+			message("\nC'est au tour de " + joueur.nom());
+			message("Voici votre rack : " + joueur.affichertuilesRack());
+			message("Tuiles restantes dans votre pioche : " + joueur.taillePiochePersonelle());
+
+			plateau.afficherPlateau();
+
+			String action = entrée("Voulez-vous (poser / changer / quitter) ?");
+			if (action.equals("quitter")) {
+				continuer = false;
+				message("Fin de la partie !");
+			} else if (action.equals("changer")) {
+				try {
+					arbitre.changerRack();
+					try {
+						arbitre.retirerAction();
+					} catch (ActionsInsuffisanteException e) {
+						
+						message(e.getMessage());
 					}
-					i = entrée("Voulez-vous quitter la partie ? : (oui/non)");
-					if (i.equals("oui")) {
-						message("vous quittez la patie !");
-						continuer = false;
-					}
-					message("");
+					message("Nouveau rack : " + joueur.affichertuilesRack());
+				} catch (PiocheVideException e) {
+					message("La pioche est vide.");
 				}
-				
-				if (!tourJoueur) {
-					message(joueur2.nom() + " : " + joueur2.afficherJetonsRack());
-					message("voici votre pioche : " + joueur2.afficherPiochePersonelle());
-					message("voici le nombre de jetons présent : " + joueur2.taillePiochePersonelle());
-					i = entrée("Voulez-vous changer votre rack ? : (oui/non)");
-					if (i.equals("oui")) {
-						joueur2.echangerRack();
-						message("votre pioche vien d'etre modifier voici la nouvelle : "
-								+ joueur2.afficherJetonsRack());
-						message("voici le nombre de jetons présent dans votre pioche : "
-								+ joueur2.taillePiochePersonelle());
-					}
-					i = entrée("Voulez-vous quitter la partie ? : (oui/non)");
-					if (i.equals("oui")) {
-						message("vous quittez la patie !");
-						continuer = false;
-					}
-					message("");
+			} else if (action.equals("poser")) {
+				String choix = entrée("Quelle tuile poser ? (indice 0 à 4) : ");
+				int index = Integer.parseInt(choix);
+				Tuile tuile = joueur.tuilesRack().get(index);
+
+				int x = Integer.parseInt(entrée("Position X (0-8) : "));
+				int y = Integer.parseInt(entrée("Position Y (0-8) : "));
+				Position position = new Position(x, y);
+
+				if (arbitre.premierCoup() && !(x == 4 && y == 4)) {
+					message("Le premier coup doit être sur la case centrale");
+					continue;
 				}
-				if (tourJoueur) {
-					tourJoueur = false;
+
+				int ok = arbitre.jouerTuile(position, tuile);
+				if (ok == 5) {
+					message("Tuile posée");
+				} else {
+					message("Placement invalide");
 				}
-				else {tourJoueur = true;}
 			}
-           
-    }
+
+			if (arbitre.getActions() == 0) {
+				try {
+					arbitre.changerTour();
+					arbitre.remplireRack();
+				} catch (PiocheVideException e) {
+					message("Fin de la partie : la pioche est vide.");
+					continuer = false;
+				}
+			}
+		}
+	}
 }

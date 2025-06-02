@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="latice.application.JavaFX.LaticeJavaFXControleurPrincipal">
+   <children>
+      <ImageView fx:id="compteurTour" fitHeight="1041.0" fitWidth="1100.0" layoutY="-133.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/bg.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="142.0" layoutY="582.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/rouge.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="17.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/flowers2.gif" />
+         </image>
+      </ImageView>
+      <StackPane layoutX="270.0" layoutY="71.0" prefHeight="540.0" prefWidth="540.0" style="-fx-border-width: 10; -fx-border-color: #001c33; -fx-border-radius: 5;">
+         <children>
+            <MediaView fx:id="fond" fitHeight="540.0" fitWidth="540.0" />
+            <GridPane fx:id="plateau" alignment="CENTER" gridLinesVisible="true" prefHeight="540.0" prefWidth="540.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="0.0" prefWidth="60.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="0.0" prefWidth="60.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="0.0" prefWidth="60.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="0.0" prefWidth="60.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="60.0" percentWidth="0.0" prefWidth="60.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="0.0" prefWidth="60.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="0.0" prefWidth="60.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="0.0" prefWidth="60.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="0.0" prefWidth="60.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" percentHeight="0.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="0.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="0.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="0.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="0.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="0.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="0.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="0.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" percentHeight="0.0" prefHeight="60.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                           <ImageView fx:id="case55" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="4">
+               <image>
+                  <Image url="@img/new%20bg_moon.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="case45" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <ImageView fx:id="case56" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <ImageView fx:id="case65" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <ImageView fx:id="case54" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <ImageView fx:id="case53" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <ImageView fx:id="case44" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <ImageView fx:id="case64" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <ImageView fx:id="case46" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <ImageView fx:id="case66" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+            <ImageView fx:id="case11" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/new%20bg_sun.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="case22" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@img/new%20bg_sun.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="case33" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@img/new%20bg_sun.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="case43" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <ImageView fx:id="case63" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <ImageView fx:id="case21" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+            <ImageView fx:id="case31" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
+            <ImageView fx:id="case41" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
+            <ImageView fx:id="case51" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
+               <image>
+                  <Image url="@img/new%20bg_sun.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="case61" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" />
+            <ImageView fx:id="case71" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" />
+            <ImageView fx:id="case81" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" />
+            <ImageView fx:id="case91" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8">
+               <image>
+                  <Image url="@img/new%20bg_sun.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="case82" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@img/new%20bg_sun.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="case73" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@img/new%20bg_sun.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="case37" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="6">
+               <image>
+                  <Image url="@img/new%20bg_sun.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="case28" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <image>
+                  <Image url="@img/new%20bg_sun.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="case19" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="8">
+               <image>
+                  <Image url="@img/new%20bg_sun.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="case59" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="8">
+               <image>
+                  <Image url="@img/new%20bg_sun.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="case77" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="6">
+               <image>
+                  <Image url="@img/new%20bg_sun.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="case88" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="7">
+               <image>
+                  <Image url="@img/new%20bg_sun.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="case99" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="8">
+               <image>
+                  <Image url="@img/new%20bg_sun.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="case15" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
+               <image>
+                  <Image url="@img/new%20bg_sun.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="case12" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
+            <ImageView fx:id="case32" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ImageView fx:id="case42" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <ImageView fx:id="case52" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <ImageView fx:id="case62" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <ImageView fx:id="case72" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+            <ImageView fx:id="case92" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+            <ImageView fx:id="case13" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
+            <ImageView fx:id="case23" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ImageView fx:id="case83" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+            <ImageView fx:id="case93" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+            <ImageView fx:id="case94" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+            <ImageView fx:id="case96" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="5" />
+            <ImageView fx:id="case97" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="6" />
+            <ImageView fx:id="case98" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="7" />
+            <ImageView fx:id="case84" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+            <ImageView fx:id="case85" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+            <ImageView fx:id="case86" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="5" />
+            <ImageView fx:id="case87" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="6" />
+            <ImageView fx:id="case89" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.rowIndex="8" />
+            <ImageView fx:id="case74" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+            <ImageView fx:id="case75" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+            <ImageView fx:id="case76" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+            <ImageView fx:id="case78" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+            <ImageView fx:id="case79" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="8" />
+            <ImageView fx:id="case67" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+            <ImageView fx:id="case68" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+            <ImageView fx:id="case69" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="8" />
+            <ImageView fx:id="case57" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+            <ImageView fx:id="case58" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+            <ImageView fx:id="case47" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <ImageView fx:id="case48" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <ImageView fx:id="case49" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+            <ImageView fx:id="case34" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <ImageView fx:id="case35" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <ImageView fx:id="case36" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <ImageView fx:id="case38" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <ImageView fx:id="case39" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+            <ImageView fx:id="case24" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ImageView fx:id="case25" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ImageView fx:id="case26" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <ImageView fx:id="case27" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <ImageView fx:id="case29" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <ImageView fx:id="case14" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3" />
+            <ImageView fx:id="case16" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5" />
+            <ImageView fx:id="case17" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="6" />
+            <ImageView fx:id="case18" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="7" />
+            <ImageView fx:id="case95" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.rowIndex="4">
+               <image>
+                  <Image url="@img/new%20bg_sun.png" />
+               </image>
+            </ImageView>
+               </children>
+            </GridPane>
+         </children>
+      </StackPane>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="460.0" layoutY="613.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/flowers.gif" />
+         </image>
+      </ImageView>
+      <HBox layoutX="403.0" layoutY="678.0" prefHeight="60.0" prefWidth="300.0" scaleX="1.3" scaleY="1.3" style="-fx-border-color: #001c33; -fx-border-width: 7; -fx-border-radius: 5; -fx-background-color: #001c33;">
+         <children>
+            <ImageView fx:id="tuile1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/FondRack.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="tuile2" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/FondRack.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="tuile3" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/FondRack.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="tuile4" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/FondRack.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="tuile5" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/FondRack.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Button fx:id="boutonArrêter" layoutX="79.0" layoutY="65.0" mnemonicParsing="false" onAction="#arreterLaMusique" scaleX="0.75" scaleY="0.75" stylesheets="@style-jeu.css" text="Arrêter" />
+      <Button fx:id="boutonLancer" layoutX="7.0" layoutY="65.0" mnemonicParsing="false" onAction="#lancerLaMusique" scaleX="0.75" scaleY="0.75" stylesheets="@style-jeu.css" text="Lancer" />
+      
+      <Label layoutX="41.0" layoutY="22.0" stylesheets="@style-jeu.css" text="Musique" textFill="#fbff00">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         <styleClass>
+            <String fx:value="label" />
+            <String fx:value="text" />
+         </styleClass>
+      </Label>
+      <Slider fx:id="barVolume" layoutX="17.0" layoutY="140.0" onMouseClicked="#changerLeVolume" prefHeight="28.0" prefWidth="140.0" scaleX="0.75" scaleY="0.75" value="50.0" />
+      <Label fx:id="erreurChangerRack" layoutX="21.0" layoutY="101.0" scaleX="0.75" scaleY="0.75" styleClass="style" stylesheets="@style-jeu.css" text="Volume :" textFill="#a65a02">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="textVolume" layoutX="102.0" layoutY="101.0" scaleX="0.75" scaleY="0.75" stylesheets="@style-jeu.css" text="50" textFill="#a65a02">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblJoueurActuel" layoutX="32.0" layoutY="697.0" style="-fx-background-color: rgba(0, 28, 51, 1); -fx-background-radius: 10; -fx-alignment: center;" styleClass="text2" stylesheets="@style-jeu.css" text="à vous de jouer !" textFill="#01ff00">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="messagesErreur" alignment="CENTER" layoutX="211.0" layoutY="626.0" prefHeight="35.0" prefWidth="684.0" scaleX="0.75" scaleY="0.75" style="-fx-alignment: center; -fx-font-size: 18;" styleClass="textErreur" stylesheets="@style-jeu.css" />
+      <Button fx:id="changerRack" layoutX="787.0" layoutY="663.0" mnemonicParsing="false" onAction="#changerRack" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Changer Rack" />
+      <Button fx:id="Quitter" layoutX="936.0" layoutY="81.0" mnemonicParsing="false" onAction="#QuitterLatice" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Quitter" />
+      <VBox layoutX="52.0" layoutY="237.0" prefHeight="100.0" prefWidth="163.0" spacing="8" style="-fx-background-color: #e0e0e0; -fx-border-color: #333; -fx-border-radius: 10; -fx-background-radius: 10;">
+         <children>
+            <Label fx:id="lblPiocheJoueur1" prefHeight="100.0" prefWidth="163.0" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-alignment: center; -fx-background-color: #001c33; -fx-background-radius: 10; -fx-text-fill: #00f0ff;" text="Joueur 1 : 0 tuiles">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin></Label>
+         </children>
+      </VBox>
+      <VBox layoutX="884.0" layoutY="237.0" prefHeight="100.0" prefWidth="163.0" spacing="8" style="-fx-background-color: #e0e0e0; -fx-border-color: #333; -fx-border-radius: 10; -fx-background-radius: 10;">
+         <children>
+            <Label fx:id="lblPiocheJoueur2" prefHeight="100.0" prefWidth="168.0" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-alignment: center; -fx-background-color: #001c33; -fx-background-radius: 10; -fx-text-fill: #00f0ff;" text="Joueur 2 : 0 tuiles" />
+         </children>
+      </VBox>
+      <Label fx:id="compteurTours" layoutX="309.0" layoutY="14.0" prefHeight="23.0" prefWidth="483.0" style="-fx-alignment: center; -fx-font-size: 30; -fx-font-weight: bold; -fx-text-fill: #00f0ff; -fx-background-color: #001c33; -fx-background-radius: 10;" text="Tour 1" />
+   	  <Button fx:id="boutonAcheterAction" layoutX="837.0" layoutY="542.0" mnemonicParsing="false" onAction="#acheterUneAction" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="acheter une actions" />
+      <Button fx:id="boutonChangerTour" layoutX="797.0" layoutY="712.0" mnemonicParsing="false" onAction="#changerSonTour" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Fin du tour" />
+      <Label fx:id="nombreAction" layoutX="835.0" layoutY="497.0" style="-fx-background-color: rgba(0, 28, 51, 1); -fx-background-radius: 10;" styleClass="text2" stylesheets="@style-jeu.css" text="Nombre d'actions :" />
+   </children>
+</Pane>

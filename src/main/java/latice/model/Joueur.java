@@ -4,53 +4,85 @@ package latice.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import latice.util.exception.ActionsInsuffisanteException;
+import latice.util.exception.CaseInaccessibleException;
+import latice.util.exception.PiocheVideException;
+import latice.util.exception.PointInsuffisantException;
+
+
 public class Joueur {
 
 	private final String nom;
 	private int point;
 	private Rack rack;
 	private PiochePersonelle piochePersonelle;
+	private int actions;
+	private int nombreTuilesPosées = 0;
 	
 	public Joueur(String nom) {
 		this.nom = nom;
 		this.point = 0;
 		this.rack = new Rack();
+		this.actions = 1;
 		this.piochePersonelle = new PiochePersonelle();
 	}
 	
-	public String jouer(Plateau plateau, Jeton jeton, Position position) {
-	    if (plateau.poserJeton(jeton, position)) {
-	        return this.nom + " a joué le jeton " + jeton + " en position " + position.x() + "," + position.y();
-	    } else {
-	        return this.nom + " ne peut pas jouer ici";
-	    }
+	public void jouer(Plateau plateau, Tuile tuile, Position position) throws CaseInaccessibleException{
+		
+		plateau.posertuile(tuile, position);
+	    rack.retirerTuile(tuile);
+	    Tuile tuile2;
+		try {
+			tuile2 = piochePersonelle.piocher();
+			rack.ajouterTuile(tuile2);
+		} catch (PiocheVideException e) {
+			e.printStackTrace();
+		}
+	    
 	}
 	
-	public Boolean acheter() {
+	public Boolean acheter() throws PointInsuffisantException {
 		if (point >= 2) {
 			point-=2;
 			return true;
 		}
-		return false;
+		throw new PointInsuffisantException("vous n'avez pas assez de point");
 	}
 		
 	
-	public String echangerRack() {
-		 List<Jeton> anciensJetons = rack.vider();
-		anciensJetons.forEach(jeton -> piochePersonelle.ajouterJeton(jeton));
+	public String echangerRack() throws PiocheVideException {
+		List<Tuile> ancienstuiles = rack.vider();
+		ancienstuiles.forEach(tuile -> piochePersonelle.ajoutertuile(tuile));
 		piochePersonelle.mélanger();
-		while (rack.afficherJetons().size() < Rack.TAILLE_MAX && !piochePersonelle.estVide()) {
-            rack.ajouterJeton(piochePersonelle.piocher());
+		while (rack.afficherTuiles().size() < Rack.TAILLE_MAX && !piochePersonelle.estVide()) {
+            rack.ajouterTuile(piochePersonelle.piocher());
         }
 		return (this.nom+" à échanger son rack");
+	}
+	
+	public void enleverPoints(int nombrePoints) throws PointInsuffisantException {
+		if(point < nombrePoints) {
+			throw new PointInsuffisantException("ce joueur n'a pas assez de points");
+		}
+		else {
+			point = point - nombrePoints;
+		}
 	}
 	
 	public String passer() {
 		return (this.nom+" à passer sont tour");
 	}
 
-	public int ajouterPoints(int nombresPoints) {
-		return point+nombresPoints;	
+	public void ajouterPoints(int nombresPoints) {
+		point = point + nombresPoints;
+	}
+	
+	public void ajoutTuilePosé() {
+		nombreTuilesPosées++;
+	}
+	
+	public int getTuilesPosées() {
+		return nombreTuilesPosées;
 	}
 	
 	 public String nom() { 
@@ -64,24 +96,41 @@ public class Joueur {
 		 return rack; 
 	}
 	 
-	public String afficherJetonsRack() {
-		return ""+rack().afficherJetons();
+	 public Rack getRack() {
+		    return rack;
+		}
+
+	
+	public ArrayList<Tuile> tuilesRack() {
+		return rack().afficherTuiles();
 	}
 	
-	public void initialiserRack() {
+	public String affichertuilesRack() {
+		return ""+rack().afficherTuiles();
+	}
+	
+	public void initialiserRack() throws PiocheVideException {
 	    rack.vider();
 	     
 	    for (int i = 0; i < Rack.TAILLE_MAX && !piochePersonelle.estVide(); i++) {
-	        Jeton jeton = piochePersonelle.piocher();
-	        rack.ajouterJeton(jeton);
+	        Tuile tuile = piochePersonelle.piocher();
+	        rack.ajouterTuile(tuile);
 	    }
+	}
+	
+	public void remplirRack() throws PiocheVideException {
+		int nbTuileARemplir = Rack.TAILLE_MAX-rack.taille();
+		for(int i = 0; i < nbTuileARemplir; i++) {
+			Tuile tuile = piochePersonelle.piocher();
+			rack.ajouterTuile(tuile);
+		}
 	}
 	
 	public int taillePiochePersonelle() {
 		return piochePersonelle().taille();
 	}
 	
-	public void remplirPiochePersonelle(Pioche piochePrincipal) {
+	public void remplirPiochePersonelle(Pioche piochePrincipal) throws PiocheVideException {
 		piochePersonelle().remplirPiochePerso(piochePrincipal);
 	}
 	 
@@ -89,8 +138,29 @@ public class Joueur {
 		return piochePersonelle;
 	}
 	
-	public ArrayList<Jeton> afficherPiochePersonelle() {
+	public ArrayList<Tuile> afficherPiochePersonelle() {
 		return piochePersonelle.pioche();
+	}
+	
+	public int actions() {
+		return actions;
+	}
+	
+	public void réinitialiserActions() {
+		actions = 1;
+	}
+	
+	public void ajouterUneAction() {
+		actions = actions + 1;
+	}
+	
+	public void enleverAction() throws ActionsInsuffisanteException{
+		if(actions == 0) {
+			throw new ActionsInsuffisanteException("vous n'avez plus d'actions");
+		}
+		else {
+			actions = actions - 1;
+		}
 	}
 	
 }
