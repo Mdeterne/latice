@@ -263,7 +263,7 @@ public class LaticeJavaFXControleurPrincipal {
 
 	private void jouerSonBouton() {
 		LaticeGestionnaireDeMusique gestionnaireSon = new LaticeGestionnaireDeMusique();
-		gestionnaireSon.chargerMusique("/SonBoutton.mp3");
+		gestionnaireSon.chargerMusique("/SonBoutton.wav");
 		gestionnaireSon.jouerUneFois();
 	}
 
