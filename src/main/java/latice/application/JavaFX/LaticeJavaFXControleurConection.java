@@ -12,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.KeyCode;
 
 public class LaticeJavaFXControleurConection {
 	
@@ -34,6 +36,18 @@ public class LaticeJavaFXControleurConection {
 	public void initialize() {
 	    musique.chargerMusique("/connectionMainTheme.mp3");
 	    musique.jouer();
+
+	    javafx.event.EventHandler<KeyEvent> handler = event -> {
+	        if (event.getCode() == KeyCode.ENTER) {
+	            try {
+					sauvegardeDesNoms(null);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+	        }
+	    };
+	    nomJoueur1.setOnKeyPressed(handler);
+	    nomJoueur2.setOnKeyPressed(handler);
 	}
 	
     @FXML
@@ -54,7 +68,11 @@ public class LaticeJavaFXControleurConection {
         }
         erreurNoms.setText("");
         System.out.println("Bouton cliqué !");
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        if (event != null) {
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        } else {
+            stage = (Stage) nomJoueur1.getScene().getWindow();
+        }
         changerDeScene(stage);
     }
 	

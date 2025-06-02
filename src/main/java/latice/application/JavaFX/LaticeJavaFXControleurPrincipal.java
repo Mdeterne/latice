@@ -230,7 +230,17 @@ public class LaticeJavaFXControleurPrincipal {
 
 	@FXML
 	private void QuitterLatice() {
-		System.exit(0);
+		try {
+			String uri = getClass().getResource("/SonBoutton.mp3").toURI().toString();
+			javafx.scene.media.Media media = new javafx.scene.media.Media(uri);
+			javafx.scene.media.MediaPlayer player = new javafx.scene.media.MediaPlayer(media);
+			player.play();
+			javafx.animation.PauseTransition pause = new javafx.animation.PauseTransition(javafx.util.Duration.seconds(0.7));
+			pause.setOnFinished(e -> System.exit(0));
+			pause.play();
+		} catch (Exception e) {
+			System.exit(0);
+		}
 	}
 
 	// gestion du drag & drop
