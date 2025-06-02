@@ -14,11 +14,12 @@
             <Image url="@img/fondGif.gif" />
          </image>
       </ImageView>
-      <Label layoutX="75.0" layoutY="189.0" prefHeight="27.0" prefWidth="126.0" text="Nom joueur 1:" />
+      <Label layoutX="74.0" layoutY="189.0" prefHeight="27.0" prefWidth="126.0" text="Nom joueur 1:" />
       <Label layoutX="404.0" layoutY="189.0" prefHeight="27.0" prefWidth="126.0" text="Nom joueur 2:" />
       <TextField fx:id="nomJoueur1" layoutX="47.0" layoutY="222.0" />
       <TextField fx:id="nomJoueur2" layoutX="376.0" layoutY="222.0" />
       <Button fx:id="connexionBouton" layoutX="243.0" layoutY="315.0" mnemonicParsing="false" onAction="#sauvegardeDesNoms" text="Se connecter" />
+      <Button fx:id="boutonRegles" layoutX="262.0" layoutY="106.0" mnemonicParsing="false" onAction="#afficherRegles" text="Règles" />
       <Label fx:id="erreurNoms" layoutX="62.0" layoutY="263.0" prefHeight="30.0" prefWidth="496.0" wrapText="true" />
       <Label fx:id="tittleLabel" layoutX="201.0" layoutY="28.0" prefHeight="78.0" prefWidth="218.0" styleClass="title-label" text="Connexion au Jeu Latice" />
    </children>
