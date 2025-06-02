@@ -31,15 +31,18 @@ public class LaticeJavaFXControleurConection {
 	private Stage stage;
 	
 	private LaticeGestionnaireDeMusique musique = new LaticeGestionnaireDeMusique();
+	private LaticeGestionnaireDeMusique Boutton = new LaticeGestionnaireDeMusique();
 
 	@FXML
 	public void initialize() {
 	    musique.chargerMusique("/connectionMainTheme.mp3");
+	    Boutton.chargerMusique("/SonBoutton.mp3");
 	    musique.jouer();
-
+	    
 	    javafx.event.EventHandler<KeyEvent> handler = event -> {
 	        if (event.getCode() == KeyCode.ENTER) {
 	            try {
+	            	Boutton.jouerUneFois();
 					sauvegardeDesNoms(null);
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -68,6 +71,7 @@ public class LaticeJavaFXControleurConection {
         }
         erreurNoms.setText("");
         System.out.println("Bouton cliqué !");
+        Boutton.jouerUneFois();
         if (event != null) {
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         } else {

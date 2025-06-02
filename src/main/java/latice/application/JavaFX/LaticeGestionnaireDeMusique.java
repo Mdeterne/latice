@@ -36,6 +36,13 @@ public class LaticeGestionnaireDeMusique {
         });
     }
     
+    public void jouerUneFois() {
+        if (mediaPlayer != null) {
+            mediaPlayer.play();
+            mediaPlayer.setCycleCount(1);
+        }
+    }
+    
     public void pause() {
         if (mediaPlayer != null) {
             mediaPlayer.pause();
