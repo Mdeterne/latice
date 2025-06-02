@@ -16,43 +16,43 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.KeyCode;
 
 public class LaticeJavaFXControleurConection {
-	
-	@FXML
-    private Button connexionBouton;
-	@FXML
-	private TextField nomJoueur1;
-	@FXML
-	private TextField nomJoueur2;
-	@FXML
-    private Label erreurNoms;
-	
-	private Scene scene;
-    
-	private Stage stage;
-	
-	private LaticeGestionnaireDeMusique musique = new LaticeGestionnaireDeMusique();
-	private LaticeGestionnaireDeMusique Boutton = new LaticeGestionnaireDeMusique();
 
-	@FXML
-	public void initialize() {
-	    musique.chargerMusique("/connectionMainTheme.mp3");
-	    Boutton.chargerMusique("/SonBoutton.wav");
-	    musique.jouer();
-	    
-	    javafx.event.EventHandler<KeyEvent> handler = event -> {
-	        if (event.getCode() == KeyCode.ENTER) {
-	            try {
-	            	Boutton.jouerUneFois();
-					sauvegardeDesNoms(null);
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-	        }
-	    };
-	    nomJoueur1.setOnKeyPressed(handler);
-	    nomJoueur2.setOnKeyPressed(handler);
-	}
-	
+@FXML
+    private Button connexionBouton;
+@FXML
+private TextField nomJoueur1;
+@FXML
+private TextField nomJoueur2;
+@FXML
+    private Label erreurNoms;
+
+private Scene scene;
+    
+private Stage stage;
+
+private LaticeGestionnaireDeMusique musique = new LaticeGestionnaireDeMusique();
+private LaticeGestionnaireDeMusique Boutton = new LaticeGestionnaireDeMusique();
+
+@FXML
+public void initialize() {
+    musique.chargerMusique("/connectionMainTheme.mp3");
+    Boutton.chargerMusique("/SonBoutton.wav");
+    musique.jouer();
+    
+    javafx.event.EventHandler<KeyEvent> handler = event -> {
+        if (event.getCode() == KeyCode.ENTER) {
+            try {
+            Boutton.jouerUneFois();
+sauvegardeDesNoms(null);
+} catch (IOException e) {
+e.printStackTrace();
+}
+        }
+    };
+    nomJoueur1.setOnKeyPressed(handler);
+    nomJoueur2.setOnKeyPressed(handler);
+}
+
     @FXML
     private void sauvegardeDesNoms(ActionEvent event) throws IOException {
         String nom1 = nomJoueur1.getText().trim();
@@ -79,19 +79,33 @@ public class LaticeJavaFXControleurConection {
         }
         changerDeScene(stage);
     }
-	
     
+    @FXML
+    private void afficherRegles() {
+        try {
+        	Boutton.jouerUneFois();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Regles.fxml"));
+            Parent root = loader.load();
+            Stage reglesStage = new Stage();
+            reglesStage.setTitle("Règles du jeu Latice");
+            reglesStage.setScene(new Scene(root));
+            reglesStage.show();
+        } catch (Exception e) {
+            erreurNoms.setText("Impossible d'ouvrir la fenêtre des règles.");
+        }
+    }
+
     public void changerDeScene(Stage stage) throws IOException {
-    	musique.stop();
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/Scene.fxml"));
+    musique.stop();
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/Scene.fxml"));
         Parent root = loader.load();
-    	LaticeJavaFXControleurPrincipal ControleurPrincipal = loader.getController();
+    LaticeJavaFXControleurPrincipal ControleurPrincipal = loader.getController();
         ControleurPrincipal.initialisation(nomJoueur1.getText(), nomJoueur2.getText());
-    	scene = new Scene(root);
-    	stage.setScene(scene);
-    	stage.setTitle("Jeux Latice");
-    	stage.centerOnScreen();
-    	stage.show();
+    scene = new Scene(root);
+    stage.setScene(scene);
+    stage.setTitle("Jeux Latice");
+    stage.centerOnScreen();
+    stage.show();
     }
     
 }
