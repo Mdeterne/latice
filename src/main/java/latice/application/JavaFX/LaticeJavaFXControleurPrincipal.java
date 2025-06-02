@@ -151,8 +151,6 @@ public class LaticeJavaFXControleurPrincipal {
 		nombreAction.setText(""+arbitre.getActions());
 		// maj de l'interface
 		changementTextDeJoueur();
-		changementImageRack();
-		changementTextCompteurTours();
 	}
 	
 	private void finDePartie() {
