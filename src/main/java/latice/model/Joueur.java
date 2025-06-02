@@ -59,6 +59,15 @@ public class Joueur {
 		return (this.nom+" à échanger son rack");
 	}
 	
+	public void enleverPoints(int nombrePoints) throws PointInsuffisantException {
+		if(point < nombrePoints) {
+			throw new PointInsuffisantException("ce joueur n'a pas assez de points");
+		}
+		else {
+			point = point - nombrePoints;
+		}
+	}
+	
 	public String passer() {
 		return (this.nom+" à passer sont tour");
 	}

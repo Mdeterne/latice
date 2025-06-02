@@ -11,6 +11,7 @@ import latice.model.Position;
 import latice.model.Tuile;
 import latice.util.exception.CaseInaccessibleException;
 import latice.util.exception.PiocheVideException;
+import latice.util.exception.PointInsuffisantException;
 
 public class Arbitre {
 	
@@ -199,6 +200,20 @@ public class Arbitre {
 			return joueur2.taillePiochePersonelle();
 		}
 	}
+	
+	public void acheterUnTour() throws PointInsuffisantException{
+		
+		if(joueurActuel == joueur1) {
+			joueur1.enleverPoints(2);
+			joueur1.ajouterUneAction();
+		}
+		else {
+			joueur2.enleverPoints(2);
+			joueur2.ajouterUneAction();
+		}
+		
+	}
+
 	
 	public void changerTour() {
 	    if (getJoueurCourant() == joueur1) {

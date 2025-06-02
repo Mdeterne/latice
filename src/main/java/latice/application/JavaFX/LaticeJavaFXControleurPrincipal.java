@@ -19,6 +19,7 @@ import latice.model.Position;
 import latice.model.Tuile;
 import latice.model.Plateau;
 import latice.util.exception.PiocheVideException;
+import latice.util.exception.PointInsuffisantException;
 
 public class LaticeJavaFXControleurPrincipal {
 	private Arbitre arbitre;
@@ -182,6 +183,18 @@ public class LaticeJavaFXControleurPrincipal {
 	}
 
 
+	@FXML
+	private void acheterUneAction() {
+		try {
+			arbitre.acheterUnTour();
+			changementTextDeJoueur();
+		}
+		catch(PointInsuffisantException e){
+			messagesErreur.setText("Impossible : vous ne possédez pas assez de points");
+		}
+	}
+
+	
 	//Met à jour les images du rack avec les tuiles du joueur courant
 	private void changementImageRack() {
 		List<Tuile> tuiles = arbitre.getJoueurCourant().getRack().afficherTuiles();
