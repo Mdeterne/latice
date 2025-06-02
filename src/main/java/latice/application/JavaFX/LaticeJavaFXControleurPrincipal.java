@@ -24,7 +24,7 @@ import latice.util.exception.PointInsuffisantException;
 public class LaticeJavaFXControleurPrincipal {
 	private Arbitre arbitre;
 	private LaticeGestionnaireDeMusique musique;
-	
+	private LaticeGestionnaireDeMusique Boutton = new LaticeGestionnaireDeMusique();
 
 	@FXML private Label lblJoueurActuel;
 	@FXML private Label lblPiocheJoueur1;
@@ -76,6 +76,7 @@ public class LaticeJavaFXControleurPrincipal {
 	//Initialisation du contrôleur : joueurs, rack, cases et musique.
 	public void initialisation(String nomJoueur1, String nomJoueur2) {
 		musique = new LaticeGestionnaireDeMusique();
+		Boutton.chargerMusique("/SonBoutton.mp3");
 		// Chargement de la vidéo
 		String cheminVideo = getClass().getResource("/video/bg_sea.mp4").toExternalForm();
 		javafx.scene.media.Media media = new javafx.scene.media.Media(cheminVideo);
@@ -233,28 +234,27 @@ public class LaticeJavaFXControleurPrincipal {
 
 	@FXML
 	public void arreterLaMusique() {
+		jouerSonBouton();
 		musique.stop();
 	}
 
 	@FXML
 	public void changerLeVolume() {
+		jouerSonBouton();
 		musique.changerVolume(barVolume.getValue() / 100);
 		textVolume.setText(String.valueOf((int) barVolume.getValue()));
 	}
 
 	@FXML
 	private void QuitterLatice() {
-		try {
-			String uri = getClass().getResource("/SonBoutton.mp3").toURI().toString();
-			javafx.scene.media.Media media = new javafx.scene.media.Media(uri);
-			javafx.scene.media.MediaPlayer player = new javafx.scene.media.MediaPlayer(media);
-			player.play();
-			javafx.animation.PauseTransition pause = new javafx.animation.PauseTransition(javafx.util.Duration.seconds(0.7));
-			pause.setOnFinished(e -> System.exit(0));
-			pause.play();
-		} catch (Exception e) {
-			System.exit(0);
-		}
+		jouerSonBouton();	
+		System.exit(0);
+	}
+
+	private void jouerSonBouton() {
+		LaticeGestionnaireDeMusique gestionnaireSon = new LaticeGestionnaireDeMusique();
+		gestionnaireSon.chargerMusique("/SonBoutton.mp3");
+		gestionnaireSon.jouerUneFois();
 	}
 
 	// gestion du drag & drop
