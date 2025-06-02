@@ -89,6 +89,8 @@ public class LaticeJavaFXControleurConection {
         ControleurPrincipal.initialisation(nomJoueur1.getText(), nomJoueur2.getText());
     	scene = new Scene(root);
     	stage.setScene(scene);
+    	stage.setTitle("Jeux Latice");
+    	stage.centerOnScreen();
     	stage.show();
     }
     
