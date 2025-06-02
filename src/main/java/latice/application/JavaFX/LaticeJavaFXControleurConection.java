@@ -36,7 +36,7 @@ public class LaticeJavaFXControleurConection {
 	@FXML
 	public void initialize() {
 	    musique.chargerMusique("/connectionMainTheme.mp3");
-	    Boutton.chargerMusique("/SonBoutton.mp3");
+	    Boutton.chargerMusique("/SonBoutton.wav");
 	    musique.jouer();
 	    
 	    javafx.event.EventHandler<KeyEvent> handler = event -> {
