@@ -276,7 +276,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="messagesErreur" alignment="CENTER" layoutX="409.0" layoutY="625.0" scaleX="0.75" scaleY="0.75" styleClass="textErreur" stylesheets="@style-jeu.css" />
+      <Label fx:id="messagesErreur" alignment="CENTER" layoutX="211.0" layoutY="626.0" prefHeight="35.0" prefWidth="684.0" scaleX="0.75" scaleY="0.75" style="-fx-alignment: center; -fx-font-size: 18;" styleClass="textErreur" stylesheets="@style-jeu.css" />
       <Button fx:id="changerRack" layoutX="787.0" layoutY="663.0" mnemonicParsing="false" onAction="#changerRack" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Changer Rack" />
       <Button fx:id="Quitter" layoutX="936.0" layoutY="81.0" mnemonicParsing="false" onAction="#QuitterLatice" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Quitter" />
       <VBox layoutX="52.0" layoutY="237.0" prefHeight="100.0" prefWidth="163.0" spacing="8" style="-fx-background-color: #e0e0e0; -fx-border-color: #333; -fx-border-radius: 10; -fx-background-radius: 10;">
