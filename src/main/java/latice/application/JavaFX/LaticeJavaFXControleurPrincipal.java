@@ -127,6 +127,7 @@ public class LaticeJavaFXControleurPrincipal {
 		try {
 			try {
 				// Échange le rack du joueur + retire action
+				jouerSonBouton();
 				arbitre.changerRack();
 				arbitre.retirerAction();
 				changementTextDeJoueur();
@@ -171,6 +172,7 @@ public class LaticeJavaFXControleurPrincipal {
 	@FXML
 	private void acheterUneAction() {
 		try {
+			jouerSonBouton();
 			arbitre.acheterUnTour();
 			changementTextDeJoueur();
 		}
@@ -183,6 +185,7 @@ public class LaticeJavaFXControleurPrincipal {
 	private void changerSonTour() {
 		arbitre.changerTour();
 		try {
+			jouerSonBouton();
 			arbitre.remplireRack();
 		} catch (PiocheVideException e) {
 			// terminer la partie si rack vide
