@@ -93,7 +93,7 @@ public class Arbitre {
     
     public boolean estFinDuJeu() {
     	System.out.println(nombreTours);
-    	if(nombreTours == 0) {
+    	if(nombreTours < 1) {
     		return true;
     	}
     	return false;

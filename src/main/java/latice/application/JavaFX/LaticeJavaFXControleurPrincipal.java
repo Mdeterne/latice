@@ -205,6 +205,9 @@ public class LaticeJavaFXControleurPrincipal {
 		changementImageRack();
 		changementTextCompteurTours();
 		nombreAction.setText(""+arbitre.getActions());
+		if (arbitre.estFinDuJeu()) {
+			finDePartie();
+		}
 	}
 	
 	//Met à jour les images du rack avec les tuiles du joueur courant
