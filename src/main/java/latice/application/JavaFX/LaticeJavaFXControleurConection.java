@@ -44,6 +44,10 @@ public class LaticeJavaFXControleurConection {
             erreurNoms.setText("Les deux noms doivent être remplis.");
             return;
         }
+        if (nom1.length() > 10 || nom2.length() > 10) {
+            erreurNoms.setText("Les noms ne doivent pas dépasser 10 caractères.");
+            return;
+        }
         if (nom1.equalsIgnoreCase(nom2)) {
             erreurNoms.setText("Les joueurs doivent avoir des noms différents.");
             return;

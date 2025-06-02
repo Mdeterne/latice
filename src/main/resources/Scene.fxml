@@ -214,12 +214,12 @@
             </GridPane>
          </children>
       </StackPane>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="443.0" layoutY="597.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="460.0" layoutY="613.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/flowers.gif" />
          </image>
       </ImageView>
-      <HBox layoutX="400.0" layoutY="667.0" prefHeight="60.0" prefWidth="300.0" scaleX="1.3" scaleY="1.3" style="-fx-border-color: #001c33; -fx-border-width: 7; -fx-border-radius: 5;">
+      <HBox layoutX="403.0" layoutY="678.0" prefHeight="60.0" prefWidth="300.0" scaleX="1.3" scaleY="1.3" style="-fx-border-color: #001c33; -fx-border-width: 7; -fx-border-radius: 5;">
          <children>
             <ImageView fx:id="tuile1" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -282,7 +282,7 @@
       <Button fx:id="Quitter" layoutX="936.0" layoutY="81.0" mnemonicParsing="false" onAction="#QuitterLatice" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Quitter" />
       <VBox layoutX="52.0" layoutY="237.0" prefHeight="100.0" prefWidth="163.0" spacing="8" style="-fx-background-color: #e0e0e0; -fx-border-color: #333; -fx-border-radius: 10; -fx-background-radius: 10;">
          <children>
-            <Label fx:id="lblPiocheJoueur1" prefHeight="100.0" prefWidth="163.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-alignment: center; -fx-background-color: #001c33; -fx-background-radius: 10; -fx-text-fill: #00f0ff;" text="Joueur 1 : 0 tuiles">
+            <Label fx:id="lblPiocheJoueur1" prefHeight="100.0" prefWidth="163.0" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-alignment: center; -fx-background-color: #001c33; -fx-background-radius: 10; -fx-text-fill: #00f0ff;" text="Joueur 1 : 0 tuiles">
                <VBox.margin>
                   <Insets />
                </VBox.margin></Label>
@@ -290,9 +290,9 @@
       </VBox>
       <VBox layoutX="884.0" layoutY="237.0" prefHeight="100.0" prefWidth="163.0" spacing="8" style="-fx-background-color: #e0e0e0; -fx-border-color: #333; -fx-border-radius: 10; -fx-background-radius: 10;">
          <children>
-            <Label fx:id="lblPiocheJoueur2" prefHeight="100.0" prefWidth="168.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-alignment: center; -fx-background-color: #001c33; -fx-background-radius: 10; -fx-text-fill: #00f0ff;" text="Joueur 2 : 0 tuiles" />
+            <Label fx:id="lblPiocheJoueur2" prefHeight="100.0" prefWidth="168.0" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-alignment: center; -fx-background-color: #001c33; -fx-background-radius: 10; -fx-text-fill: #00f0ff;" text="Joueur 2 : 0 tuiles" />
          </children>
       </VBox>
-      <Label fx:id="compteurTours" layoutX="364.0" layoutY="14.0" prefHeight="23.0" prefWidth="359.0" style="-fx-alignment: center; -fx-font-size: 30; -fx-font-weight: bold; -fx-text-fill: #00f0ff; -fx-background-color: #001c33; -fx-background-radius: 10;" text="Tour 1" />
+      <Label fx:id="compteurTours" layoutX="309.0" layoutY="14.0" prefHeight="23.0" prefWidth="483.0" style="-fx-alignment: center; -fx-font-size: 30; -fx-font-weight: bold; -fx-text-fill: #00f0ff; -fx-background-color: #001c33; -fx-background-radius: 10;" text="Tour 1" />
    </children>
 </Pane>
