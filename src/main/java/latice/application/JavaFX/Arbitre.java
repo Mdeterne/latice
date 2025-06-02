@@ -92,9 +92,6 @@ public class Arbitre {
     }	
     
     public boolean estFinDuJeu() {
-    	if (joueurActuel.actions() == 0) {
-    		nombreTours--;
-    	}
     	System.out.println(nombreTours);
     	if(nombreTours == 0) {
     		return true;
@@ -228,7 +225,9 @@ public class Arbitre {
 	        joueurActuel = joueur1;
 	        joueur1.réinitialiserActions();
 	    }
+	    nombreTours = nombreTours - 1;
 	}
+	
 	public Plateau getPlateau() {
 	    return plateau;
 	}

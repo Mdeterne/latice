@@ -124,20 +124,18 @@ public class LaticeJavaFXControleurPrincipal {
 	@FXML
 	private void changerRack(ActionEvent event) {
 		try {
-			
 			try {
 				// Échange le rack du joueur + retire action
 				arbitre.changerRack();
 				arbitre.retirerAction();
+				changementTextDeJoueur();
+				changementImageRack();
 			} catch (ActionsInsuffisanteException e) {
 				messagesErreur.setText(e.getMessage());
 			}
-			changementTextDeJoueur();
-			changementImageRack();
 		} catch (PiocheVideException e) {
 			messagesErreur.setText("Impossible : votre pioche est vide");
 		}
-		messagesErreur.setText("");
 		verificationDuTour();
 	}
 
@@ -146,12 +144,8 @@ public class LaticeJavaFXControleurPrincipal {
 		if (arbitre.estFinDuJeu()) {
 			finDePartie();
 		}
-
-		// maj de l'interface
-		changementTextDeJoueur();
-		changementImageRack();
-		changementTextCompteurTours();
 	}
+	
 	private void finDePartie() {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Fin de partie");
@@ -195,13 +189,11 @@ public class LaticeJavaFXControleurPrincipal {
 				finDePartie();
 				return;
 			}
-			if (arbitre.getActions() == 0) {
-				arbitre.changerTour();
-			}
-			// maj de l'interface
-			changementTextDeJoueur();
-			changementImageRack();
 		}
+		// maj de l'interface
+		changementTextDeJoueur();
+		changementImageRack();
+		changementTextCompteurTours();
 	}
 	
 	//Met à jour les images du rack avec les tuiles du joueur courant
