@@ -66,8 +66,8 @@ class ArbitreTest {
         List<Tuile> rack = courant.getRack().afficherTuiles();
         Tuile t = rack.get(0);
         
-        boolean ok = arbitre.jouerTuile(new Position(9, 9), t);
-        assertFalse(ok);
+        int ok = arbitre.jouerTuile(new Position(9, 9), t);
+        assertEquals(ok,0);
         
         assertEquals(1, arbitre.getActions());
     }
@@ -82,8 +82,8 @@ class ArbitreTest {
 
         Tuile t0 = courant.getRack().afficherTuiles().get(0);
 
-        boolean ok = arbitre.jouerTuile(new Position(4, 4), t0);
-        assertTrue(ok);
+        int ok = arbitre.jouerTuile(new Position(4, 4), t0);
+        assertEquals(ok,5);
 
         assertEquals(4, courant.getRack().taille());
 
@@ -104,8 +104,8 @@ class ArbitreTest {
         Joueur courant = arbitre.getJoueurCourant();
         
         Tuile t1 = courant.getRack().afficherTuiles().get(0);
-        boolean ok1 = arbitre.jouerTuile(new Position(4, 4), t1);
-        assertTrue(ok1);
+        int ok1 = arbitre.jouerTuile(new Position(4, 4), t1);
+        assertEquals(ok1,5);
         
         courant.réinitialiserActions();
         
@@ -118,8 +118,8 @@ class ArbitreTest {
         }
         assertNotNull(tIncompatible);
         
-        boolean ok2 = arbitre.jouerTuile(new Position(4, 3), tIncompatible);
-        assertFalse(ok2);
+        int ok2 = arbitre.jouerTuile(new Position(4, 3), tIncompatible);
+        assertEquals(ok2,1);
         
         assertEquals(4, courant.getRack().taille());
     }
