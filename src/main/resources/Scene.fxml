@@ -271,14 +271,13 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="lblJoueurActuel" layoutX="856.0" layoutY="582.0" style="-fx-background-color: rgba(0, 28, 51, 1); -fx-background-radius: 10; -fx-alignment: center;" styleClass="text2" stylesheets="@style-jeu.css" text="à vous de jouer !" textFill="#01ff00">
+      <Label fx:id="lblJoueurActuel" layoutX="32.0" layoutY="697.0" style="-fx-background-color: rgba(0, 28, 51, 1); -fx-background-radius: 10; -fx-alignment: center;" styleClass="text2" stylesheets="@style-jeu.css" text="à vous de jouer !" textFill="#01ff00">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="changerRack" layoutX="795.0" layoutY="685.0" mnemonicParsing="false" text="Changer" />
       <Label fx:id="messagesErreur" alignment="CENTER" layoutX="409.0" layoutY="625.0" scaleX="0.75" scaleY="0.75" styleClass="textErreur" stylesheets="@style-jeu.css" />
-      <Button fx:id="changerRack" layoutX="201.0" layoutY="666.0" mnemonicParsing="false" onAction="#changerRack" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Changer Rack" />
+      <Button fx:id="changerRack" layoutX="787.0" layoutY="663.0" mnemonicParsing="false" onAction="#changerRack" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Changer Rack" />
       <Button fx:id="Quitter" layoutX="936.0" layoutY="81.0" mnemonicParsing="false" onAction="#QuitterLatice" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Quitter" />
       <VBox layoutX="52.0" layoutY="237.0" prefHeight="100.0" prefWidth="163.0" spacing="8" style="-fx-background-color: #e0e0e0; -fx-border-color: #333; -fx-border-radius: 10; -fx-background-radius: 10;">
          <children>
@@ -294,8 +293,8 @@
          </children>
       </VBox>
       <Label fx:id="compteurTours" layoutX="309.0" layoutY="14.0" prefHeight="23.0" prefWidth="483.0" style="-fx-alignment: center; -fx-font-size: 30; -fx-font-weight: bold; -fx-text-fill: #00f0ff; -fx-background-color: #001c33; -fx-background-radius: 10;" text="Tour 1" />
-   	  <Button fx:id="boutonAcheterAction" layoutX="781.0" layoutY="712.0" mnemonicParsing="false" onAction="#acheterUneAction" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="acheter une actions" />
-      <Button fx:id="boutonChangerTour" layoutX="211.0" layoutY="712.0" mnemonicParsing="false" onAction="#changerSonTour" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Fin du tour" />
-      <Label fx:id="nombreAction" layoutX="780.0" layoutY="667.0" style="-fx-background-color: rgba(0, 28, 51, 1); -fx-background-radius: 10;" styleClass="text2" stylesheets="@style-jeu.css" text="Nombre d'actions :" />
+   	  <Button fx:id="boutonAcheterAction" layoutX="837.0" layoutY="542.0" mnemonicParsing="false" onAction="#acheterUneAction" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="acheter une actions" />
+      <Button fx:id="boutonChangerTour" layoutX="797.0" layoutY="712.0" mnemonicParsing="false" onAction="#changerSonTour" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Fin du tour" />
+      <Label fx:id="nombreAction" layoutX="835.0" layoutY="497.0" style="-fx-background-color: rgba(0, 28, 51, 1); -fx-background-radius: 10;" styleClass="text2" stylesheets="@style-jeu.css" text="Nombre d'actions :" />
    </children>
 </Pane>
