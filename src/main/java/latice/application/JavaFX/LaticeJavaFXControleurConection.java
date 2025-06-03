@@ -18,11 +18,20 @@ import javafx.scene.input.KeyCode;
 public class LaticeJavaFXControleurConection {
 
 @FXML
-    private Button connexionBouton;
+private Button connexionBouton;
+
 @FXML
 private TextField nomJoueur1;
+
 @FXML
 private TextField nomJoueur2;
+
+@FXML
+private TextField nomJoueur3;
+
+@FXML
+private TextField nomJoueur4;
+
 @FXML
     private Label erreurNoms;
 
