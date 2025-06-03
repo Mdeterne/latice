@@ -142,18 +142,20 @@ public class Arbitre {
         joueur3 = new Joueur(nomJoueur3);
         joueur4 = new Joueur(nomJoueur4);
         
-        if(!nomJoueur3.equals(null)) {
+        if(!nomJoueur3.equals("")) {
         	nombreJoueur = 3;
         	joueur1.definir3Joueur();
         	joueur2.definir3Joueur();
         	joueur3.definir3Joueur();
+        	nombreTours = 25;
         }
-        if(!nomJoueur4.equals(null)) {
+        if(!nomJoueur4.equals("")) {
         	nombreJoueur = 4;
         	joueur1.definir4Joueur();
         	joueur2.definir4Joueur();
         	joueur3.definir4Joueur();
         	joueur4.definir4Joueur();
+        	nombreTours = 25;
         }
         
         try {
