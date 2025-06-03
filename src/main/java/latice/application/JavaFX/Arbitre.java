@@ -20,8 +20,12 @@ public class Arbitre {
 	
 	private Joueur joueur1;
 	private Joueur joueur2;
+	private Joueur joueur3;
+	private Joueur joueur4;
+	
 	private Joueur joueurActuel;
 	private int nombreTours = 20;
+	private int nombreJoueur = 2;
 	
 	private PiochePrincipal piochePrincipal = new PiochePrincipal();
 	
@@ -35,6 +39,8 @@ public class Arbitre {
 
     public Joueur getJoueur1() { return joueur1; }
     public Joueur getJoueur2() { return joueur2; }
+    public Joueur getJoueur3() { return joueur3; }
+    public Joueur getJoueur4() { return joueur4; }
 
     public boolean premierCoup() {
         return premierCoup;
@@ -102,10 +108,6 @@ public class Arbitre {
         else {
         	return error;
         }
-        
-
-
-        
     }	
     
     public boolean estFinDuJeu() {
@@ -125,20 +127,48 @@ public class Arbitre {
     		return joueur1;
     	} else if (joueur1.getTuilesPosées()<joueur2.getTuilesPosées()) {
     		return joueur2;
+    	}else if(joueur2.getTuilesPosées()<joueur3.getTuilesPosées()){
+    		return joueur3;
+    	}else if(joueur3.getTuilesPosées()<joueur4.getTuilesPosées()) {
+    		return joueur4;
     	}else {
     		return null;
     	}
     }
 	
-	public void initialiser(String nomJoueur1, String nomJoueur2) {
+	public void initialiser(String nomJoueur1, String nomJoueur2, String nomJoueur3, String nomJoueur4) {
 		joueur1 = new Joueur(nomJoueur1);
         joueur2 = new Joueur(nomJoueur2);
+        joueur3 = new Joueur(nomJoueur3);
+        joueur4 = new Joueur(nomJoueur4);
+        
+        if(!nomJoueur3.equals(null)) {
+        	nombreJoueur = 3;
+        	joueur1.definir3Joueur();
+        	joueur2.definir3Joueur();
+        	joueur3.definir3Joueur();
+        }
+        if(!nomJoueur4.equals(null)) {
+        	nombreJoueur = 4;
+        	joueur1.definir4Joueur();
+        	joueur2.definir4Joueur();
+        	joueur3.definir4Joueur();
+        	joueur4.definir4Joueur();
+        }
         
         try {
 			joueur1.remplirPiochePersonelle(piochePrincipal);
 			joueur2.remplirPiochePersonelle(piochePrincipal);
 			joueur1.initialiserRack();
 			joueur2.initialiserRack();
+			if(nombreJoueur<=3) {
+				joueur3.remplirPiochePersonelle(piochePrincipal);
+				joueur3.initialiserRack();
+			}
+			if(nombreJoueur == 4) {
+				joueur4.remplirPiochePersonelle(piochePrincipal);
+				joueur4.initialiserRack();
+			}
 		} catch (PiocheVideException e) {
 			System.out.println(e.getMessage());
 		}
@@ -235,14 +265,45 @@ public class Arbitre {
 
 	
 	public void changerTour() {
-	    if (getJoueurCourant() == joueur1) {
-	        joueurActuel = joueur2;
-	        joueur2.réinitialiserActions();
-	    } else {
-	        joueurActuel = joueur1;
-	        joueur1.réinitialiserActions();
+	    if (nombreJoueur == 2) {
+			if (getJoueurCourant() == joueur1) {
+				joueurActuel = joueur2;
+				joueur2.réinitialiserActions();
+			} else {
+				joueurActuel = joueur1;
+				joueur1.réinitialiserActions();
+			} 
+		}
+	    
+	    if (nombreJoueur == 3) {
+	    	if (getJoueurCourant() == joueur1) {
+				joueurActuel = joueur2;
+				joueur2.réinitialiserActions();
+			} else if(getJoueurCourant() == joueur2){
+				joueurActuel = joueur3;
+				joueur3.réinitialiserActions();
+			} else {
+				joueurActuel = joueur1;
+				joueur1.réinitialiserActions();
+			}
 	    }
-	    nombreTours = nombreTours - 1;
+	    
+	    if (nombreJoueur == 4) {
+	    	if (getJoueurCourant() == joueur1) {
+				joueurActuel = joueur2;
+				joueur2.réinitialiserActions();
+			} else if(getJoueurCourant() == joueur2){
+				joueurActuel = joueur3;
+				joueur3.réinitialiserActions();
+			} else if(getJoueurCourant() == joueur3){
+				joueurActuel = joueur4;
+				joueur4.réinitialiserActions();
+			} else {
+				joueurActuel = joueur1;
+				joueur1.réinitialiserActions();
+			}
+	    }
+		nombreTours = nombreTours - 1;
 	}
 	
 	public Plateau getPlateau() {

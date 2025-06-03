@@ -163,4 +163,12 @@ public class Joueur {
 		}
 	}
 	
+	public void definir3Joueur() {
+		piochePersonelle.definir3Joueur();
+	}
+	
+	public void definir4Joueur() {
+		piochePersonelle.definir4Joueur();
+	}
+	
 }

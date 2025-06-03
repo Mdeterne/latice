@@ -231,7 +231,7 @@ public class LaticeJavaFXControleurPrincipal {
 	private Label nombreAction;
 
 	// Initialisation du contrôleur : joueurs, rack, cases et musique.
-	public void initialisation(String nomJoueur1, String nomJoueur2) {
+	public void initialisation(String nomJoueur1, String nomJoueur2, String nomJoueur3, String nomJoueur4) {
 		musique = new LaticeGestionnaireDeMusique();
 		Boutton.chargerMusique("/SonBoutton.mp3");
 		// Chargement de la vidéo
@@ -244,7 +244,7 @@ public class LaticeJavaFXControleurPrincipal {
 		fond.setMediaPlayer(mediaPlayer);
 
 		arbitre = new Arbitre();
-		arbitre.initialiser(nomJoueur1, nomJoueur2);
+		arbitre.initialiser(nomJoueur1, nomJoueur2, nomJoueur3, nomJoueur4);
 
 		// Affiche le joueur courant et son rack
 		changementTextDeJoueur();
