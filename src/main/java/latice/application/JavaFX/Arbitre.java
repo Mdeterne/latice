@@ -155,7 +155,7 @@ public class Arbitre {
         	joueur2.definir4Joueur();
         	joueur3.definir4Joueur();
         	joueur4.definir4Joueur();
-        	nombreTours = 25;
+        	nombreTours = 30;
         }
         
         try {
@@ -168,6 +168,8 @@ public class Arbitre {
 				joueur3.initialiserRack();
 			}
 			if(nombreJoueur == 4) {
+				joueur3.remplirPiochePersonelle(piochePrincipal);
+				joueur3.initialiserRack();
 				joueur4.remplirPiochePersonelle(piochePrincipal);
 				joueur4.initialiserRack();
 			}
