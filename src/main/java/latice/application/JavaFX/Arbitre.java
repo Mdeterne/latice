@@ -41,35 +41,29 @@ public class Arbitre {
     }
 
     public int jouerTuile(Position position, Tuile tuile) {
-    	// On gère d'abord si le positionnement des tuiles est valide
-    	try {
-			retirerAction();
-		} catch (ActionsInsuffisanteException e) {
-			return 4;
-		}
+    	int error = 5;
+    	
     	
         if (!plateau.estPositionValide(position)) {
-            return 0;
+            error = 0;
         }
+  
 
         int nombreTuilesCompatibles = plateau.nombreTuilesCompatibles(position, tuile);
         if(!premierCoup && nombreTuilesCompatibles == 0) {
-        	return 1;
+        	error=1;
         }
 
         if (premierCoup) {
         	if (position.x() != 4 && position.y() != 4) {
-        		return 3;
+        		error = 2;
         	}
             premierCoup = false;
         }
-        
-        try {
-            plateau.posertuile(tuile, position);
-        } catch (CaseInaccessibleException e) {
-            return 2;
-        }
 
+        if (getJoueurCourant().actions()==0) {
+        	error=4;
+        }
 
         int pointsGagnes = 0;
         
@@ -85,13 +79,33 @@ public class Arbitre {
             pointsGagnes += 2;
         }
 
-        plateau.donnerPoint(getJoueurCourant(), pointsGagnes);
-
-
-        joueurActuel.ajoutTuilePosé();
-        retirertuile(tuile);
+        if (error == 5) {
+        	
+        	try {
+				plateau.posertuile(tuile, position);
+				plateau.donnerPoint(getJoueurCourant(), pointsGagnes);
+	        	joueurActuel.ajoutTuilePosé();
+	        	try {
+					retirerAction();
+				} catch (ActionsInsuffisanteException e) {
+					System.out.println(e.getMessage());
+				}
+	        	retirertuile(tuile);
+	            return error;
+			} catch (CaseInaccessibleException e) {
+				System.out.println(e.getMessage());
+				error = 3;
+				return error;
+			}
+            
+        }
+        else {
+        	return error;
+        }
         
-        return 5;
+
+
+        
     }	
     
     public boolean estFinDuJeu() {

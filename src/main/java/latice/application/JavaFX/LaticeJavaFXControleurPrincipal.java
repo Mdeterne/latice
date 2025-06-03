@@ -478,7 +478,7 @@ public class LaticeJavaFXControleurPrincipal {
 					imageView.setImage(db.getImage());
 					source.setImage(null);
 					success = true;
-				} else if (arbitre.getActions() == 0) {
+				} else if (ok == 4) {
 					messagesErreur.setText("Vous ne possédez plus d'actions");
 				} else {
 					messagesErreur.setText("Impossible de poser la tuile ici !");
