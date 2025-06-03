@@ -27,7 +27,7 @@ class ArbitreTest {
     @Test
     void testInitialisationRackEtPioche() {
     	Arbitre arbitre = new Arbitre();
-        arbitre.initialiser("Marty", "Barre");
+        arbitre.initialiser("Marty", "Barre","","");
 
         Joueur j1 = arbitre.getJoueur1();
         Joueur j2 = arbitre.getJoueur2();
@@ -44,7 +44,7 @@ class ArbitreTest {
     @Test
     void testChangerTourEtActionsReset() {
         Arbitre arbitre = new Arbitre();
-        arbitre.initialiser("Marty", "Barre");
+        arbitre.initialiser("Marty", "Barre","","");
         
         Joueur courant = arbitre.getJoueurCourant();
         Joueur autre = (courant == arbitre.getJoueur1()) ? arbitre.getJoueur2() : arbitre.getJoueur1();
@@ -59,7 +59,7 @@ class ArbitreTest {
     @Test
     void testJouerTuilePositionInvalide() {
     	Arbitre arbitre = new Arbitre();
-        arbitre.initialiser("Marty", "Barre");
+        arbitre.initialiser("Marty", "Barre","","");
         
         Joueur courant = arbitre.getJoueurCourant();
         
@@ -75,7 +75,7 @@ class ArbitreTest {
     @Test
     void testJouerTuilePremierCoupValideEtRetireDuRack() throws CaseInaccessibleException {
     	Arbitre arbitre = new Arbitre();
-        arbitre.initialiser("Marty", "Barre");
+        arbitre.initialiser("Marty", "Barre","","");
         
         Joueur courant = arbitre.getJoueurCourant();
         assertEquals(5, courant.getRack().taille());
@@ -99,7 +99,7 @@ class ArbitreTest {
     @Test
     void testJouerTuileDeuxiemeCoupIncompatibleRetourneFalse() throws CaseInaccessibleException {
     	Arbitre arbitre = new Arbitre();
-        arbitre.initialiser("Marty", "Barre");
+        arbitre.initialiser("Marty", "Barre","","");
         
         Joueur courant = arbitre.getJoueurCourant();
         
@@ -127,7 +127,7 @@ class ArbitreTest {
     @Test
     void testTaillePiocheEtRemplireRack() throws PiocheVideException {
     	Arbitre arbitre = new Arbitre();
-        arbitre.initialiser("Marty", "Barre");
+        arbitre.initialiser("Marty", "Barre","","");
         
         Joueur courant = arbitre.getJoueurCourant();
         
@@ -145,7 +145,7 @@ class ArbitreTest {
     @Test
     void testChangerRackEtRetirerAction() throws PiocheVideException {
     	Arbitre arbitre = new Arbitre();
-        arbitre.initialiser("Marty", "Barre");
+        arbitre.initialiser("Marty", "Barre","","");
         
         Joueur courant = arbitre.getJoueurCourant();
         
@@ -174,7 +174,7 @@ class ArbitreTest {
     @Test
     void testChangerTourEnAlternantLesJoueurs() {
         Arbitre arbitre = new Arbitre();
-        arbitre.initialiser("Marty", "Barre");
+        arbitre.initialiser("Marty", "Barre","","");
         
         Joueur courant = arbitre.getJoueurCourant();
         arbitre.changerTour();
@@ -187,7 +187,7 @@ class ArbitreTest {
     @Test
     void testGetGagnant_Joueur1Gagne() {
         Arbitre arbitre = new Arbitre();
-        arbitre.initialiser("Marty", "Barre");
+        arbitre.initialiser("Marty", "Barre","","");
 
         Joueur j1 = arbitre.getJoueur1();
         Joueur j2 = arbitre.getJoueur2();
@@ -206,7 +206,7 @@ class ArbitreTest {
     @Test
     void testGetGagnant_Joueur2Gagne() {
         Arbitre arbitre = new Arbitre();
-        arbitre.initialiser("Marty", "Barre");
+        arbitre.initialiser("Marty", "Barre","","");
         
         Joueur j1 = arbitre.getJoueur1();
         Joueur j2 = arbitre.getJoueur2();
@@ -224,7 +224,7 @@ class ArbitreTest {
     @Test
     void testGetGagnant_Egalite() {
         Arbitre arbitre = new Arbitre();
-        arbitre.initialiser("Marty", "Barre");
+        arbitre.initialiser("Marty", "Barre","","");
         
         Joueur j1 = arbitre.getJoueur1();
         Joueur j2 = arbitre.getJoueur2();
@@ -240,7 +240,7 @@ class ArbitreTest {
     @Test
     void testEstFinDuJeu_DecrementeNombreToursQuandActionsZero() {
         Arbitre arbitre = new Arbitre();
-        arbitre.initialiser("Marty", "Barre");
+        arbitre.initialiser("Marty", "Barre","","");
         
         Joueur joueurActuel = arbitre.getJoueurCourant();
 
@@ -263,7 +263,7 @@ class ArbitreTest {
     @Test
     void testEstFinDuJeu_QuandNombreToursAtteintZero() {
         Arbitre arbitre = new Arbitre();
-        arbitre.initialiser("Marty", "Barre");
+        arbitre.initialiser("Marty", "Barre","","");
         
         Joueur joueurActuel = arbitre.getJoueurCourant();
 
@@ -287,7 +287,7 @@ class ArbitreTest {
     @Test
     void testNombreToursInitial() {
         Arbitre arbitre = new Arbitre();
-        arbitre.initialiser("Marty", "Barre");
+        arbitre.initialiser("Marty", "Barre","","");
         
         assertEquals(20, arbitre.nombreTours());
     }
@@ -295,7 +295,7 @@ class ArbitreTest {
     @Test
     void testNomJoueurs() {
         Arbitre arbitre = new Arbitre();
-        arbitre.initialiser("Marty", "Barre");
+        arbitre.initialiser("Marty", "Barre","","");
         
         assertEquals("Marty", arbitre.nomJoueur1());
         assertEquals("Barre", arbitre.nomJoueur2());
@@ -304,7 +304,7 @@ class ArbitreTest {
     @Test
     void testRackJoueursEstRempliApresInitialisation() {
         Arbitre arbitre = new Arbitre();
-        arbitre.initialiser("Marty", "Barre");
+        arbitre.initialiser("Marty", "Barre","","");
 
         ArrayList<Tuile> rack1 = arbitre.RackJoueur1();
         ArrayList<Tuile> rack2 = arbitre.RackJoueur2();
@@ -324,7 +324,7 @@ class ArbitreTest {
     @Test
     void testChangerRackNeLèvePasExceptionSiPiocheSuffisante() {
         Arbitre arbitre = new Arbitre();
-        arbitre.initialiser("Marty", "Barre");
+        arbitre.initialiser("Marty", "Barre","","");
 
         try {
             arbitre.changerRack();
@@ -395,7 +395,7 @@ class ArbitreTest {
     @Test
     void testTaillePiochePourJoueur1(){
         Arbitre arbitre = new Arbitre();
-        arbitre.initialiser("Marty", "Barre");
+        arbitre.initialiser("Marty", "Barre","","");
         
         Joueur joueur1 = arbitre.getJoueur1();
         arbitre.changerTour();
@@ -415,7 +415,7 @@ class ArbitreTest {
     void testTaillePiochePourJoueur2() {
         
         Arbitre arbitre = new Arbitre();
-        arbitre.initialiser("Marty", "Barre");
+        arbitre.initialiser("Marty", "Barre","","");
         
         Joueur joueur2 = arbitre.getJoueur2();
         if (arbitre.getJoueurCourant() != joueur2) {
@@ -432,7 +432,7 @@ class ArbitreTest {
     void testTaillePiocheApresChangementTour(){
         
         Arbitre arbitre = new Arbitre();
-        arbitre.initialiser("Marty", "Barre");
+        arbitre.initialiser("Marty", "Barre","","");
         Joueur joueur1 = arbitre.getJoueur1();
         Joueur joueur2 = arbitre.getJoueur2();
         

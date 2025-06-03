@@ -31,7 +31,7 @@ class PiochePersonelleTest {
     @Test
     void testRemplirPiochePerso() throws PiocheVideException {
        
-        for (int i = 0; i < PiochePersonelle.TAILLEMAX; i++) {
+        for (int i = 0; i < PiochePersonelle.getTailleMax(); i++) {
             piochePrincipal.ajoutertuile(new Tuile(Couleur.values()[i % Couleur.values().length], 
                                                Symbole.values()[i % Symbole.values().length]));
         }
@@ -39,7 +39,7 @@ class PiochePersonelleTest {
         piochePerso.remplirPiochePerso(piochePrincipal);
 
         
-        assertEquals(PiochePersonelle.TAILLEMAX, piochePerso.taille());
+        assertEquals(PiochePersonelle.getTailleMax(), piochePerso.taille());
         assertTrue(piochePrincipal.estVide());
         
         
@@ -72,6 +72,6 @@ class PiochePersonelleTest {
 
     @Test
     void testTAILLEMAXConstant() {
-        assertEquals(36, PiochePersonelle.TAILLEMAX);
+        assertEquals(36, PiochePersonelle.getTailleMax());
     }
 }

@@ -6,7 +6,7 @@ import latice.util.exception.PiocheVideException;
 
 public class PiochePersonelle extends Pioche{
 	
-	public int tailleMaxPioche = 36;
+	public static int tailleMaxPioche = 36;
 
 	public PiochePersonelle() {
 		super();
@@ -26,5 +26,9 @@ public class PiochePersonelle extends Pioche{
 	
 	public void definir4Joueur() {
 		tailleMaxPioche = 18;
+	}
+	
+	public static int getTailleMax() {
+		return tailleMaxPioche;
 	}
 }
