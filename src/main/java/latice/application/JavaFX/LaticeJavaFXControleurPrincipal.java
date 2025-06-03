@@ -4,6 +4,9 @@ import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -15,6 +18,7 @@ import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.media.MediaView;
+import javafx.stage.Stage;
 import latice.model.Position;
 import latice.model.Tuile;
 import latice.util.exception.ActionsInsuffisanteException;
@@ -414,6 +418,36 @@ public class LaticeJavaFXControleurPrincipal {
 	private void QuitterLatice() {
 		jouerSonBouton();
 		System.exit(0);
+	}
+
+	@FXML
+	private void retourMenu(ActionEvent event) {
+		jouerSonBouton();
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Retour au menu");
+		alert.setHeaderText(null);
+		alert.setContentText("Êtes-vous sûr de vouloir retourner au menu ?");
+		java.util.Optional<javafx.scene.control.ButtonType> result = alert.showAndWait();
+		if (result.isPresent() && result.get() == javafx.scene.control.ButtonType.OK) {
+			try {
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/Scene1.fxml"));
+				Parent root = loader.load();
+				Stage stage;
+				if (event != null) {
+					stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+				} else {
+					stage = (Stage) lblJoueurActuel.getScene().getWindow();
+				}
+				Scene scene = new Scene(root);
+				stage.setScene(scene);
+				stage.setTitle("Connexion au Jeu Latice");
+				stage.centerOnScreen();
+				stage.show();
+			} catch (Exception e) {
+				Alert erreur = new Alert(AlertType.ERROR, "Impossible de retourner au menu.");
+				erreur.showAndWait();
+			}
+		}
 	}
 
 	private void jouerSonBouton() {
