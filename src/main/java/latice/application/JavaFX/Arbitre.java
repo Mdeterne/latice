@@ -42,6 +42,12 @@ public class Arbitre {
 
     public int jouerTuile(Position position, Tuile tuile) {
     	// On gère d'abord si le positionnement des tuiles est valide
+    	try {
+			retirerAction();
+		} catch (ActionsInsuffisanteException e) {
+			return 4;
+		}
+    	
         if (!plateau.estPositionValide(position)) {
             return 0;
         }
@@ -51,18 +57,19 @@ public class Arbitre {
         	return 1;
         }
 
-        try {
-            plateau.posertuile(tuile, position);
-        } catch (CaseInaccessibleException e) {
-            return 2;
-        }
-
         if (premierCoup) {
         	if (position.x() != 4 && position.y() != 4) {
         		return 3;
         	}
             premierCoup = false;
         }
+        
+        try {
+            plateau.posertuile(tuile, position);
+        } catch (CaseInaccessibleException e) {
+            return 2;
+        }
+
 
         int pointsGagnes = 0;
         
@@ -83,11 +90,7 @@ public class Arbitre {
 
         joueurActuel.ajoutTuilePosé();
         retirertuile(tuile);
-        try {
-			retirerAction();
-		} catch (ActionsInsuffisanteException e) {
-			return 4;
-		}
+        
         return 5;
     }	
     
