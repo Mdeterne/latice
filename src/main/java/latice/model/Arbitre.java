@@ -55,7 +55,8 @@ public class Arbitre {
 		int error = 5;
 
 		if (!plateau.estPositionValide(position)) {
-			error = 0;
+			return 0;
+			
 		}
 
 		int nombreTuilesCompatibles = plateau.nombreTuilesCompatibles(position, tuile);

@@ -66,7 +66,7 @@ class PiochePersonelleTest {
 		}
 
 		assertThrows(PiocheVideException.class, () -> piochePerso.remplirPiochePerso(piochePrincipal));
-		assertEquals(20, piochePerso.taille()); // Ne doit rien ajouter si exception
+		assertEquals(0, piochePerso.taille()); // Ne doit rien ajouter si exception
 	}
 
 	@Test

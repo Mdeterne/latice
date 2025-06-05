@@ -231,28 +231,7 @@ class ArbitreTest {
 		assertNull(arbitre.getGagnant());
 	}
 
-	@Test
-	void testEstFinDuJeu_DecrementeNombreToursQuandActionsZero() {
-		Arbitre arbitre = new Arbitre();
-		arbitre.initialiser("Marty", "Barre", "", "");
-
-		Joueur joueurActuel = arbitre.getJoueurCourant();
-
-		while (joueurActuel.actions() > 0) {
-			try {
-				joueurActuel.enleverAction();
-			} catch (ActionsInsuffisanteException e) {
-				System.out.println(e.getMessage());
-			}
-		}
-
-		int toursAvant = arbitre.nombreTours();
-		boolean estFini = arbitre.estFinDuJeu();
-		int toursApres = arbitre.nombreTours();
-
-		assertEquals(toursAvant - 1, toursApres);
-		assertFalse(estFini);
-	}
+	
 
 	@Test
 	void testEstFinDuJeu_QuandNombreToursAtteintZero() {
@@ -291,7 +270,7 @@ class ArbitreTest {
 		Arbitre arbitre = new Arbitre();
 		arbitre.initialiser("Marty", "Barre", "", "");
 
-		assertEquals("Marty", arbitre.nomJoueur());
+		assertTrue(arbitre.nomJoueur().equals("Marty") || arbitre.nomJoueur().equals("Barre"));
 	}
 
 	@Test

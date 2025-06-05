@@ -13,6 +13,9 @@ public class PiochePersonelle extends Pioche {
 	}
 
 	public void remplirPiochePerso(Pioche piochePrincipal) throws PiocheVideException {
+		if (piochePrincipal.taille() < tailleMaxPioche) {
+		    throw new PiocheVideException("Pas assez de tuiles !");
+		}
 		for (int i = 1; i <= tailleMaxPioche; i++) {
 			Tuile tuile = piochePrincipal.piocher();
 			this.pioche.add(tuile);
@@ -32,3 +35,4 @@ public class PiochePersonelle extends Pioche {
 		return tailleMaxPioche;
 	}
 }
+
