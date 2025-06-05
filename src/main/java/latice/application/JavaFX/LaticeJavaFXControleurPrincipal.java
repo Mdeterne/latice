@@ -378,8 +378,7 @@ public class LaticeJavaFXControleurPrincipal {
 		// Mise à jour du nombre de tuiles dans la pioche personnelle de chaque joueur
 		if (arbitre != null && arbitre.getJoueurCourant() != null) {
 			lblPiocheJoueur1.setText(arbitre.nomJoueur() + "\n"
-					+ (arbitre.taillePioche()
-							+ arbitre.getJoueurCourant().getRack().afficherTuiles().size())
+					+ (arbitre.taillePioche() + arbitre.getJoueurCourant().getRack().afficherTuiles().size())
 					+ " tuiles" + "\n" + arbitre.pointJoueur() + " points");
 		}
 		nombreAction.setText("Nombre d'actions : " + arbitre.getActions());

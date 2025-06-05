@@ -17,51 +17,51 @@ class CaseTest {
 
 	@Test
 	void testCaseEstVideQuandCaseVide() {
-		Position position = new Position(0,0);
+		Position position = new Position(0, 0);
 		Case maCase = new Case(position, false, false);
 
 		assertTrue(maCase.estVide());
 	}
-	
+
 	@Test
 	void testCaseEstVideQuandCaseRempli() throws CaseInaccessibleException {
-		Position position = new Position(0,0);
+		Position position = new Position(0, 0);
 		Case maCase = new Case(position, true, false);
 		Tuile tuile = new Tuile(Couleur.ROUGE, Symbole.DAUPHIN);
-		
+
 		maCase.posertuile(tuile);
 
 		assertFalse(maCase.estVide());
 	}
-	
-    @Test
-    void testGettuile() throws CaseInaccessibleException {
+
+	@Test
+	void testGettuile() throws CaseInaccessibleException {
 		Tuile tuile = new Tuile(Couleur.ROUGE, Symbole.DAUPHIN);
-        Position position = new Position(0, 0);
-        Case maCase = new Case(position, false, false);
-        maCase.posertuile(tuile);
+		Position position = new Position(0, 0);
+		Case maCase = new Case(position, false, false);
+		maCase.posertuile(tuile);
 
-        assertEquals(tuile, maCase.getTuile());
-    }
+		assertEquals(tuile, maCase.getTuile());
+	}
 
-    @Test
-    void testEstSoleil() {
-        Position position = new Position(0, 0);
-        Case maCase = new Case(position, true, false);
-        assertTrue(maCase.estSoleil());
-    }
+	@Test
+	void testEstSoleil() {
+		Position position = new Position(0, 0);
+		Case maCase = new Case(position, true, false);
+		assertTrue(maCase.estSoleil());
+	}
 
-    @Test
-    void testEstLune() {
-        Position position = new Position(0, 0);
-        Case maCase = new Case(position, false, true);
-        assertTrue(maCase.estLune());
-    }
+	@Test
+	void testEstLune() {
+		Position position = new Position(0, 0);
+		Case maCase = new Case(position, false, true);
+		assertTrue(maCase.estLune());
+	}
 
-    @Test
-    void testGetPosition() {
-        Position position = new Position(0, 0);
-        Case maCase = new Case(position, false, false);
-        assertEquals(position, maCase.getPosition());
-    }
+	@Test
+	void testGetPosition() {
+		Position position = new Position(0, 0);
+		Case maCase = new Case(position, false, false);
+		assertEquals(position, maCase.getPosition());
+	}
 }

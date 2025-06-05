@@ -53,7 +53,7 @@ public class LaticeConsoleApplication {
 					try {
 						arbitre.retirerAction();
 					} catch (ActionsInsuffisanteException e) {
-						
+
 						message(e.getMessage());
 					}
 					message("Nouveau rack : " + joueur.affichertuilesRack());

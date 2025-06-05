@@ -9,37 +9,37 @@ import java.io.File;
 
 public class ControlleurVideo {
 
-    @FXML
-    private MediaView mediaView;
+	@FXML
+	private MediaView mediaView;
 
-    private MediaPlayer mediaPlayer;
+	private MediaPlayer mediaPlayer;
 
-    public void initialize() {
-        String cheminVideo = new File("src/main/resources/video/fond-y2k.mp4").toURI().toString();
+	public void initialize() {
+		String cheminVideo = new File("src/main/resources/video/fond-y2k.mp4").toURI().toString();
 
-        Media media = new Media(cheminVideo);
-        mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE); // boucle la vidéo
-        mediaPlayer.setAutoPlay(true);
+		Media media = new Media(cheminVideo);
+		mediaPlayer = new MediaPlayer(media);
+		mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE); // boucle la vidéo
+		mediaPlayer.setAutoPlay(true);
 
-        mediaView.setMediaPlayer(mediaPlayer);
-    }
+		mediaView.setMediaPlayer(mediaPlayer);
+	}
 
-    public void stopVideo() {
-        if (mediaPlayer != null) {
-            mediaPlayer.stop();
-        }
-    }
+	public void stopVideo() {
+		if (mediaPlayer != null) {
+			mediaPlayer.stop();
+		}
+	}
 
-    public void playVideo() {
-        if (mediaPlayer != null) {
-            mediaPlayer.play();
-        }
-    }
+	public void playVideo() {
+		if (mediaPlayer != null) {
+			mediaPlayer.play();
+		}
+	}
 
-    public void pauseVideo() {
-        if (mediaPlayer != null) {
-            mediaPlayer.pause();
-        }
-    }
+	public void pauseVideo() {
+		if (mediaPlayer != null) {
+			mediaPlayer.pause();
+		}
+	}
 }

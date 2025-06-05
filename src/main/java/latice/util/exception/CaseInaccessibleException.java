@@ -1,9 +1,8 @@
 package latice.util.exception;
 
+public class CaseInaccessibleException extends Exception {
 
-public class CaseInaccessibleException extends Exception{
-
-	public CaseInaccessibleException(String message){
+	public CaseInaccessibleException(String message) {
 		super(message);
 	}
 }

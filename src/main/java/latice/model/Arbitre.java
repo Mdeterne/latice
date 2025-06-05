@@ -149,7 +149,7 @@ public class Arbitre {
 			joueur1.definir3Joueur();
 			joueur2.definir3Joueur();
 			joueur3.definir3Joueur();
-			nombreTours = 25;
+			nombreTours = 30;
 		}
 		if (!nomJoueur4.equals("")) {
 			nombreJoueur = 4;
@@ -157,7 +157,7 @@ public class Arbitre {
 			joueur2.definir4Joueur();
 			joueur3.definir4Joueur();
 			joueur4.definir4Joueur();
-			nombreTours = 30;
+			nombreTours = 40;
 		}
 
 		try {
@@ -189,7 +189,6 @@ public class Arbitre {
 	public String nomJoueur() {
 		return joueurActuel.nom();
 	}
-
 
 	public ArrayList<Tuile> RackJoueur() {
 		return joueurActuel.tuilesRack();
