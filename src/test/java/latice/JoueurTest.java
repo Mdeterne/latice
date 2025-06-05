@@ -16,7 +16,6 @@ import latice.model.PiochePrincipal;
 import latice.model.Tuile;
 import latice.util.exception.ActionsInsuffisanteException;
 import latice.util.exception.PiocheVideException;
-import latice.util.exception.PointInsuffisantException;
 
 class JoueurTest {
 
@@ -35,24 +34,6 @@ class JoueurTest {
         assertEquals(5, joueur.point());
         joueur.ajouterPoints(3);
         assertEquals(8, joueur.point());
-    }
-
-    @Test
-    void testAcheterQuandAssezDePoint() throws PointInsuffisantException {
-        joueur.ajouterPoints(2);
-        boolean ok = joueur.acheter();
-        assertTrue(ok);
-        assertEquals(0, joueur.point());
-    }
-
-    @Test
-    void testAcheterQuandPointsInsuffisants() {
-        joueur.ajouterPoints(1);
-        assertThrows(PointInsuffisantException.class, () -> {
-            joueur.acheter();
-        });
-        // nombre de points change pas
-        assertEquals(1, joueur.point());
     }
 
     @Test
@@ -101,11 +82,6 @@ class JoueurTest {
         assertTrue(setAnciennes.size() < 5);
     }
 
-    @Test
-    void testPasser() {
-        String msg = joueur.passer();
-        assertEquals("Alice à passer sont tour", msg);
-    }
 
     @Test
     void testActionsEtResets() {

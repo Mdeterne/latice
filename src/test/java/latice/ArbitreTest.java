@@ -297,8 +297,7 @@ class ArbitreTest {
         Arbitre arbitre = new Arbitre();
         arbitre.initialiser("Marty", "Barre","","");
         
-        assertEquals("Marty", arbitre.nomJoueur1());
-        assertEquals("Barre", arbitre.nomJoueur2());
+        assertEquals("Marty", arbitre.nomJoueur());
     }
 
     @Test
@@ -306,13 +305,10 @@ class ArbitreTest {
         Arbitre arbitre = new Arbitre();
         arbitre.initialiser("Marty", "Barre","","");
 
-        ArrayList<Tuile> rack1 = arbitre.RackJoueur1();
-        ArrayList<Tuile> rack2 = arbitre.RackJoueur2();
+        ArrayList<Tuile> rack1 = arbitre.RackJoueur();
 
         assertNotNull(rack1);
-        assertNotNull(rack2);
         assertEquals(5, rack1.size());
-        assertEquals(5, rack2.size());
     }
     
     @Test

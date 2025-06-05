@@ -186,15 +186,18 @@ public class Arbitre {
 		}
 	}
 
-	public String nomJoueur1() {
+	public String nomJoueur() {
 		return joueurActuel.nom();
 	}
 
 
-	public ArrayList<Tuile> RackJoueur1() {
+	public ArrayList<Tuile> RackJoueur() {
 		return joueurActuel.tuilesRack();
 	}
 
+	public int pointJoueur() {
+		return joueurActuel.point();
+	}
 
 	public void changerRack() throws PiocheVideException {
 		joueurActuel.echangerRack();

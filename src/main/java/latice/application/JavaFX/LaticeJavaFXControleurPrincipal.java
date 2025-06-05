@@ -377,10 +377,10 @@ public class LaticeJavaFXControleurPrincipal {
 		lblJoueurActuel.setText(arbitre.getJoueurCourant().nom() + " à vous de jouer !");
 		// Mise à jour du nombre de tuiles dans la pioche personnelle de chaque joueur
 		if (arbitre != null && arbitre.getJoueurCourant() != null) {
-			lblPiocheJoueur1.setText(arbitre.getJoueurCourant().nom() + "\n"
-					+ (arbitre.getJoueurCourant().taillePiochePersonelle()
+			lblPiocheJoueur1.setText(arbitre.nomJoueur() + "\n"
+					+ (arbitre.taillePioche()
 							+ arbitre.getJoueurCourant().getRack().afficherTuiles().size())
-					+ " tuiles" + "\n" + arbitre.getJoueurCourant().point() + " points");
+					+ " tuiles" + "\n" + arbitre.pointJoueur() + " points");
 		}
 		nombreAction.setText("Nombre d'actions : " + arbitre.getActions());
 	}
