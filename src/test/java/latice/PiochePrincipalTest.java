@@ -8,8 +8,6 @@ import latice.model.PiochePrincipal;
 import latice.model.Symbole;
 import latice.model.Tuile;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 class PiochePrincipalTest {
@@ -60,12 +58,5 @@ class PiochePrincipalTest {
 				assertEquals(2, compteur, "Il devrait y avoir 2 tuiles pour " + couleur + "/" + symbole);
 			}
 		}
-	}
-
-	private int comparerTuiles(Tuile t1, Tuile t2) {
-		int cmpCouleur = t1.couleur().compareTo(t2.couleur());
-		if (cmpCouleur != 0)
-			return cmpCouleur;
-		return t1.symbole().compareTo(t2.symbole());
 	}
 }

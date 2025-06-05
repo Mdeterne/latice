@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 
 import latice.model.Case;
 import latice.model.Couleur;
-import latice.model.Joueur;
 import latice.model.Plateau;
 import latice.model.Position;
 import latice.model.Symbole;
@@ -18,7 +17,6 @@ class PlateauTest {
 
 	private Plateau plateau;
 	private Tuile tRougeFleur;
-	private Tuile tRougeLezard;
 	private Tuile tBleuFleur;
 	private Tuile tVertTortue;
 
@@ -26,7 +24,6 @@ class PlateauTest {
 	void setUp() {
 		plateau = new Plateau();
 		tRougeFleur = new Tuile(Couleur.ROUGE, Symbole.FLEUR);
-		tRougeLezard = new Tuile(Couleur.ROUGE, Symbole.LEZARD);
 		tBleuFleur = new Tuile(Couleur.BLEU, Symbole.FLEUR);
 		tVertTortue = new Tuile(Couleur.VERT, Symbole.TORTUE);
 	}
