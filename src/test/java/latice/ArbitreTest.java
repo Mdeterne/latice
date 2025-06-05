@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import latice.application.JavaFX.Arbitre;
+import latice.model.Arbitre;
 import latice.model.Couleur;
 import latice.model.Joueur;
 import latice.model.Plateau;

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import latice.util.exception.ActionsInsuffisanteException;
-import latice.util.exception.CaseInaccessibleException;
 import latice.util.exception.PiocheVideException;
 import latice.util.exception.PointInsuffisantException;
 
@@ -27,28 +26,9 @@ public class Joueur {
 		this.piochePersonelle = new PiochePersonelle();
 	}
 	
-	public void jouer(Plateau plateau, Tuile tuile, Position position) throws CaseInaccessibleException{
-		
-		plateau.posertuile(tuile, position);
-	    rack.retirerTuile(tuile);
-	    Tuile tuile2;
-		try {
-			tuile2 = piochePersonelle.piocher();
-			rack.ajouterTuile(tuile2);
-		} catch (PiocheVideException e) {
-			e.printStackTrace();
-		}
-	    
-	}
-	
-	public Boolean acheter() throws PointInsuffisantException {
-		if (point >= 2) {
-			point-=2;
-			return true;
-		}
-		throw new PointInsuffisantException("vous n'avez pas assez de point");
-	}
-		
+	public void retirerTuile(Tuile tuile) {
+		rack.retirerTuile(tuile);
+	}	
 	
 	public String echangerRack() throws PiocheVideException {
 		List<Tuile> ancienstuiles = rack.vider();
@@ -67,10 +47,6 @@ public class Joueur {
 		else {
 			point = point - nombrePoints;
 		}
-	}
-	
-	public String passer() {
-		return (this.nom+" à passer sont tour");
 	}
 
 	public void ajouterPoints(int nombresPoints) {

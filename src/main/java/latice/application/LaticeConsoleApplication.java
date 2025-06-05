@@ -5,7 +5,7 @@ import static latice.console.LaticeConsole.message;
 
 import java.util.Random;
 
-import latice.application.JavaFX.Arbitre;
+import latice.model.Arbitre;
 import latice.model.Joueur;
 import latice.model.PiochePrincipal;
 import latice.model.Plateau;

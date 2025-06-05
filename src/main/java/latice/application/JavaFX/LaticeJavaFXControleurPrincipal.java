@@ -19,6 +19,7 @@ import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
+import latice.model.Arbitre;
 import latice.model.Position;
 import latice.model.Tuile;
 import latice.util.exception.ActionsInsuffisanteException;
@@ -323,6 +324,7 @@ public class LaticeJavaFXControleurPrincipal {
 		tuile4.setDisable(true);
 		tuile5.setDisable(true);
 		changerRack.setDisable(true);
+		boutonChangerTour.setDisable(true);
 	}
 
 	@FXML
