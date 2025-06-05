@@ -5,7 +5,7 @@ import static latice.console.LaticeConsole.message;
 
 import java.util.Random;
 
-import latice.application.JavaFX.Arbitre;
+import latice.model.Arbitre;
 import latice.model.Joueur;
 import latice.model.PiochePrincipal;
 import latice.model.Plateau;
@@ -27,7 +27,9 @@ public class LaticeConsoleApplication {
 		Arbitre arbitre = new Arbitre();
 		String nomJ1 = entrée("Nom du joueur 1 : ");
 		String nomJ2 = entrée("Nom du joueur 2 : ");
-		arbitre.initialiser(nomJ1, nomJ2);
+		String nomJ3 = entrée("Nom du joueur 3 : ");
+		String nomJ4 = entrée("Nom du joueur 4 : ");
+		arbitre.initialiser(nomJ1, nomJ2, nomJ3, nomJ4);
 
 		boolean continuer = true;
 
@@ -51,7 +53,7 @@ public class LaticeConsoleApplication {
 					try {
 						arbitre.retirerAction();
 					} catch (ActionsInsuffisanteException e) {
-						
+
 						message(e.getMessage());
 					}
 					message("Nouveau rack : " + joueur.affichertuilesRack());

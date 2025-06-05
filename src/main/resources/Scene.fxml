@@ -287,11 +287,6 @@
                </VBox.margin></Label>
          </children>
       </VBox>
-      <VBox layoutX="884.0" layoutY="237.0" prefHeight="100.0" prefWidth="163.0" spacing="8" style="-fx-background-color: #e0e0e0; -fx-border-color: #333; -fx-border-radius: 10; -fx-background-radius: 10;">
-         <children>
-            <Label fx:id="lblPiocheJoueur2" prefHeight="100.0" prefWidth="168.0" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-alignment: center; -fx-background-color: #001c33; -fx-background-radius: 10; -fx-text-fill: #00f0ff;" text="Joueur 2 : 0 tuiles" />
-         </children>
-      </VBox>
       <Label fx:id="compteurTours" layoutX="309.0" layoutY="14.0" prefHeight="23.0" prefWidth="483.0" style="-fx-alignment: center; -fx-font-size: 30; -fx-font-weight: bold; -fx-text-fill: #00f0ff; -fx-background-color: #001c33; -fx-background-radius: 10;" text="Tour 1" />
    	  <Button fx:id="boutonAcheterAction" layoutX="837.0" layoutY="542.0" mnemonicParsing="false" onAction="#acheterUneAction" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="acheter une actions" />
       <Button fx:id="boutonChangerTour" layoutX="797.0" layoutY="712.0" mnemonicParsing="false" onAction="#changerSonTour" styleClass="buttonChanger" stylesheets="@style-jeu.css" text="Fin du tour" />

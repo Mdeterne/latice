@@ -19,6 +19,7 @@ import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
+import latice.model.Arbitre;
 import latice.model.Position;
 import latice.model.Tuile;
 import latice.util.exception.ActionsInsuffisanteException;
@@ -231,7 +232,7 @@ public class LaticeJavaFXControleurPrincipal {
 	private Label nombreAction;
 
 	// Initialisation du contrôleur : joueurs, rack, cases et musique.
-	public void initialisation(String nomJoueur1, String nomJoueur2) {
+	public void initialisation(String nomJoueur1, String nomJoueur2, String nomJoueur3, String nomJoueur4) {
 		musique = new LaticeGestionnaireDeMusique();
 		Boutton.chargerMusique("/SonBoutton.mp3");
 		// Chargement de la vidéo
@@ -244,7 +245,7 @@ public class LaticeJavaFXControleurPrincipal {
 		fond.setMediaPlayer(mediaPlayer);
 
 		arbitre = new Arbitre();
-		arbitre.initialiser(nomJoueur1, nomJoueur2);
+		arbitre.initialiser(nomJoueur1, nomJoueur2, nomJoueur3, nomJoueur4);
 
 		// Affiche le joueur courant et son rack
 		changementTextDeJoueur();
@@ -323,6 +324,7 @@ public class LaticeJavaFXControleurPrincipal {
 		tuile4.setDisable(true);
 		tuile5.setDisable(true);
 		changerRack.setDisable(true);
+		boutonChangerTour.setDisable(true);
 	}
 
 	@FXML
@@ -375,14 +377,9 @@ public class LaticeJavaFXControleurPrincipal {
 		lblJoueurActuel.setText(arbitre.getJoueurCourant().nom() + " à vous de jouer !");
 		// Mise à jour du nombre de tuiles dans la pioche personnelle de chaque joueur
 		if (arbitre != null && arbitre.getJoueurCourant() != null) {
-			lblPiocheJoueur1.setText(arbitre.getJoueur1().nom() + "\n"
-					+ (arbitre.getJoueur1().taillePiochePersonelle()
-							+ arbitre.getJoueur1().getRack().afficherTuiles().size())
-					+ " tuiles" + "\n" + arbitre.getJoueur1().point() + " points");
-			lblPiocheJoueur2.setText(arbitre.getJoueur2().nom() + "\n"
-					+ (arbitre.getJoueur2().taillePiochePersonelle()
-							+ arbitre.getJoueur2().getRack().afficherTuiles().size())
-					+ " tuiles" + "\n" + arbitre.getJoueur2().point() + " points");
+			lblPiocheJoueur1.setText(arbitre.nomJoueur() + "\n"
+					+ (arbitre.taillePioche() + arbitre.getJoueurCourant().getRack().afficherTuiles().size())
+					+ " tuiles" + "\n" + arbitre.pointJoueur() + " points");
 		}
 		nombreAction.setText("Nombre d'actions : " + arbitre.getActions());
 	}
@@ -447,6 +444,7 @@ public class LaticeJavaFXControleurPrincipal {
 				Alert erreur = new Alert(AlertType.ERROR, "Impossible de retourner au menu.");
 				erreur.showAndWait();
 			}
+			arreterLaMusique();
 		}
 	}
 
