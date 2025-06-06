@@ -19,7 +19,7 @@ import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
-import latice.model.Arbitre;
+import latice.application.Arbitre;
 import latice.model.Position;
 import latice.model.Tuile;
 import latice.util.exception.ActionsInsuffisanteException;

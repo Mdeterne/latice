@@ -1,8 +1,13 @@
-package latice.model;
+package latice.application;
 
 import java.util.ArrayList;
 import java.util.Random;
 
+import latice.model.Joueur;
+import latice.model.PiochePrincipal;
+import latice.model.Plateau;
+import latice.model.Position;
+import latice.model.Tuile;
 import latice.util.exception.ActionsInsuffisanteException;
 import latice.util.exception.CaseInaccessibleException;
 import latice.util.exception.PiocheVideException;

@@ -3,7 +3,6 @@ package latice.application;
 import static latice.console.LaticeConsole.entrée;
 import static latice.console.LaticeConsole.message;
 
-import latice.model.Arbitre;
 import latice.model.Joueur;
 import latice.model.Plateau;
 import latice.model.Position;
