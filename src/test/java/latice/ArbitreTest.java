@@ -16,7 +16,6 @@ import latice.model.Rack;
 import latice.model.Symbole;
 import latice.model.Tuile;
 import latice.util.exception.ActionsInsuffisanteException;
-import latice.util.exception.CaseInaccessibleException;
 import latice.util.exception.PiocheVideException;
 
 class ArbitreTest {
@@ -64,13 +63,13 @@ class ArbitreTest {
 		Tuile t = rack.get(0);
 
 		int ok = arbitre.jouerTuile(new Position(9, 9), t);
-		assertEquals(ok, 0);
+		assertEquals(0, ok);
 
 		assertEquals(1, arbitre.getActions());
 	}
 
 	@Test
-	void testJouerTuilePremierCoupValideEtRetireDuRack() throws CaseInaccessibleException {
+	void testJouerTuilePremierCoupValideEtRetireDuRack() {
 		Arbitre arbitre = new Arbitre();
 		arbitre.initialiser("Marty", "Barre", "", "");
 
@@ -80,7 +79,7 @@ class ArbitreTest {
 		Tuile t0 = courant.getRack().afficherTuiles().get(0);
 
 		int ok = arbitre.jouerTuile(new Position(4, 4), t0);
-		assertEquals(ok, 5);
+		assertEquals(5, ok);
 
 		assertEquals(4, courant.getRack().taille());
 
@@ -93,7 +92,7 @@ class ArbitreTest {
 	}
 
 	@Test
-	void testJouerTuileDeuxiemeCoupIncompatibleRetourneFalse() throws CaseInaccessibleException {
+	void testJouerTuileDeuxiemeCoupIncompatibleRetourneFalse() {
 		Arbitre arbitre = new Arbitre();
 		arbitre.initialiser("Marty", "Barre", "", "");
 
@@ -101,7 +100,7 @@ class ArbitreTest {
 
 		Tuile t1 = courant.getRack().afficherTuiles().get(0);
 		int ok1 = arbitre.jouerTuile(new Position(4, 4), t1);
-		assertEquals(ok1, 5);
+		assertEquals(5, ok1);
 
 		courant.réinitialiserActions();
 
@@ -115,7 +114,7 @@ class ArbitreTest {
 		assertNotNull(tIncompatible);
 
 		int ok2 = arbitre.jouerTuile(new Position(4, 3), tIncompatible);
-		assertEquals(ok2, 1);
+		assertEquals(1, ok2);
 
 		assertEquals(4, courant.getRack().taille());
 	}

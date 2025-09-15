@@ -9,6 +9,10 @@ public class LaticeConsole {
     public static void message(String message) {
         System.out.println(message);
     }
+    
+    public static void messageSimple(String message) {
+    	System.out.print(message);
+    }
 
     public static String entrée(String message) {
         System.out.println(message);
